@@ -1,0 +1,151 @@
+{{#status}}
+    {{#sliderblockstatus}}
+        <div class="homepage-carousel position-relative">
+            {{! Навигация: Оригинальные классы для работы JS }}
+            {{#numofslide}}
+                <a href="#" class="prevBtn carousel-control left"> <span aria-hidden="true"></span> </a>
+                <a href="#" class="nextBtn carousel-control right"> <span aria-hidden="true"></span> </a>
+            {{/numofslide}}
+
+            <div id="homepage-carousel" class="owl-carousel owl-theme">
+                {{#slides}}
+                    {{#slidestatus}}
+                        {{#slideimg}}
+                            <div class="homecarousel-slide-item carousel-item" style="display: block;">
+                                <div class="modern-slide-wrapper">
+                                    
+                                    {{! КАРТИНКА: Растягивается на весь блок }}
+                                    <div class="slide-main-background">
+                                        <img src="{{{slideimg}}}" alt="{{caption}}" class="slide-img-full">
+                                        <div class="minimal-overlay"></div>
+                                    </div>
+
+                                    {{! ТЕКСТ: Компактная плашка, прижатая к левому нижнему углу }}
+                                    {{#slidecontentstatus}}
+                                    <div class="caption-content-layer">
+                                        <div class="container h-100">
+                                            <div class="row h-100 align-items-end">
+                                                <div class="col-12 col-md-7 col-lg-5">
+                                                    <div class="minimal-text-card animate-slide-up">
+                                                        {{#caption}}
+                                                            <h2 class="h3 text-white custom-font-fix mb-1">
+                                                                {{{caption}}}
+                                                            </h2>
+                                                        {{/caption}}
+
+                                                        {{#desc}}
+                                                            <p class="small text-white-50 mb-3 d-none d-md-block opacity-80">
+                                                                {{{desc}}}
+                                                            </p>
+                                                        {{/desc}}
+
+                                                        {{#btntxt}}
+                                                            <a href="{{{btnlink}}}" target="{{btntarget}}" 
+                                                               class="btn-minimal-link">
+                                                                {{btntxt}} <i class="fa fa-chevron-right ml-1" style="font-size: 0.7rem;"></i>
+                                                            </a>
+                                                        {{/btntxt}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/slidecontentstatus}}
+                                    
+                                </div>
+                            </div>
+                        {{/slideimg}}
+                    {{/slidestatus}}
+                {{/slides}}
+            </div>
+        </div>
+    {{/sliderblockstatus}}
+{{/status}}
+
+<style>
+/* 1. НЕЙТРАЛИЗАЦИЯ ДЕБАГ-МОДЫ MOODLE (Розовый фон) */
+.custom-font-fix, 
+.minimal-text-card h2, 
+.minimal-text-card p,
+.minimal-text-card a {
+    background-color: transparent !important;
+    outline: none !important;
+}
+
+/* 2. ГЛАВНЫЙ КОНТЕЙНЕР */
+.modern-slide-wrapper {
+    height: 600px; /* Фиксированная высота для красоты */
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-img-full {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Важно: картинка не деформируется */
+}
+
+/* 3. ОВЕРЛЕЙ (Легкий градиент под текстом) */
+.minimal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top right, rgba(0,0,0,0.7) 0%, transparent 50%);
+    z-index: 2;
+}
+
+/* 4. СЛОЙ ТЕКСТА (Инфо-плашка) */
+.caption-content-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    padding: 40px; /* Отступ от краев картинки */
+}
+
+.minimal-text-card {
+    background: rgba(0, 0, 0, 0.4); /* Полупрозрачный фон */
+    backdrop-filter: blur(5px); /* Размытие заднего фона */
+    padding: 20px;
+    border-left: 3px solid #007bff;
+    border-radius: 0 4px 4px 0;
+}
+
+/* Ссылка вместо тяжелой кнопки */
+.btn-minimal-link {
+    color: #007bff !important;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none !important;
+    transition: 0.3s;
+}
+
+.btn-minimal-link:hover {
+    color: #fff !important;
+    padding-left: 5px;
+}
+
+/* Анимация */
+.animate-slide-up {
+    animation: slideUpFade 0.7s ease-out;
+}
+
+@keyframes slideUpFade {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* АДАПТИВНОСТЬ */
+@media (max-width: 768px) {
+    .modern-slide-wrapper { height: 400px; }
+    .caption-content-layer { padding: 20px; }
+    .h3 { font-size: 1.25rem; }
+}
+</style>

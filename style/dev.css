@@ -1,0 +1,387 @@
+/* @import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities"; */
+.btn {
+    /* background-color: var(--bs-primary) !important; */
+    border-color: var(--bs-primary) !important;
+    color: var(--bs-gray-800) !important;
+}
+
+/* .btn:hover {
+    /* background: none; */
+/* } */
+
+
+
+.btn-primary {
+    background-color: var(--bs-primary) !important;
+    color: white !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--bs-secondary) !important;
+    color: white !important;
+}
+
+
+
+
+
+#promoted-courses,
+.btn-footer-popover {
+    display: none !important;
+}
+
+#backToTop {
+    border-radius: 99px;
+    bottom: 2rem;
+
+}
+
+.pagelayout-frontpage #page #page-content .box form {
+    border: none !important;
+}
+
+.pagelayout-frontpage #page #page-content .box form input {
+    border-radius: 50px;
+    border-color: rgba(160, 160, 160, 0.3);
+}
+
+.pagelayout-frontpage #page #page-content .box form input::placeholder {
+    color: var(--bs-gray-600) !important;
+}
+
+.pagelayout-frontpage #page #page-content .box form button {
+    display: none !important;
+}
+
+
+
+
+
+.que .formulation {
+    color: var(--bs-gray-800);
+    border-color: var(--bs-primary);
+    background-color: rgba(241, 241, 241, 0.25);
+    font-size: 140%;
+    font-weight: 500;
+}
+
+.que .formulation,
+.que .outcome,
+.que .comment {
+    position: relative;
+    padding: 1rem 1rem;
+    margin-bottom: 0px !important;
+    border: 0 solid #fff0;
+    border-radius: 24px;
+    margin-bottom: 2rem !important;
+}
+
+.que .info {
+    display: none;
+}
+
+.path-mod-feedback #feedback_edit_form [id*=_feedback_item_].feedback_itemlist,
+.path-mod-feedback #feedback_edit_form .feedback_itemlist.sortable-list-is-dragged {
+    padding: 1rem;
+    border: none !important;
+    border-color: var(--bs-primary);
+    background-color: rgba(241, 241, 241, 0.15);
+    position: relative;
+    border-radius: 0.92rem;
+}
+
+.itemactions {
+    border: none !important;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    border: none !important;
+}
+
+.btn:not(:disabled):not(.disabled):hover {
+    background-color: none !important;
+}
+
+:root {
+    --bs-btn-bg: none !important;
+}
+
+
+
+
+
+
+
+
+
+/* --- УЛУЧШЕННЫЕ РАДИО-КНОПКИ (Minimal Modern Style) --- */
+.que input[type="radio"]:not([disabled]):not(.qtype_multichoice_clearchoice) {
+    -webkit-appearance: none !important;
+    appearance: none !important;
+    height: 22px !important;
+    width: 22px !important;
+    border-radius: 50% !important;
+    /* Тонкая граница вместо заливки */
+    border: 2px solid rgba(0, 0, 0, 0.1) !important;
+    background: #ffffff !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    margin-right: 0.7rem !important;
+    outline: none !important;
+    position: relative !important;
+    vertical-align: middle !important;
+}
+
+/* Эффект при наведении */
+.que input[type="radio"]:not([disabled]):not(.qtype_multichoice_clearchoice):hover {
+    border-color: rgba(0, 123, 255, 0.5) !important;
+    background: rgba(0, 123, 255, 0.02) !important;
+}
+
+/* Состояние: Выбрано (Зеленый акцент) */
+.que input[type="radio"]:not([disabled]):not(.qtype_multichoice_clearchoice):checked {
+    background: #12ee6d !important;
+    border-color: #12ee6d !important;
+    box-shadow: 0 4px 12px rgba(18, 238, 109, 0.35) !important;
+}
+
+/* Белая галочка внутри */
+.que input[type="radio"]:not([disabled]):not(.qtype_multichoice_clearchoice):checked::before {
+    content: '\f00c' !important;
+    font-family: 'Font Awesome 5 Free' !important;
+    font-weight: 900 !important;
+    font-size: 11px !important;
+    color: #ffffff !important;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    display: flex !important;
+}
+
+/* Мягкая волна клика */
+.que input[type="radio"]:not([disabled]):not(.qtype_multichoice_clearchoice):checked::after {
+    animation: click-wave-subtle 0.5s ease-out !important;
+    background: #12ee6d !important;
+    content: '' !important;
+    display: block !important;
+    position: absolute !important;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    z-index: -1 !important;
+}
+
+@keyframes click-wave-subtle {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.path-mod-quiz {
+
+
+
+
+    /* --- COMPACT PURE WHITE MINIMALISM (BOOTSTRAP FIX) --- */
+
+    /* 1. Общий контейнер сетки */
+    .list-unstyled.row {
+        margin: 0 !important;
+    }
+
+    .list-unstyled li.col {
+        padding: 0 10px 20px 0 !important;
+    }
+
+    /* 2. Основная карточка */
+    .card.h-100 {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        border: 1px solid #f0f0f0 !important;
+        border-radius: 16px !important;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02) !important;
+        overflow: hidden !important;
+        display: flex !important;
+        flex-direction: column !important;
+        opacity: 1 !important;
+    }
+
+    /* 3. ГЛАВНЫЙ ФИКС: Убираем inset тени Bootstrap, которые создавали серый фон */
+    .quizreviewsummary th.cell,
+    .quizreviewsummary td.cell,
+    .table> :not(caption)>*>*,
+    .card.h-100 *,
+    .generaltable * {
+        box-shadow: none !important;
+        /* Убирает внутренние тени Bootstrap */
+        background-image: none !important;
+    }
+
+    /* 4. Принудительный белый фон для всех вложенных элементов */
+    .card-header,
+    .card-body,
+    .quizreviewsummary,
+    .quizreviewsummary tr,
+    .quizreviewsummary th.cell,
+    .quizreviewsummary td.cell {
+        background-color: #ffffff !important;
+        background: #ffffff !important;
+        border: none !important;
+        opacity: 1 !important;
+    }
+
+    /* 5. Шапка карточки */
+    .card-header {
+        padding: 1.5rem 1.5rem 0.5rem 1.5rem !important;
+    }
+
+    .card-title {
+        color: #1e293b !important;
+        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+        letter-spacing: -0.02em !important;
+        margin: 0 !important;
+    }
+
+    /* 6. Настройка таблицы резюме */
+    .quizreviewsummary {
+        margin: 0 !important;
+        width: 100% !important;
+        border-collapse: collapse !important;
+    }
+
+    .quizreviewsummary tr {
+        border-bottom: 1px solid #f8f9fa !important;
+        transition: background-color 0.2s ease !important;
+    }
+
+    /* Легкий Hover без теней */
+    .quizreviewsummary tr:hover,
+    .quizreviewsummary tr:hover th.cell,
+    .quizreviewsummary tr:hover td.cell {
+        background-color: #fafafa !important;
+        box-shadow: none !important;
+    }
+
+    /* 7. Стили ячеек (Типографика) */
+    .quizreviewsummary th.cell,
+    .quizreviewsummary td.cell {
+        padding: 1rem 1.5rem !important;
+        vertical-align: middle !important;
+        border: none !important;
+    }
+
+    .quizreviewsummary th.cell {
+        color: #94a3b8 !important;
+        /* Slate 400 */
+        font-size: 0.8rem !important;
+        font-weight: 500 !important;
+        width: 40% !important;
+        text-transform: none !important;
+        text-align: left !important;
+    }
+
+    .quizreviewsummary td.cell {
+        color: #334155 !important;
+        /* Slate 700 */
+        font-size: 0.9rem !important;
+        font-weight: 500 !important;
+    }
+
+    /* 8. Оценка (Финальный акцент) */
+    .quizreviewsummary tr:last-child td.cell {
+        color: #10b981 !important;
+        /* Emerald 500 */
+        font-weight: 700 !important;
+        font-size: 1.15rem !important;
+    }
+
+    /* 9. Кнопка "Просмотр" */
+    .card-body {
+        padding: 1.2rem 1.5rem 1.5rem 1.5rem !important;
+        margin-top: auto !important;
+    }
+
+    .card-body a {
+        display: inline-flex !important;
+        align-items: center !important;
+        background: #f8fafc !important;
+        color: #64748b !important;
+        text-decoration: none !important;
+        padding: 8px 18px !important;
+        border-radius: 10px !important;
+        font-size: 0.85rem !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .card-body a:hover {
+        background: #f1f5f9 !important;
+        color: #1e293b !important;
+    }
+
+    /* 10. Глобальный сброс для Moodle таблиц */
+    .generaltable,
+    .generalbox,
+    .table {
+        border: none !important;
+        box-shadow: none !important;
+        margin-bottom: 0 !important;
+        background-color: #ffffff !important;
+    }
+
+    .quizreviewsummary caption {
+        display: none !important;
+    }
+
+    /* 11. Адаптивность */
+    @media (max-width: 768px) {
+        .quizreviewsummary tr {
+            display: flex !important;
+            flex-direction: column !important;
+        }
+
+        .quizreviewsummary th.cell,
+        .quizreviewsummary td.cell {
+            width: 100% !important;
+            padding: 0.4rem 1.5rem !important;
+            background-color: #ffffff !important;
+            box-shadow: none !important;
+        }
+
+        .quizreviewsummary th.cell {
+            padding-bottom: 0 !important;
+            color: #cbd5e1 !important;
+        }
+    }
+
+}

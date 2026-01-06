@@ -1,0 +1,34 @@
+{{^divider}}
+    {{#haschildren}}
+        <li class="dropdown nav-item">
+            <a class="dropdown-toggle nav-link" 
+               id="drop-down-{{uniqid}}" 
+               data-toggle="dropdown" {{! Для Bootstrap 4 }}
+               data-bs-toggle="dropdown" {{! Для Bootstrap 5 (на будущее) }}
+               aria-haspopup="true" 
+               aria-expanded="false" 
+               href="#" 
+               role="button">
+                {{text}}
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="drop-down-{{uniqid}}">
+                {{#children}}
+                    {{^divider}}
+                        <li>
+                            <a class="dropdown-item" href="{{{url}}}" {{#title}}title="{{{title}}}"{{/title}}>
+                                {{text}}
+                            </a>
+                        </li>
+                    {{/divider}}
+                    {{#divider}}
+                        <li class="dropdown-divider" role="separator"></li>
+                    {{/divider}}
+                {{/children}}
+            </ul>
+        </li>
+    {{/haschildren}}
+    
+    {{^haschildren}}
+        <a class="nav-item nav-link" href="{{{url}}}" {{#title}}title="{{{title}}}"{{/title}}>{{text}}</a>
+    {{/haschildren}}
+{{/divider}}
