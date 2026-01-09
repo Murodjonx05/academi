@@ -10,8 +10,8 @@
     <div class="container">
         <div class="row">
             {{#courses}}
-            <div class="col-12 col-md-6 col-lg-4 mb-4">
-                <div class="card h-100 border-0 shadow-sm custom-course-card rounded-3 overflow-hidden position-relative">
+            <div class="col-12 col-md-6 col-lg-4 mb-4 p-0">
+                <div class="card h-100 border-0 shadow-sm custom-course-card rounded-3 overflow-hidden position-relative" style="aspect-ratio: 16/9;">
                     {{! Full background image }}
                     <div class="position-absolute top-0 start-0 w-100 h-100">
                         <img src="{{imgurl}}" alt="{{name}}" class="img-fluid w-100 h-100" style="object-fit: cover;" loading="lazy">
@@ -23,7 +23,7 @@
                     {{! Blur effect only on bottom part where text is located }}
                     <div class="position-absolute bottom-0 start-0 w-100" style="height: 60px; backdrop-filter: blur(3px); background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.1) 100%);"></div>
                     
-                    <div class="card-body p-4 d-flex flex-column justify-content-end position-relative" style="height: 220px;">
+                    <div class="card-body p-4 d-flex flex-column justify-content-end position-relative" style="min-height: 0;">
                         <h5 class="card-title fw-bold text-white mb-2 text-truncate">
                             <a href="{{link}}" class="text-white text-decoration-none small">{{name}}</a>
                         </h5>
@@ -88,6 +88,7 @@
     position: relative;
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
     background: transparent !important;
+    border-radius: 32px !important;
 }
 
 .custom-course-card:hover {
@@ -102,6 +103,12 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     max-height: 4.5em; /* Fallback */
+}
+
+/* Aspect-ratio 16:9 для карточек курсов */
+.custom-course-card {
+    aspect-ratio: 16/9;
+    min-height: 180px;
 }
 
 /* Стили для промо-блоков */
@@ -126,10 +133,7 @@
 @media (max-width: 768px) {
     .custom-course-card {
         margin-bottom: 1rem;
-    }
-    
-    .card-body[style*="height: 220px"] {
-        height: 200px !important;
+        aspect-ratio: 16/9;
     }
     
     .blur-overlay {
@@ -138,10 +142,6 @@
 }
 
 @media (max-width: 576px) {
-    .card-body[style*="height: 220px"] {
-        height: 180px !important;
-    }
-    
     .blur-overlay {
         height: 45px !important;
     }
@@ -188,7 +188,6 @@ img {
     left: 0;
     right: 0;
     height: 2px;
-    background: linear-gradient(90deg, #007bff, #28a745, #ffc107);
     z-index: 2;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -211,8 +210,7 @@ img {
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background: linear-gradient(45deg, #007bff, #28a745, #ffc107, #dc3545);
-    border-radius: 14px;
+    border-radius: 24px!important;
     z-index: -1;
     filter: blur(4px);
     opacity: 0.3;
