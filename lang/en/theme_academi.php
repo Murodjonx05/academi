@@ -263,3 +263,7 @@ $string['topRight'] = 'TopRight';
 $string['url'] = 'URL';
 $string['urldesc'] = 'Enter the URL to set the link for the title of this site feature {$a->block}';
 $string['viewallcourses'] = 'View all courses';
+$string['usesimplecarousel'] = 'Use Simple Carousel';
+$string['usesimplecarouseldesc'] = 'Enable this option to use a simpler, more performant carousel instead of the default SudoSlider.';
+$string['useslickslider'] = 'Use Slick Carousel';
+$string['useslicksliderdesc'] = 'Enable this option to use the Slick carousel, which is highly optimized and provides excellent performance.';

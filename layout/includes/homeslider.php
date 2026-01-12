@@ -110,5 +110,15 @@ $sliderconfig = [];
 $slidergeneral = general();
 $sliderconfig += $slidergeneral;
 $sliderconfig += homeslider();
-$PAGE->requires->js_call_amd('theme_academi/homeslider', 'init', ['selector' => '#homepage-carousel', 'options' => $slidergeneral]);
+// Determine which slider to use based on theme settings
+$usesimplecarousel = get_config('theme_academi', 'usesimplecarousel');
+$useslickslider = get_config('theme_academi', 'useslickslider');
+
+if ($useslickslider) {
+    $PAGE->requires->js_call_amd('theme_academi/slick-homeslider', 'init', ['selector' => '#homepage-carousel', 'options' => $slidergeneral]);
+} else if ($usesimplecarousel) {
+    $PAGE->requires->js_call_amd('theme_academi/custom-homeslider', 'init', ['selector' => '#homepage-carousel', 'options' => $slidergeneral]);
+} else {
+    $PAGE->requires->js_call_amd('theme_academi/homeslider', 'init', ['selector' => '#homepage-carousel', 'options' => $slidergeneral]);
+}
 $PAGE->requires->css("/theme/academi/style/animate.css");

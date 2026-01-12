@@ -203,5 +203,23 @@ for ($i = 1; $i <= $numberofslides; $i++) {
     $setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
     $temp->add($setting);
 }
+// Option to use Slick carousel instead of SudoSlider
+$name = 'theme_academi/useslickslider';
+$title = get_string('useslickslider', 'theme_academi');
+$description = get_string('useslicksliderdesc', 'theme_academi');
+$default = 0;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+// Option to use simple carousel instead of SudoSlider
+$name = 'theme_academi/usesimplecarousel';
+$title = get_string('usesimplecarousel', 'theme_academi');
+$description = get_string('usesimplecarouseldesc', 'theme_academi');
+$default = 0;
+$setting = new admin_setting_configcheckbox($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 /* Slideshow Settings End*/
 $settings->add($temp);

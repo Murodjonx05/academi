@@ -260,3 +260,7 @@ $string['topRight'] = 'اعلى اليمين';
 $string['url'] = 'URL';
 $string['urldesc'] = 'أدخل عنوان URL لتعيين الرابط لعنوان ميزة هذا الموقع {$a->block}';
 $string['viewallcourses'] = 'عرض جميع الدورات';
+$string['usesimplecarousel'] = 'استخدم تدوير بسيط';
+$string['usesimplecarouseldesc'] = 'قم بتمكين هذا الخيار لاستخدام تدوير أبسط وأكثر كفاءة بدلاً من تدوير SudoSlider الافتراضي.';
+$string['useslickslider'] = 'استخدم تدوير Slick';
+$string['useslicksliderdesc'] = 'قم بتمكين هذا الخيار لاستخدام تدوير Slick، وهو مُحسّن بشكل كبير ويقدم أداءً ممتازًا.';

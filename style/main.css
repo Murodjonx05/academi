@@ -1,0 +1,62 @@
+:root {
+    --text-color: black;
+    --reverse-text-color: white;
+    --nav-link-color: black;
+}
+
+.default-text-color {
+    color: var(--text-color) !important;
+}
+
+.reverse-text-color {
+    color: var(--reverse-text-color) !important;
+}
+
+
+nav ul li a {
+    font-style: apple-system-ui;
+    color: var(--nav-link-color) !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+}
+
+#header .editmode-switch-form .input-group label,
+#header .usermenu a.dropdown-toggle,
+#header .popover-region .popover-region-toggle.nav-link .icon:before {
+    color: var(--nav-link-color) !important;
+}
+
+
+.path-mod-quiz {
+    * {
+        box-shadow: none !important;
+    }
+
+    table.quizreviewsummary td.cell {
+        padding: 1.2rem 1rem !important;
+        text-align: left !important;
+        background: rgb(255, 255, 255) !important;
+    }
+
+    table.quizreviewsummary th.cell {
+        padding: 1.2rem 1rem !important;
+        font-weight: bold !important;
+        text-align: right !important;
+        width: 10em !important;
+        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+    }
+
+    table {
+        box-shadow: none !important;
+    }
+}
+
+
+
+.path-mod-feedback {
+    .action-menu .menubar .action-menu-trigger .dropdown .dropdown-toggle {
+        background-color: var(--bs-primary)!important;
+
+        color:var(--text-color)!important;
+    } 
+}

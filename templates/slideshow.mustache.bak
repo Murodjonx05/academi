@@ -1,0 +1,318 @@
+{{#status}}
+    {{#sliderblockstatus}}
+        <div class="homepage-carousel position-relative">
+            {{! Навигация: Оригинальные классы для работы JS }}
+            {{#numofslide}}
+                <a href="#" class="prevBtn carousel-control left"> <span aria-hidden="true"></span> </a>
+                <a href="#" class="nextBtn carousel-control right"> <span aria-hidden="true"></span> </a>
+            {{/numofslide}}
+
+            <div id="homepage-carousel" class="owl-carousel owl-theme">
+                {{#slides}}
+                    {{#slidestatus}}
+                        {{#slideimg}}
+                            <div class="homecarousel-slide-item carousel-item" style="display: block;">
+                                <div class="modern-slide-wrapper position-relative overflow-hidden">
+                                    
+                                    {{! КАРТИНКА: Растягивается на весь блок }}
+                                    <div class="slide-main-background position-absolute top-0 start-0 w-100 h-100">
+                                        <img src="{{{slideimg}}}" alt="{{caption}}" class="slide-img-full w-100 h-100" style="object-fit: cover;">
+                                        <div class="minimal-overlay position-absolute top-0 start-0 w-100 h-100"></div>
+                                    </div>
+
+                                    {{! ТЕКСТ: Компактная плашка, прижатая к левому нижнему углу }}
+                                    {{#slidecontentstatus}}
+                                    <div class="caption-content-layer position-absolute top-0 start-0 w-100 h-100">
+                                        <div class="container h-100">
+                                            <div class="row h-100 align-items-end">
+                                                <div class="col-12 col-md-7 col-lg-5">
+                                                    <div class="minimal-text-card bg-dark bg-opacity-50 backdrop-blur-5 rounded-3 p-4 p-md-5 animate-slide-up border-start border-primary border-3">
+                                                        {{#caption}}
+                                                            <h2 class="h3 text-white custom-font-fix mb-3 mb-md-4">
+                                                                {{{caption}}}
+                                                            </h2>
+                                                        {{/caption}}
+
+                                                        {{#desc}}
+                                                            <p class="text-white-50 mb-3 mb-md-4 d-none d-md-block opacity-80">
+                                                                {{{desc}}}
+                                                            </p>
+                                                        {{/desc}}
+
+                                                        {{#btntxt}}
+                                                            <a href="{{{btnlink}}}" target="{{btntarget}}" 
+                                                               class="reverse-text-color btn btn-outline-light btn-sm rounded-pill px-4 py-2 text-uppercase fw-bold">
+                                                                {{btntxt}} <i class="fa fa-chevron-right ms-2" style="font-size: 0.7rem;"></i>
+                                                            </a>
+                                                        {{/btntxt}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{/slidecontentstatus}}
+                                    
+                                </div>
+                            </div>
+                        {{/slideimg}}
+                    {{/slidestatus}}
+                {{/slides}}
+            </div>
+        </div>
+    {{/sliderblockstatus}}
+{{/status}}
+
+<style>
+/* 1. НЕЙТРАЛИЗАЦИЯ ДЕБАГ-МОДЫ MOODLE (Розовый фон) */
+.custom-font-fix, 
+.minimal-text-card h2, 
+.minimal-text-card p,
+.minimal-text-card a {
+    background-color: transparent !important;
+    outline: none !important;
+}
+
+/* 2. ГЛАВНЫЙ КОНТЕЙНЕР */
+.modern-slide-wrapper {
+    height: 860px; /* Увеличенная высота */
+    background: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.slide-img-full {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Важно: картинка не деформируется */
+}
+
+/* 3. ОВЕРЛЕЙ (Легкий градиент под текстом) */
+.minimal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        135deg, 
+        rgba(0, 0, 0, 0.7) 0%, 
+        rgba(0, 0, 0, 0.5) 50%, 
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    z-index: 2;
+}
+
+/* 4. СЛОЙ ТЕКСТА (Инфо-плашка) */
+.caption-content-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    padding: 40px;
+    display: flex;
+    align-items: flex-end;
+}
+
+.minimal-text-card {
+    backdrop-filter: blur(5px);
+    border-left: 3px solid #007bff;
+    transition: all 0.3s ease;
+    margin-bottom: 40px; /* Отступ снизу для видимости на больших экранах */
+}
+
+.minimal-text-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Кнопка */
+.btn-outline-light {
+    transition: all 0.3s ease;
+    border-width: 2px;
+}
+
+.btn-outline-light:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    transform: translateX(5px);
+}
+
+/* Анимация */
+.animate-slide-up {
+    animation: slideUpFade 0.8s ease-out
+}
+
+@keyframes slideUpFade {
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+        filter: blur(5px);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+        filter: blur(0);
+    }
+}
+
+
+.modern-slide-wrapper:hover::before {
+    opacity: 1;
+}
+
+/* АДАПТИВНОСТЬ - ПРАВИЛЬНЫЕ РАСЧЕТЫ */
+@media (min-width: 1400px) {
+    .modern-slide-wrapper { 
+        height: 860px; 
+    }
+    .caption-content-layer { 
+        padding: 60px; 
+    }
+    .minimal-text-card {
+        margin-bottom: 150px;
+    }
+}
+
+@media (max-width: 1399.98px) and (min-width: 1200px) {
+    .modern-slide-wrapper { 
+        height: 820px; 
+    }
+    .caption-content-layer { 
+        padding: 50px; 
+    }
+    .minimal-text-card {
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 1199.98px) and (min-width: 992px) {
+    .modern-slide-wrapper { 
+        height: 760px; 
+    }
+    .caption-content-layer { 
+        padding: 45px; 
+    }
+    .minimal-text-card {
+        margin-bottom: 45px;
+    }
+}
+
+@media (max-width: 991.98px) and (min-width: 768px) {
+    .modern-slide-wrapper { 
+        height: 600px; 
+    }
+    .caption-content-layer { 
+        padding: 35px; 
+    }
+    .minimal-text-card {
+        margin-bottom: 35px;
+    }
+    .h3 { 
+        font-size: 1.25rem; 
+    }
+    .minimal-text-card {
+        padding: 18px !important;
+    }
+    .btn-outline-light {
+        font-size: 0.8rem !important;
+        padding: 0.3rem 1.2rem !important;
+    }
+}
+
+@media (max-width: 767.98px) and (min-width: 576px) {
+    .modern-slide-wrapper { 
+        height: 500px; 
+    }
+    .caption-content-layer { 
+        padding: 25px; 
+    }
+    .minimal-text-card {
+        margin-bottom: 25px;
+    }
+    .minimal-text-card {
+        padding: 15px !important;
+    }
+    .btn-outline-light {
+        font-size: 0.75rem !important;
+        padding: 0.25rem 1rem !important;
+    }
+}
+
+@media (max-width: 575.98px) and (min-width: 420px) {
+    .modern-slide-wrapper { 
+        height: 420px; 
+    }
+    .caption-content-layer { 
+        padding: 20px; 
+    }
+    .minimal-text-card {
+        margin-bottom: 20px;
+    }
+    .minimal-text-card {
+        padding: 12px !important;
+        border-left-width: 2px !important;
+    }
+    .h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.75rem !important;
+    }
+    .text-white-50 {
+        font-size: 0.85rem !important;
+    }
+}
+
+@media (max-width: 419.98px) {
+    .modern-slide-wrapper { 
+        height: 380px; 
+    }
+    .caption-content-layer { 
+        padding: 15px; 
+    }
+    .minimal-text-card {
+        margin-bottom: 15px;
+    }
+    .h3 {
+        font-size: 1rem !important;
+    }
+    .btn-outline-light {
+        font-size: 0.7rem !important;
+        padding: 0.2rem 0.8rem !important;
+    }
+    .minimal-text-card {
+        padding: 10px !important;
+    }
+}
+
+/* Glow эффект при наведении */
+.modern-slide-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #007bff, #28a745, #ffc107, #dc3545);
+    border-radius: inherit;
+    z-index: -1;
+    filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modern-slide-wrapper:hover::after {
+    opacity: 0.4;
+}
+
+/* Плавные переходы для всех элементов */
+* {
+    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Убедимся, что контент всегда виден */
+.caption-content-layer .container {
+    position: relative;
+    z-index: 3;
+}
+</style>

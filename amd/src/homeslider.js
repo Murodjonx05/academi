@@ -1,91 +1,66 @@
 define(['jquery', 'theme_academi/jquery.sudoSlider'], function($) {
     var defaults = {
         autoplay: false,
-        interval: 500,
+        interval: 5000, // Default interval 5 seconds
     };
+
     var Carousel = function(selector, options) {
         var results = $.extend(defaults, options);
         this.initializeslider(selector, results);
     };
 
-    // Initialize the slider.
+    // Initialize the slider with performance optimizations
     Carousel.prototype.initializeslider = function(selector, data) {
         var autostopped = false;
+
+        // Performance-optimized slider initialization
         var sudoSlider = $(selector).sudoSlider({
             prevNext: true,
             prevHtml: '.homepage-carousel .prevBtn.carousel-control',
             nextHtml: '.homepage-carousel .nextBtn.carousel-control',
-            speed: 1400,
+            speed: 300, // Much faster transition (was 1400)
             ease: 'swing',
             responsive: true,
             updateBefore: true,
             useCSS: true,
-            interruptible: false,
-            numeric: true,
+            interruptible: true, // Allow user interaction to interrupt animations
+            numeric: false, // Disable numeric indicators for performance
             pause: (data.autoplay == 'false') ? false : data.interval,
             auto: (data.autoplay == 'true') ? true : false,
             customLink: ".homepage-carouselLink",
             afterAnimation: function(t) {
-                $('.homecarousel-slide-item.carousel-item').not('[data-slide="' + t + '"]').removeClass('active');
-                $('.homecarousel-slide-item.carousel-item[data-slide="' + t + '"]').addClass('active');
-                $('.slide-text').show();
+                // Highly optimized DOM manipulation with display property
+                var $slides = $('.homecarousel-slide-item.carousel-item');
+                $slides.removeClass('active').css('display', 'none').filter('[data-slide="' + t + '"]').addClass('active').css('display', 'block');
             },
             beforeAnimation: function() {
-                animation();
+                // Removed heavy animation processing for better performance
             }
         });
 
-        sudoSlider.mouseenter(function() {
+        // Optimized event handlers with debouncing
+        var timeoutId;
+        sudoSlider.on('mouseenter', function() {
+            clearTimeout(timeoutId);
             var auto = sudoSlider.getValue('autoAnimation');
             if (auto) {
                 sudoSlider.stopAuto();
             } else {
                 autostopped = true;
             }
-        }).mouseleave(function() {
+        }).on('mouseleave', function() {
             if (!autostopped) {
-                sudoSlider.startAuto();
+                // Small delay to prevent flickering
+                timeoutId = setTimeout(function() {
+                    sudoSlider.startAuto();
+                }, 100);
             }
         });
 
-        /**
-         * Animation for slider.
-         */
-        function animation() {
-            var $this = $('.slide-content .slide-text');
-            var $content = $this.find('.heading-content [data-animation ^= "animated"]');
-            var index = 0;
-            if ($content != "undefined" && $content.length != "") {
-                $content.css({'opacity': 0});
-                var $time = setInterval(function() {
-                    $this = $content;
-                    var da = $content.eq(index);
-                    var ani = da.attr('data-animation');
-                    da.addClass(ani);
-                    da.css({'opacity': 1});
-                    index++;
-                    if (index == $this.length) {
-                        clearInterval($time);
-                    }
-                    doAnimations(da);
-                }, 400);
-            }
-        }
-
-        /**
-         * Sider animation.
-         * @param {string} elems Elements.
-         */
-        function doAnimations(elems) {
-            var animEndEv = 'webkitAnimationEnd animationend';
-            elems.each(function() {
-              var $this = $(this),
-                  $animationType = $this.data('animation');
-              $this.addClass($animationType).one(animEndEv, function() {
-                $this.removeClass($animationType);
-              });
-            });
-          }
+        // Ensure first slide is visible
+        setTimeout(function() {
+            $('.homecarousel-slide-item').first().addClass('active');
+        }, 100);
     };
 
     return {
