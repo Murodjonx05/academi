@@ -4,28 +4,36 @@
 }
 .block {
     padding-top: 0;
-    margin: 0 15px;
-    border-color: $mercury;
-    border-radius: 0;
-    box-shadow: none;
+    margin: 0 15px 30px;
+    border: 1px solid rgba(15, 23, 42, .06);
+    border-radius: 22px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, .08);
+    background: $white;
+    transition: transform .25s ease, box-shadow .25s ease;
+    &:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 30px 65px rgba(15, 23, 42, .12);
+    }
     .bottom span.footer-link:after {
         color: $primary;
     }
     .card-body {
-        padding: 0;
+        padding: 10px 5px 20px;
         .card-title {
-            margin: 15px;
+            margin: 20px;
             display: block !important;
             padding-right: 65px;
         }
         > .content {
-            padding: 10px 18px;
+            padding: 18px 22px;
         }
         .content {
             margin: 0 !important;
-            border-top: 1px solid $mercury;
+            border-top: 1px solid rgba(15, 23, 42, .08);
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 18px;
             &:not(.activityiconcontainer) {
-                background: $wild_sand;
+                background: var(--academi-surface-muted, $wild_sand);
             }
             .info {
                 margin-bottom: 10px;
@@ -98,14 +106,15 @@
 .block {
     .header {
         h2 {
-            font-weight: normal;
-            font-size: 21px;
+            font-weight: 600;
+            font-size: 20px;
             color: $secondary;
-            padding: 18px;
+            padding: 22px 22px 10px;
             text-transform: none;
+            margin-bottom: 0;
         }
         .block_action {
-            padding-top: 18px;
+            padding-top: 22px;
         }
     }
     .calendar-controls {

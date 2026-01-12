@@ -1,7 +1,23 @@
 :root {
-    --text-color: black;
-    --reverse-text-color: white;
-    --nav-link-color: black;
+    --academi-primary: #3d8b6d;
+    --academi-primary-soft: rgba(61, 139, 109, 0.08);
+    --academi-secondary: #ff6b35;
+    --academi-accent: #4c6ef5;
+    --academi-surface: #ffffff;
+    --academi-surface-muted: #f5f7fb;
+    --academi-border: rgba(15, 23, 42, 0.08);
+    --academi-shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+    --academi-shadow-strong: 0 35px 65px rgba(15, 23, 42, 0.12);
+    --academi-radius: 1.25rem;
+    --text-color: #1f2937;
+    --reverse-text-color: #ffffff;
+    --nav-link-color: #0f172a;
+}
+
+body.theme-academi,
+body[class*="pagelayout-"] {
+    color: var(--text-color);
+    background: linear-gradient(120deg, #f8fafc 0%, #eef2ff 30%, #f4f7fb 70%);
 }
 
 .default-text-color {
@@ -12,12 +28,68 @@
     color: var(--reverse-text-color) !important;
 }
 
+.surface-panel {
+    background-color: var(--academi-surface);
+    border-radius: var(--academi-radius);
+    box-shadow: var(--academi-shadow-soft);
+    border: 1px solid var(--academi-border);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.75);
+    border-radius: calc(var(--academi-radius) + 0.25rem);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: var(--academi-shadow-soft);
+    backdrop-filter: blur(18px);
+}
+
+.badge-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: var(--academi-primary-soft);
+    color: var(--academi-primary);
+    letter-spacing: 0.02em;
+}
+
+.gradient-text {
+    background: linear-gradient(120deg, var(--academi-primary), var(--academi-accent));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    padding: 0;
+}
+
+nav ul li {
+    list-style: none;
+}
 
 nav ul li a {
-    font-style: apple-system-ui;
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
     color: var(--nav-link-color) !important;
-    font-size: 18px !important;
-    font-weight: 500 !important;
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.01em;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    transition: color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+
+nav ul li a:hover,
+nav ul li a:focus {
+    color: var(--reverse-text-color) !important;
+    background: var(--academi-primary);
+    text-decoration: none;
+    transform: translateY(-1px);
 }
 
 #header .editmode-switch-form .input-group label,
@@ -26,37 +98,121 @@ nav ul li a {
     color: var(--nav-link-color) !important;
 }
 
-
-.path-mod-quiz {
-    * {
-        box-shadow: none !important;
-    }
-
-    table.quizreviewsummary td.cell {
-        padding: 1.2rem 1rem !important;
-        text-align: left !important;
-        background: rgb(255, 255, 255) !important;
-    }
-
-    table.quizreviewsummary th.cell {
-        padding: 1.2rem 1rem !important;
-        font-weight: bold !important;
-        text-align: right !important;
-        width: 10em !important;
-        background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
-    }
-
-    table {
-        box-shadow: none !important;
-    }
+#page {
+    border-radius: 2.5rem 2.5rem 0 0;
+    box-shadow: 0 -20px 60px rgba(15, 23, 42, 0.08);
+    background-color: var(--academi-surface);
 }
 
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+}
 
+.card-grid .card {
+    border: 1px solid var(--academi-border);
+    border-radius: calc(var(--academi-radius) - 0.25rem);
+    box-shadow: var(--academi-shadow-soft);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
-.path-mod-feedback {
-    .action-menu .menubar .action-menu-trigger .dropdown .dropdown-toggle {
-        background-color: var(--bs-primary)!important;
+.card-grid .card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--academi-shadow-strong);
+}
 
-        color:var(--text-color)!important;
-    } 
+.shadow-divider {
+    width: 72px;
+    height: 4px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, transparent, var(--academi-primary), transparent);
+    margin: 0.5rem 0 1.5rem;
+}
+
+.page-banner {
+    padding: 2rem;
+    border-radius: calc(var(--academi-radius) + 1rem);
+    background: radial-gradient(circle at top, rgba(76, 110, 245, 0.15), transparent 60%),
+        linear-gradient(135deg, #0f172a, #1d4d4f);
+    color: var(--reverse-text-color);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-banner::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.35), transparent 45%);
+    opacity: 0.8;
+}
+
+.page-banner > * {
+    position: relative;
+    z-index: 1;
+}
+
+.floating-dots {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.path-mod-quiz * {
+    box-shadow: none !important;
+}
+
+.path-mod-quiz table.quizreviewsummary td.cell {
+    padding: 1.2rem 1rem !important;
+    text-align: left !important;
+    background: rgb(255, 255, 255) !important;
+}
+
+.path-mod-quiz table.quizreviewsummary th.cell {
+    padding: 1.2rem 1rem !important;
+    font-weight: 600 !important;
+    text-align: right !important;
+    width: 10em !important;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%) !important;
+    color: #0f172a;
+}
+
+.path-mod-quiz table {
+    box-shadow: none !important;
+}
+
+.path-mod-feedback .action-menu .menubar .action-menu-trigger .dropdown .dropdown-toggle {
+    background-color: var(--academi-primary) !important;
+    color: var(--reverse-text-color) !important;
+    border-radius: 999px;
+    border: none;
+    padding: 0.35rem 0.85rem;
+}
+
+.toolbar-chip {
+    background: var(--academi-surface-muted);
+    border-radius: 999px;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--nav-link-color);
+}
+
+@media (max-width: 767px) {
+    nav ul {
+        gap: 0.15rem;
+    }
+
+    nav ul li a {
+        font-size: 0.95rem !important;
+        padding: 0.35rem 0.65rem;
+    }
+
+    #page {
+        border-radius: 1.5rem 1.5rem 0 0;
+    }
 }
