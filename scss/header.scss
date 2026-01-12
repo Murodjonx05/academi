@@ -1,7 +1,15 @@
 /* Header */
 #header {
-    border-bottom: 1px solid $color_whisper;
-    background: $nav_bg;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: var(--academi-nav-bg);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+
+    @if $enable_glassmorphism {
+        background: rgba(var(--academi-nav-bg), 0.85);
+        backdrop-filter: blur($glassmorphism_blur);
+        -webkit-backdrop-filter: blur($glassmorphism_blur);
+    }
 
     &.navbar.fixed-top {
         #usernavigation .nav-link {
@@ -43,13 +51,13 @@
         }
 
         a.nav-link {
-            color: $nav_text;
+            color: var(--academi-nav-text);
             padding-left: 10px;
             padding-right: 10px;
 
             &:hover,
             &:focus {
-                background: $nav_bg_hover;
+                background: var(--academi-secondary);
             }
         }
 
@@ -920,38 +928,38 @@
 .primary-navigation {
     .navigation {
         height: auto;
-        min-height: $navbar-height;
+        min-height: 50px;
         display: flex;
-        align-items: center; // Центрируем кнопки вертикально, чтобы они не липли к верху/низу
-        gap: 12px;           // Расстояние МЕЖДУ кнопками (чтобы не слипались)
-        padding: 0 15px;     // Отступ всей группы кнопок от краев навбара
+        align-items: center;
+        gap: 8px;
+        padding: 8px 15px;
 
         .nav-link {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-            
-            // Внутренние отступы (делают кнопку "пухлой" и удобной для клика)
-            padding: 10px 20px !important; 
-            
+            padding: 8px 16px !important;
             height: auto !important;
-            color: $gray-900;
+            color: var(--academi-nav-text);
             text-align: center;
-            border-radius: 6px; // Скругление как у современных кнопок
-            transition: background-color 0.3s ease, color 0.3s ease;
-
-            // Чтобы кнопки не прилипали к самому верху и низу навбара
-            margin: 5px 0; 
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-decoration: none;
+            margin: 0;
 
             &:hover {
-                background-color: rgba($gray-900, 0.08); // Эффект при наведении
-                color: $primary; 
+                background-color: rgba(255, 255, 255, 0.1);
+                color: var(--academi-text-inverse);
+                border-color: rgba(255, 255, 255, 0.2);
                 text-decoration: none;
             }
 
             &.active {
-                background-color: rgba($primary, 0.1); // Фон для активной ссылки
-                color: $primary;
+                background-color: var(--academi-secondary);
+                color: var(--academi-text-inverse);
+                border-color: var(--academi-secondary);
                 font-weight: 600;
             }
         }

@@ -91,6 +91,11 @@ class helper {
         $scss .= $textinverse ? '$text_inverse:'.$textinverse.";\n" : "";
         $scss .= $navbg ? '$nav_bg:'.$navbg.";\n" : "";
         $scss .= $navtext ? '$nav_text:'.$navtext.";\n" : "";
+        // Glassmorphism settings
+        $glassmorphism = theme_academi_get_setting('enable_glassmorphism');
+        $blur = theme_academi_get_setting('glassmorphism_blur') ?: 16;
+        $scss .= '$enable_glassmorphism:'.($glassmorphism ? 'true' : 'false').";\n";
+        $scss .= '$glassmorphism_blur:'.$blur."px;\n";
 
         if (!empty($primary)) {
             $scss .= $primary30 ? '$primary_30:'.$primary30.";\n" : "";

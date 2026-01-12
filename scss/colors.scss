@@ -1,26 +1,27 @@
-// Bootstrap variables - Boost default colors DONT ALTER the colors here.
-$white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #8f959e !default;
-$gray-600: #6a737b !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #1d2125 !default;
-$black:    #000 !default;
+// Modern color palette inspired by contemporary tech trends
+$white:    #ffffff !default;
+$gray-50:  #f8fafc !default;
+$gray-100: #f1f5f9 !default;
+$gray-200: #e2e8f0 !default;
+$gray-300: #cbd5e1 !default;
+$gray-400: #94a3b8 !default;
+$gray-500: #64748b !default;
+$gray-600: #475569 !default;
+$gray-700: #334155 !default;
+$gray-800: #1e293b !default;
+$gray-900: #0f172a !default;
+$black:    #000000 !default;
 
-$blue:    #0f6cbf !default;
-$indigo:  #6610f2 !default;
-$purple:  #613d7c !default;
-$pink:    #e83e8c !default;
-$red:     #ca3120 !default;
-$orange:  #f0ad4e !default;
-$yellow:  #ff7518 !default;
-$green:   #357a32 !default;
-$teal:    #20c997 !default;
-$cyan:    #008196 !default;
+$blue:     #2563eb !default; // Modern blue
+$indigo:   #6366f1 !default;
+$purple:   #8b5cf6 !default;
+$pink:     #ec4899 !default;
+$red:      #ef4444 !default;
+$orange:   #f97316 !default;
+$yellow:   #eab308 !default;
+$green:    #16a34a !default; // Modern green
+$teal:     #14b8a6 !default;
+$cyan:     #06b6d4 !default;
 
 // Colors defined for academi.
 $white: #fff;
@@ -87,11 +88,11 @@ $asparagus: #689f59;
 
 $color_silver_86_approx: rgba(189, 189, 189, 0.86);
 
-// Semantic theme tokens (can be overridden from PHP helper).
-$surface: $white !default;
-$surface_muted: $wild_sand !default;
-$text_primary: $color_storm_dust_approx !default;
-$text_inverse: $white !default;
-$nav_bg: $primary !default;
-$nav_bg_hover: $secondary !default;
-$nav_text: $white !default;
+// Semantic theme tokens using CSS custom properties.
+$surface: var(--academi-surface, #ffffff) !default;
+$surface_muted: var(--academi-surface-muted, #f8fafc) !default;
+$text_primary: var(--academi-text-primary, #1e293b) !default;
+$text_inverse: var(--academi-text-inverse, #ffffff) !default;
+$nav_bg: var(--academi-nav-bg, #2563eb) !default;
+$nav_bg_hover: var(--academi-secondary, #16a34a) !default;
+$nav_text: var(--academi-nav-text, #ffffff) !default;

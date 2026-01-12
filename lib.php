@@ -71,6 +71,8 @@ function theme_academi_page_init(moodle_page $page) {
 function theme_academi_process_css($css, $theme) {
     global $OUTPUT, $CFG;
     $css = theme_academi_pre_css_set_fontwww($css);
+    // Inject CSS custom properties
+    $css = theme_academi_inject_css_variables($css, $theme);
     // Set custom CSS.
     $customcss = $theme->settings->customcss;
     $css = theme_academi_set_customcss($css , $customcss);
@@ -132,6 +134,37 @@ function theme_academi_pluginfile($course, $cm, $context, $filearea, $args, $for
     } else {
         send_file_not_found();
     }
+}
+
+/**
+ * Inject CSS custom properties into the compiled CSS
+ *
+ * @param string $css
+ * @param object $theme
+ * @return string
+ */
+function theme_academi_inject_css_variables($css, $theme) {
+    $primary = theme_academi_get_setting('primarycolor') ?: '#2563eb';
+    $secondary = theme_academi_get_setting('secondarycolor') ?: '#16a34a';
+    $accent = theme_academi_get_setting('accentcolor') ?: $secondary;
+    $textprimary = theme_academi_get_setting('textcolor') ?: '#1e293b';
+    $textinverse = theme_academi_get_setting('textcolorinverse') ?: '#ffffff';
+    $navbg = theme_academi_get_setting('navbg') ?: $primary;
+    $navtext = theme_academi_get_setting('navtext') ?: '#ffffff';
+    $surface_muted = theme_academi_get_setting('surface_muted') ?: '#f8fafc';
+
+    $css_variables = ":root {\n";
+    $css_variables .= "  --academi-primary: {$primary};\n";
+    $css_variables .= "  --academi-secondary: {$secondary};\n";
+    $css_variables .= "  --academi-accent: {$accent};\n";
+    $css_variables .= "  --academi-text-primary: {$textprimary};\n";
+    $css_variables .= "  --academi-text-inverse: {$textinverse};\n";
+    $css_variables .= "  --academi-nav-bg: {$navbg};\n";
+    $css_variables .= "  --academi-nav-text: {$navtext};\n";
+    $css_variables .= "  --academi-surface-muted: {$surface_muted};\n";
+    $css_variables .= "}\n";
+
+    return $css_variables . $css;
 }
 
 /**

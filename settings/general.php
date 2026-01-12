@@ -109,6 +109,46 @@ $setting = new admin_setting_configcolourpicker($name, $title, $description, $de
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// Accent color for highlights and CTAs.
+$name = 'theme_academi/accentcolor';
+$title = get_string('accentcolor', 'theme_academi');
+$description = get_string('accentcolor_desc', 'theme_academi');
+$default = '';
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+// Surface muted for secondary backgrounds.
+$name = 'theme_academi/surface_muted';
+$title = get_string('surface_muted', 'theme_academi');
+$description = get_string('surface_muted_desc', 'theme_academi');
+$default = '';
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+// Enable glassmorphism effect for header.
+$name = 'theme_academi/enable_glassmorphism';
+$title = get_string('enable_glassmorphism', 'theme_academi');
+$description = get_string('enable_glassmorphism_desc', 'theme_academi');
+$default = NO;
+$choices = [
+    YES => get_string('yes'),
+    NO => get_string('no'),
+];
+$setting = new admin_setting_configselect($name, $title, $description, $default, $choices);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+// Glassmorphism blur intensity.
+$name = 'theme_academi/glassmorphism_blur';
+$title = get_string('glassmorphism_blur', 'theme_academi');
+$description = get_string('glassmorphism_blur_desc', 'theme_academi');
+$default = '16';
+$setting = new admin_setting_configtext($name, $title, $description, $default, PARAM_INT);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 // Header style select option.
 $name = 'theme_academi/themestyleheader';
 $title = get_string('themestyleheader', 'theme_academi');

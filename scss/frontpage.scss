@@ -193,19 +193,36 @@
 .frontpage-card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    gap: 24px;
     .frontpage-card {
-        border-radius: 20px;
-        padding: 28px;
+        border-radius: 16px;
+        padding: 24px;
         background: $white;
-        border: 1px solid rgba(15, 23, 42, .08);
-        box-shadow: 0 20px 45px rgba(15, 23, 42, .08);
-        transition: transform .3s ease, box-shadow .3s ease;
+        border: 1px solid rgba(15, 23, 42, .06);
+        box-shadow: 0 8px 24px rgba(15, 23, 42, .06);
+        transition: all .3s ease;
         position: relative;
         overflow: hidden;
+        cursor: pointer;
         &:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 35px 70px rgba(15, 23, 42, .12);
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(15, 23, 42, .12);
+            border-color: rgba($primary, 0.1);
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, $primary, $secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .3s ease;
+        }
+        &:hover:before {
+            transform: scaleX(1);
         }
         &:after {
             content: '';
@@ -275,6 +292,12 @@
     .pagelayout-frontpage.limitedwidth #page.drawers .main-inner {
         padding: 0;
         margin-bottom: 0;
+    }
+    .frontpage-card-grid {
+        gap: 20px;
+        .frontpage-card {
+            padding: 20px;
+        }
     }
 }
 
@@ -503,25 +526,26 @@
         gap: 24px;
     }
     .coursebox {
-        border: 1px solid rgba(15, 23, 42, .08);
-        border-radius: 20px;
-        padding: 22px;
-        background: $white;
-        box-shadow: 0 20px 45px rgba(15, 23, 42, .08);
-        transition: transform .3s ease, box-shadow .3s ease;
+        border: 1px solid rgba(15, 23, 42, .06);
+        border-radius: 12px;
+        padding: 20px;
+        background: var(--academi-surface);
+        box-shadow: 0 4px 16px rgba(15, 23, 42, .04);
+        transition: all .3s ease;
         position: relative;
         overflow: hidden;
         &:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 35px 70px rgba(15, 23, 42, .1);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(15, 23, 42, .08);
+            border-color: rgba(37, 99, 235, 0.08);
         }
         &:after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(76, 110, 245, .05), transparent 70%);
+            background: linear-gradient(135deg, rgba(37, 99, 235, .02), transparent 70%);
             opacity: 0;
-            transition: opacity .25s ease;
+            transition: opacity .3s ease;
         }
         &:hover:after {
             opacity: 1;

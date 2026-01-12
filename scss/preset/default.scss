@@ -1,11 +1,11 @@
 @import "colors";
 
-$primary: #88b77b !default;
-$secondary: #f60 !default;
-$primary_30: rgba(136, 183, 123, .3) !default;
-$primary_70: rgba(136, 183, 123, .7) !default;
-$secondary_30: rgba(255, 102, 0, .3) !default;
-$secondary_70: rgba(255, 102, 0, .7) !default;
+$primary: var(--academi-primary, #2563eb) !default;
+$secondary: var(--academi-secondary, #16a34a) !default;
+$primary_30: rgba(37, 99, 235, .3) !default;
+$primary_70: rgba(37, 99, 235, .7) !default;
+$secondary_30: rgba(22, 163, 74, .3) !default;
+$secondary_70: rgba(22, 163, 74, .7) !default;
 $footerbgopacity: $primary_70 !default;
 
 $success: $green !default;
@@ -64,7 +64,9 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: normal;
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
 }
 
 #frontpage-available-course-list,

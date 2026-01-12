@@ -1,10 +1,15 @@
 /* Typography */
 /* Font and color style for the body */
+/* Note: To use Inter font, add Google Fonts link to layout/includes/header.php or use local fonts */
+
 body {
     font-size: $fontsize;
-    font-family: Century Gothic, Arial, Helvetica, sans-serif;
-    color: $text_primary;
-    background-color: $surface;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: var(--academi-text-primary);
+    background-color: var(--academi-surface);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 /* End of page container size */
 
@@ -24,26 +29,29 @@ h3,
 h4,
 h5,
 h6 {
-    font-weight: normal;
-    color: $secondary;
+    font-weight: 600;
+    color: var(--academi-secondary);
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
 }
 h1 {
-    font-size: 42px;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
 }
 h2 {
-    font-size: 34px;
+    font-size: clamp(2rem, 4vw, 3rem);
 }
 h3 {
-    font-size: 26px;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
 }
 h4 {
-    font-size: 23px;
+    font-size: clamp(1.25rem, 2.5vw, 1.875rem);
 }
 h5 {
-    font-size: 21px;
+    font-size: clamp(1.125rem, 2vw, 1.5rem);
 }
 h6 {
-    font-size: 18px;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
 }
 /* End of Headings */
 
@@ -264,44 +272,48 @@ a.btn {
 
 /* Primary Button */
 .btn-primary {
-    font-family: Arial, Helvetica, sans-serif;
-    color: $white;
-    text-shadow: none;
-    background: $primary;
-    padding: 8px 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    color: var(--academi-text-inverse);
+    background: linear-gradient(135deg, var(--academi-primary), var(--academi-accent));
+    padding: 12px 24px;
     border: 0;
-    box-shadow: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.6s, height 0.6s;
+    }
     &:hover,
     &:focus,
     &:active {
-        color: $white;
-        background: $secondary;
+        color: var(--academi-text-inverse);
+        background: linear-gradient(135deg, var(--academi-secondary), var(--academi-accent));
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.4);
         outline: 0;
-        box-shadow: none;
+    }
+    &:active:before {
+        width: 300px;
+        height: 300px;
     }
     &.disabled,
     &:disabled {
-        color: $white;
-        background: $secondary;
-    }
-    &:active,
-    &.active,
-    &:focus,
-    &.focus {
-        &:hover,
-        &:focus,
-        &:active,
-        &.focus {
-            color: $white;
-            background-color: $secondary;
-        }
-    }
-    &:not(:disabled):not(.disabled):active {
-        background-color: $secondary;
-        border-color: $secondary;
-        &:focus {
-            box-shadow: none;
-        }
+        color: var(--academi-text-inverse);
+        background: #94a3b8;
+        box-shadow: none;
+        transform: none;
     }
 }
 .open > .btn-primary.dropdown-toggle {
