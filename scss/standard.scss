@@ -590,7 +590,7 @@ body:not(.pagelayout-maintenance) #page-wrapper {
 .felement.fstatic {
     padding-top: 0;
 }
-.fcontainer .root_setting .form-group {
+body:not(.path-admin) .fcontainer .root_setting .form-group {
     margin-bottom: 10px;
     .checkbox .form-check {
         .form-check-input {
@@ -1044,7 +1044,7 @@ div.backup-section + form {
 
 
 /* Moodle Form */
-.mform {
+body:not(.path-admin) .mform {
     label {
         font-size: 16px;
     }
@@ -1325,7 +1325,7 @@ div.backup-section + form {
 #page.drawers {
     height: auto;
     padding: 0;
-    margin-top: 20px;
+    margin-top: 0px;
     .drawer-right-toggle {
         margin-right: 0;
     }

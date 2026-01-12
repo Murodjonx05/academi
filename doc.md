@@ -67,6 +67,26 @@ With this setting, you can customize your site's secondary color from the defaul
 
 ![secndarycolor](https://github.com/lmsace/academi/assets/98076459/c97f640d-c4d7-4cb0-a851-52bb0aa5d4e8)
 
+**Base Text Color**
+
+This setting allows you to customize the main body text color used throughout your site. If left empty, the theme will use a neutral grey default. Choose a color that provides good contrast against your background for readability.
+
+**Inverse Text Color**
+
+Set the text color used on dark or accent backgrounds (e.g., buttons, navigation items). If left empty, white will be used by default. This ensures text remains readable when placed over colored backgrounds.
+
+**Navbar Background**
+
+Customize the background color for the main site navigation bar. If left empty, the primary color will be used. Choose a color that complements your site's overall design.
+
+**Navbar Hover Background**
+
+Set the background color for hovered or active navigation items. If left empty, the secondary color will be used. This helps users identify interactive navigation elements.
+
+**Navbar Text**
+
+Configure the text and icon color for items inside the navigation bar. If left empty, white will be used by default. Ensure sufficient contrast between the navbar background and text color for accessibility.
+
 **Header Style**
 
 With this feature, you can modify the header style on the whole site.

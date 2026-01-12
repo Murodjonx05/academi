@@ -86,3 +86,12 @@ $color_viking_approx: #62bee6;
 $asparagus: #689f59;
 
 $color_silver_86_approx: rgba(189, 189, 189, 0.86);
+
+// Semantic theme tokens (can be overridden from PHP helper).
+$surface: $white !default;
+$surface_muted: $wild_sand !default;
+$text_primary: $color_storm_dust_approx !default;
+$text_inverse: $white !default;
+$nav_bg: $primary !default;
+$nav_bg_hover: $secondary !default;
+$nav_text: $white !default;

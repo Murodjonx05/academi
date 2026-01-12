@@ -75,6 +75,40 @@ $setting = new admin_setting_configcolourpicker($name, $title, $description, $de
 $setting->set_updatedcallback('theme_reset_all_caches');
 $temp->add($setting);
 
+// Semantic text colour tokens.
+$name = 'theme_academi/textcolor';
+$title = get_string('textcolor', 'theme_academi');
+$description = get_string('textcolor_desc', 'theme_academi');
+$default = '';
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+$name = 'theme_academi/textcolorinverse';
+$title = get_string('textcolorinverse', 'theme_academi');
+$description = get_string('textcolorinverse_desc', 'theme_academi');
+$default = '';
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+// Navigation colour tokens.
+$name = 'theme_academi/navbg';
+$title = get_string('navbg', 'theme_academi');
+$description = get_string('navbg_desc', 'theme_academi');
+$default = '';
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
+$name = 'theme_academi/navtext';
+$title = get_string('navtext', 'theme_academi');
+$description = get_string('navtext_desc', 'theme_academi');
+$default = '';
+$setting = new admin_setting_configcolourpicker($name, $title, $description, $default);
+$setting->set_updatedcallback('theme_reset_all_caches');
+$temp->add($setting);
+
 // Header style select option.
 $name = 'theme_academi/themestyleheader';
 $title = get_string('themestyleheader', 'theme_academi');

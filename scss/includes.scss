@@ -11,7 +11,7 @@ $table-accent-bg:             rgba($black, .03) !default;
 $enable-responsive-font-sizes: true !default;
 
 // Body
-$body-color:    $gray-900 !default;
+$body-color:    $text_primary !default;
 
 // Fonts
 $font-size-base: 0.9375rem !default;
@@ -102,6 +102,25 @@ $fontsize: 16px !default;
 
 // Import Core moodle CSS
 @import "moodle";
+
+$root-vars: true !default;
+@if $root-vars {
+    :root {
+        --academi-primary: #{$primary};
+        --academi-secondary: #{$secondary};
+        --text-color: #{$text_primary};
+        --reverse-text-color: #{$text_inverse};
+        --nav-bg: #{$nav_bg};
+        --nav-bg-hover: #{$nav_bg_hover};
+        --nav-link-color: #{$nav_text};
+        --academi-surface: #{$surface};
+        --academi-surface-muted: #{$surface_muted};
+        --academi-border: rgba(15, 23, 42, 0.08);
+        --academi-shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+        --academi-shadow-strong: 0 35px 65px rgba(15, 23, 42, 0.12);
+        --academi-radius: 1.25rem;
+    }
+}
 
 body {
     -webkit-font-smoothing: antialiased;

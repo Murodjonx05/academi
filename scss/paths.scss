@@ -1,0 +1,356 @@
+/* Path-specific design fixes using Moodle path classes */
+/* This file contains targeted fixes for specific pages/modules */
+
+/* ============================================
+   COURSE PAGES
+   ============================================ */
+.path-course-view,
+.path-course {
+    #region-main {
+        .course-content {
+            .section {
+                background: $surface;
+                border-radius: calc(var(--academi-radius) - 0.5rem);
+                border: 1px solid var(--academi-border);
+                padding: 1.5rem;
+                margin-bottom: 1.5rem;
+                box-shadow: var(--academi-shadow-soft);
+            }
+        }
+    }
+    .activity-item {
+        background: $surface_muted;
+        border-radius: calc(var(--academi-radius) - 0.75rem);
+        padding: 1rem;
+        margin-bottom: 0.75rem;
+        border: 1px solid var(--academi-border);
+    }
+}
+
+/* Course index/category pages */
+.path-course-index,
+.path-course-index-category {
+    .coursebox {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        border: 1px solid var(--academi-border);
+        box-shadow: var(--academi-shadow-soft);
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        &:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--academi-shadow-strong);
+        }
+    }
+}
+
+/* ============================================
+   QUIZ MODULE
+   ============================================ */
+.path-mod-quiz {
+    .que {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        border: 1px solid var(--academi-border);
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--academi-shadow-soft);
+    }
+    .formulation {
+        color: $text_primary;
+    }
+    .submitbtns {
+        .btn {
+            background: var(--academi-primary);
+            color: $text_inverse;
+            border-radius: 999px;
+            padding: 0.5rem 1.5rem;
+            &:hover {
+                background: var(--academi-secondary);
+            }
+        }
+    }
+    table.quizreviewsummary {
+        border-radius: var(--academi-radius);
+        overflow: hidden;
+        box-shadow: var(--academi-shadow-soft);
+        th.cell {
+            background: var(--academi-primary);
+            color: $text_inverse;
+        }
+        td.cell {
+            background: $surface;
+        }
+    }
+}
+
+/* ============================================
+   ASSIGNMENT MODULE
+   ============================================ */
+.path-mod-assign {
+    .submissionstatustable {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        border: 1px solid var(--academi-border);
+        padding: 1.25rem;
+        box-shadow: var(--academi-shadow-soft);
+    }
+    .gradingtable {
+        .cell {
+            background: $surface;
+            border-color: var(--academi-border);
+        }
+    }
+}
+
+/* ============================================
+   FORUM MODULE
+   ============================================ */
+.path-mod-forum {
+    .forumheaderlist {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        border: 1px solid var(--academi-border);
+        overflow: hidden;
+        box-shadow: var(--academi-shadow-soft);
+        thead th {
+            background: var(--academi-primary);
+            color: $text_inverse;
+        }
+    }
+    .forumpost {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        border: 1px solid var(--academi-border);
+        padding: 1.25rem;
+        margin-bottom: 1.25rem;
+        box-shadow: var(--academi-shadow-soft);
+    }
+}
+
+/* ============================================
+   FEEDBACK MODULE
+   ============================================ */
+.path-mod-feedback {
+    .feedback_form {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        border: 1px solid var(--academi-border);
+        padding: 1.5rem;
+        box-shadow: var(--academi-shadow-soft);
+    }
+    .action-menu .menubar .action-menu-trigger .dropdown .dropdown-toggle {
+        background-color: var(--academi-primary) !important;
+        color: $text_inverse !important;
+        border-radius: 999px;
+    }
+}
+
+/* ============================================
+   ADMIN PAGES
+   ============================================ */
+.path-admin {
+    #region-main {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        padding: 1.5rem;
+        box-shadow: var(--academi-shadow-soft);
+    }
+    .generaltable {
+        border-radius: var(--academi-radius);
+        overflow: hidden;
+        box-shadow: var(--academi-shadow-soft);
+        thead th {
+            background: var(--academi-primary);
+            color: $text_inverse;
+        }
+        tbody td {
+            background: $surface;
+        }
+    }
+    .buttons {
+        .btn-primary {
+            background: var(--academi-primary);
+            color: $text_inverse;
+            border-radius: 999px;
+            &:hover {
+                background: var(--academi-secondary);
+            }
+        }
+    }
+}
+
+/* ============================================
+   USER PROFILE PAGES
+   ============================================ */
+.path-user-profile,
+.path-user {
+    .userprofile {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        border: 1px solid var(--academi-border);
+        padding: 1.5rem;
+        box-shadow: var(--academi-shadow-soft);
+    }
+    .profile_tree {
+        .tree_item {
+            color: $text_primary;
+            a {
+                color: var(--academi-primary);
+                &:hover {
+                    color: var(--academi-secondary);
+                }
+            }
+        }
+    }
+}
+
+/* ============================================
+   GRADEBOOK PAGES
+   ============================================ */
+.path-grade-report-grader,
+.path-grade-report-user,
+.path-grade-report-singleview {
+    .gradeparent {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        border: 1px solid var(--academi-border);
+        overflow: hidden;
+        box-shadow: var(--academi-shadow-soft);
+        th {
+            background: var(--academi-primary);
+            color: $text_inverse;
+        }
+        td {
+            background: $surface;
+        }
+    }
+}
+
+/* ============================================
+   BOOK MODULE
+   ============================================ */
+.path-mod-book {
+    #mod_book-chaptersnavigation {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        border: 1px solid var(--academi-border);
+        padding: 1rem;
+        box-shadow: var(--academi-shadow-soft);
+        .navitem .btn {
+            color: var(--academi-primary);
+            &:hover {
+                background: var(--academi-primary-soft);
+            }
+        }
+    }
+}
+
+/* ============================================
+   DASHBOARD / MY PAGES
+   ============================================ */
+.pagelayout-mydashboard {
+    #region-main {
+        background: transparent;
+        .block {
+            background: $surface;
+            border-radius: var(--academi-radius);
+            border: 1px solid var(--academi-border);
+            box-shadow: var(--academi-shadow-soft);
+        }
+    }
+}
+
+/* ============================================
+   STANDARD PAGES
+   ============================================ */
+.pagelayout-standard {
+    #region-main {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        padding: 1.5rem;
+        box-shadow: var(--academi-shadow-soft);
+        border: 1px solid var(--academi-border);
+    }
+}
+
+/* ============================================
+   REPORT PAGES
+   ============================================ */
+.pagelayout-report {
+    .no-overflow {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        border: 1px solid var(--academi-border);
+        padding: 1rem;
+        box-shadow: var(--academi-shadow-soft);
+    }
+}
+
+/* ============================================
+   GENERAL FIXES FOR ALL PATHS
+   ============================================ */
+body[class*="path-"]:not(.path-admin) {
+    /* Ensure consistent text colors */
+    color: $text_primary;
+
+    /* Fix buttons to use theme colors */
+    .btn-primary {
+        background: var(--academi-primary);
+        color: $text_inverse;
+        border: none;
+        border-radius: 999px;
+        &:hover,
+        &:focus {
+            background: var(--academi-secondary);
+            color: $text_inverse;
+        }
+    }
+
+    /* Fix links */
+    a {
+        color: var(--academi-primary);
+        &:hover {
+            color: var(--academi-secondary);
+        }
+    }
+
+    /* Fix tables */
+    table.generaltable {
+        border-radius: var(--academi-radius);
+        overflow: hidden;
+        box-shadow: var(--academi-shadow-soft);
+        thead th {
+            background: var(--academi-primary);
+            color: $text_inverse;
+        }
+        tbody tr:nth-child(even) {
+            background: $surface_muted;
+        }
+    }
+
+    /* Fix forms */
+    .mform {
+        fieldset {
+            background: $surface;
+            border-radius: var(--academi-radius);
+            border: 1px solid var(--academi-border);
+            padding: 1.25rem;
+            margin-bottom: 1.25rem;
+            box-shadow: var(--academi-shadow-soft);
+        }
+        legend {
+            color: $text_primary;
+            font-weight: 600;
+        }
+    }
+
+    /* Fix cards */
+    .card {
+        background: $surface;
+        border-radius: var(--academi-radius);
+        border: 1px solid var(--academi-border);
+        box-shadow: var(--academi-shadow-soft);
+    }
+}

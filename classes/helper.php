@@ -64,6 +64,10 @@ class helper {
         $scss = '';
         $primary = theme_academi_get_setting('primarycolor');
         $secondary = theme_academi_get_setting('secondarycolor');
+        $textprimary = theme_academi_get_setting('textcolor');
+        $textinverse = theme_academi_get_setting('textcolorinverse');
+        $navbg = theme_academi_get_setting('navbg');
+        $navtext = theme_academi_get_setting('navtext');
         $slideoverlayval = theme_academi_get_setting('slideOverlay');
         $slideopacity = (!empty($slideoverlayval)) ? $this->get_hexa('#000000', $slideoverlayval) : 0.4;
         $footerbgoverlayval = theme_academi_get_setting('footerbgOverlay');
@@ -82,6 +86,11 @@ class helper {
         $scss .= $pagesizecustomval ? '$custom-container:'.$pagesizecustomval."px;\n" : "";
         $scss .= $fontsize ? '$fontsize:'.$fontsize. "px;" : "";
         $scss .= $footerbgopacity ? '$footerbgopacity:'.$footerbgopacity.";\n" : "";
+        // Semantic tokens (fallbacks handled in SCSS defaults).
+        $scss .= $textprimary ? '$text_primary:'.$textprimary.";\n" : "";
+        $scss .= $textinverse ? '$text_inverse:'.$textinverse.";\n" : "";
+        $scss .= $navbg ? '$nav_bg:'.$navbg.";\n" : "";
+        $scss .= $navtext ? '$nav_text:'.$navtext.";\n" : "";
 
         if (!empty($primary)) {
             $scss .= $primary30 ? '$primary_30:'.$primary30.";\n" : "";
