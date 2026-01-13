@@ -22,15 +22,14 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
-use theme_academi\output\academi_layout_helper;
-require_once($CFG->dirroot.'/theme/academi/classes/output/academi_layout_helper.php');
+require_once(dirname(__FILE__) .'/footer.php');
 require_once($CFG->dirroot.'/theme/academi/lib.php');
 
-$logourl = academi_layout_helper::get_logo_url('header');
-$phoneno = get_config('theme_academi', 'phoneno');
-$emailid = get_config('theme_academi', 'emailid');
-$themestyleheader = get_config('theme_academi', 'themestyleheader');
-$navstyle = get_config('theme_academi', 'navstyle');
+$logourl = theme_academi_get_logo_url('header');
+$phoneno = theme_academi_get_setting('phoneno');
+$emailid = theme_academi_get_setting('emailid');
+$themestyleheader = theme_academi_get_setting('themestyleheader');
+$navstyle = theme_academi_get_setting('navstyle');
 
 switch ($navstyle) {
     case LOGO:
@@ -61,4 +60,4 @@ $templatecontext = [
     'showsitename' => $showsitename,
     'showlogo' => $showlogo,
 ];
-$templatecontext += academi_layout_helper::footer();
+$templatecontext += footer();

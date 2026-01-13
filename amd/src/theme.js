@@ -11,11 +11,18 @@ define(['jquery'], function($) {
         init: function() {
             this.initNavbar();
             this.initScrollTop();
+            this.initFooter();
             this.initDynamicWidths();
         },
 
         initNavbar: function() {
-
+            // Fix white user avatar on dark/colored nav
+            const avatars = document.querySelectorAll('.usermenu .avatar img[src$="/u/f2"]');
+            avatars.forEach(img => {
+                if (!img.src.includes('_white')) {
+                    img.src += "_white";
+                }
+            });
 
             // Improved Drawer State handling
             const page = document.querySelector('#page');
@@ -62,7 +69,12 @@ define(['jquery'], function($) {
             });
         },
 
-
+        initFooter: function() {
+            const footer = document.querySelector('footer#page-footer');
+            if (footer && footer.textContent.trim().length === 0) {
+                footer.classList.add('empty-footer');
+            }
+        },
 
         initDynamicWidths: function() {
             // Handle page size setting interactivity

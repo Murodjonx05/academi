@@ -56,7 +56,7 @@ class course_renderer extends \core_course_renderer {
      */
     public function frontpage_available_courses() {
         global $CFG;
-        $displayoption = get_config('theme_academi', 'availablecoursetype');
+        $displayoption = theme_academi_get_setting('availablecoursetype');
         if ($displayoption != '1') {
             return parent::frontpage_available_courses();
         }
@@ -145,10 +145,11 @@ class course_renderer extends \core_course_renderer {
     public function promoted_courses() {
         global $CFG, $DB;
 
-        $pcoursestatus = get_config('theme_academi', 'pcoursestatus');
-        $promotedtitle = format_text(get_config('theme_academi', 'promotedtitle'), FORMAT_HTML, ['trusted' => true, 'noclean' => true]);
-        $promotedcoursedesc = get_string(get_config('theme_academi', 'promotedcoursedesc'), 'theme_academi');
-        $featuredids = get_config('theme_academi', 'promotedcourses');
+        $pcoursestatus = theme_academi_get_setting('pcoursestatus');
+        $promotedtitle = theme_academi_get_setting('promotedtitle', 'format_html');
+        $promotedtitle = theme_academi_lang($promotedtitle);
+        $promotedcoursedesc = theme_academi_lang(theme_academi_get_setting('promotedcoursedesc'));
+        $featuredids = theme_academi_get_setting('promotedcourses');
         $promotedcontent = empty($promotedtitle) && empty($promotedcoursedesc) ? false : true;
         $blockisempty = empty($promotedtitle) && empty($promotedcoursedesc) && empty($featuredids) ? false : $pcoursestatus;
         $blocks = [];
@@ -341,7 +342,8 @@ class course_renderer extends \core_course_renderer {
                 $this->categoryexpandedonload = true;
             }
         }
-        $combolistboxtype = (get_config('theme_academi', 'comboListboxType') == 1) ? true : false;
+        $combolistboxtype = (theme_academi_get_setting('comboListboxType') == 1) ? true : false;
+        if ($combolistboxtype) {
             $classes[] = 'collapsed';
         }
 
@@ -407,7 +409,7 @@ class course_renderer extends \core_course_renderer {
             ];
 
             // Check if the category content contains subcategories with children's content loaded.
-            $combolistboxtype = (get_config('theme_academi', 'comboListboxType') == 1) ? true : false;
+            $combolistboxtype = (theme_academi_get_setting('comboListboxType') == 1) ? true : false;
             if ($this->categoryexpandedonload && !$combolistboxtype) {
                 $classes[] = 'collapse-all';
                 $linkname = get_string('collapseall');

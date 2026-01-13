@@ -36,19 +36,19 @@ class academi_blocks {
      */
     public function sitefeatures() {
         global $OUTPUT, $PAGE;
-        $status = get_config('theme_academi', 'sitefblockstatus');
-        $blocktitle = get_string(get_config('theme_academi', 'sitefeaturetitle'), 'theme_academi');
-        $blockdesc = get_string(get_config('theme_academi', 'sitefeaturedesc'), 'theme_academi');
+        $status = theme_academi_get_setting('sitefblockstatus');
+        $blocktitle = theme_academi_lang(theme_academi_get_setting('sitefeaturetitle'));
+        $blockdesc = theme_academi_lang(theme_academi_get_setting('sitefeaturedesc'));
         $items = [];
         (int) $cs = 0;
         if ($status == 1) {
-            $features = get_config('theme_academi', 'numberofsitefeature');
+            $features = theme_academi_get_setting('numberofsitefeature');
             $block['class'] = 'icon-block';
             for ($i = 1; $i <= $features; $i++) {
-                $sfbstatus = get_config('theme_academi', 'sitefblock'.$i.'status');
-                $sfbicon = get_config('theme_academi', 'sitefblock'.$i.'icon');
-                $sfbtitle = get_config('theme_academi', 'sitefblock'.$i.'title');
-                $sfbcontent = get_config('theme_academi', 'sitefblock'.$i.'content');
+                $sfbstatus = theme_academi_get_setting('sitefblock'.$i.'status');
+                $sfbicon = theme_academi_get_setting('sitefblock'.$i.'icon');
+                $sfbtitle = theme_academi_get_setting('sitefblock'.$i.'title');
+                $sfbcontent = theme_academi_get_setting('sitefblock'.$i.'content');
                 if ((!empty($sfbstatus)) && (!empty($sfbtitle) || !empty($sfbcontent) || !empty($sfbicon))) {
                     $cs = $cs + 1;
                 }
@@ -71,15 +71,15 @@ class academi_blocks {
                     break;
             }
             for ($i = 1; $i <= $features; $i++) {
-                $sfbtitle = get_config('theme_academi', 'sitefblock'.$i.'title');
-                $sfbtitle = get_string($sfbtitle, 'theme_academi');
-                $sfbcontent = trim(get_config('theme_academi', 'sitefblock'.$i.'content'));
-                $sfbcontent = get_string($sfbcontent, 'theme_academi');
-                $sfbstatus = get_config('theme_academi', 'sitefblock'.$i.'status');
-                $sfbicon = get_config('theme_academi', 'sitefblock'.$i.'icon');
-                $sfbicon = get_string($sfbicon, 'theme_academi');
+                $sfbtitle = theme_academi_get_setting('sitefblock'.$i.'title');
+                $sfbtitle = theme_academi_lang($sfbtitle);
+                $sfbcontent = trim(theme_academi_get_setting('sitefblock'.$i.'content'));
+                $sfbcontent = theme_academi_lang($sfbcontent);
+                $sfbstatus = theme_academi_get_setting('sitefblock'.$i.'status');
+                $sfbicon = theme_academi_get_setting('sitefblock'.$i.'icon');
+                $sfbicon = theme_academi_lang($sfbicon);
                 $sfbbody = (!empty($sfbtitle) || (!empty($sfbcontent)) || (!empty($sfbicon))) ? true : false;
-                $sfurl = get_config('theme_academi', 'sitefblock'.$i.'url');
+                $sfurl = theme_academi_get_setting('sitefblock'.$i.'url');
 
                 $items[] = [
                     'status' => !$sfbbody ? false : $sfbstatus,
@@ -112,12 +112,12 @@ class academi_blocks {
      */
     public function marketingspot() {
         global $OUTPUT, $PAGE;
-        $status = get_config('theme_academi', 'mspotstatus');
+        $status = theme_academi_get_setting('mspotstatus');
         if ($status == 1) {
-            $mspot['title'] = get_string(get_config('theme_academi', 'mspottitle'), 'theme_academi');
-            $mspot['desc'] = get_string(get_config('theme_academi', 'mspotdesc'), 'theme_academi');
-            $mspot['content'] = format_text(get_config('theme_academi', 'mspotcontent'), FORMAT_HTML, ['trusted' => true, 'noclean' => true]);
-            $mspot['media'] = $PAGE->theme->setting_file_url('mspotmedia', 'mspotmedia');
+            $mspot['title'] = theme_academi_lang(theme_academi_get_setting('mspottitle'));
+            $mspot['desc'] = theme_academi_lang(theme_academi_get_setting('mspotdesc'));
+            $mspot['content'] = theme_academi_get_setting('mspotcontent', 'format_html');
+            $mspot['media'] = theme_academi_get_setting('mspotmedia', 'file');
             $mspot['colclass'] = (empty($mspot['content']) || (empty($mspot['media']))) ? 'col-md-12' : 'col-lg-6';
             $mspot['mspot'] = $status;
             $mspot['mspotheadcontent'] = (empty($mspot['title']) && empty($mspot['desc'])) ? false : true;
@@ -137,13 +137,13 @@ class academi_blocks {
      */
     public function jumbotron() {
         global $OUTPUT, $PAGE;
-        $status = get_config('theme_academi', 'jumbotronstatus');
+        $status = theme_academi_get_setting('jumbotronstatus');
         if ($status == 1 ) {
-            $jumbotron['title'] = get_string(get_config('theme_academi', 'jumbotrontitle'), 'theme_academi');
-            $jumbotron['desc'] = get_string(get_config('theme_academi', 'jumbotrondesc'), 'theme_academi');
-            $jumbotron['btntext'] = get_string(get_config('theme_academi', 'jumbotronbtntext'), 'theme_academi');
-            $jumbotron['buttonlink'] = get_config('theme_academi', 'jumbotronbtnlink');
-            $btntarget = get_config('theme_academi', 'jumbotronbtntarget');
+            $jumbotron['title'] = theme_academi_lang(theme_academi_get_setting('jumbotrontitle'));
+            $jumbotron['desc'] = theme_academi_lang(theme_academi_get_setting('jumbotrondesc'));
+            $jumbotron['btntext'] = theme_academi_lang(theme_academi_get_setting('jumbotronbtntext'));
+            $jumbotron['buttonlink'] = theme_academi_get_setting('jumbotronbtnlink');
+            $btntarget = theme_academi_get_setting('jumbotronbtntarget');
             $jumbotron['btntarget'] = ($btntarget == '1') ? '_blank' : '_self';
             $jumbotron['jumbotron'] = $status;
             $jumbotron['jumbotroncontent'] = empty($jumbotron['title']) && empty($jumbotron['desc']) ? false : true;

@@ -31,11 +31,11 @@ require_once($CFG->dirroot."/theme/academi/classes/helper.php");
  */
 function general() {
     $general = [];
-    $general['status'] = get_config('theme_academi', 'toggleslideshow');
-    $interval = intval(get_config('theme_academi', 'slideinterval'));
-    $autoslideshow = get_config('theme_academi', 'autoslideshow');
+    $general['status'] = theme_academi_get_setting('toggleslideshow');
+    $interval = intval(theme_academi_get_setting('slideinterval'));
+    $autoslideshow = theme_academi_get_setting('autoslideshow');
     $general['interval'] = (!empty($interval)) ? $interval : 3000;
-    $general['overlay'] = get_config('theme_academi', 'slideOverlay');
+    $general['overlay'] = theme_academi_get_setting('slideOverlay');
     if ($autoslideshow == 1) {
         $general["autoplay"] = 'true';
     } else {
@@ -52,21 +52,21 @@ function general() {
 function homeslider() {
     global $PAGE;
     $data = [];
-    $data['numofslide'] = get_config('theme_academi', 'numberofslides');
+    $data['numofslide'] = theme_academi_get_setting('numberofslides');
     $helperobj = new theme_academi\helper();
     (int) $slider = 0;
     for ($s = 1; $s <= $data['numofslide']; $s++) {
         $slide = [];
-        $slide['slidestatus'] = get_config('theme_academi', 'slide' . $s .'status');
+        $slide['slidestatus'] = theme_academi_get_setting('slide' . $s .'status');
         $slide['slideimg'] = $helperobj->render_slideimg($s, 'slide' . $s . 'image');
-        $slide['slidecontentstatus'] = get_config('theme_academi', 'slide' . $s .'contentstatus');
-        $slide['caption'] = get_string('slide' . $s . 'caption', 'theme_academi');
-        $slide['desc'] = format_text(get_config('theme_academi', 'slide' . $s . 'desc'), FORMAT_HTML, ['trusted' => true, 'noclean' => true]);
-        $slide['btntxt'] = get_string('slide' . $s . 'btntext', 'theme_academi');
-        $slide['btnlink'] = get_config('theme_academi', 'slide' . $s . 'btnurl');
-        $btntarget = get_config('theme_academi', 'slide' . $s . 'btntarget');
+        $slide['slidecontentstatus'] = theme_academi_get_setting('slide' . $s .'contentstatus');
+        $slide['caption'] = theme_academi_lang(theme_academi_get_setting('slide' . $s . 'caption'));
+        $slide['desc'] = theme_academi_lang(theme_academi_get_setting('slide' . $s . 'desc', 'format_html'));
+        $slide['btntxt'] = theme_academi_lang(theme_academi_get_setting('slide' . $s . 'btntext'));
+        $slide['btnlink'] = theme_academi_get_setting('slide' . $s . 'btnurl');
+        $btntarget = theme_academi_lang(theme_academi_get_setting('slide' . $s . 'btntarget'));
         $slide['btntarget'] = ($btntarget == 1) ? '_blank' : '_self';
-        $contwidth = get_config('theme_academi', 'slide' . $s . 'contFullwidth');
+        $contwidth = theme_academi_get_setting('slide' . $s . 'contFullwidth');
 
         if ((!empty($slide['slidestatus'])) && (!empty($slide['slideimg']))) {
             $slider = $slider + 1;
@@ -91,14 +91,14 @@ function homeslider() {
         $slide['contentwidth'] = $contwidth;
         $slide['contentAnimation'] = "ScrollRight";
         $slide['contentAclass'] = "animated ". $slide['contentAnimation'];
-        $postition = get_config('theme_academi', 'slide' . $s . 'contentPosition');
+        $postition = theme_academi_get_setting('slide' . $s . 'contentPosition');
         $slide['contentpostion'] = $postition;
         $slide['contentClass'] = (!empty($postition)) ? 'content-'.$postition : 'content-centerRight';
         if ($slide['slideimg']) {
             $data['slides'][] = $slide;
         }
     }
-    $status = get_config('theme_academi', 'toggleslideshow');
+    $status = theme_academi_get_setting('toggleslideshow');
     $data['sliderblockstatus'] = ($slider == 0) ? false : $status;
     if (!$data['sliderblockstatus']) {
         $data['isblockempty'] = is_siteadmin() || $PAGE->user_is_editing() ? true : false;

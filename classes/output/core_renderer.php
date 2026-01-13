@@ -60,7 +60,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string
      */
     public function footer_infolinks() {
-        $infolink = get_config('theme_academi', 'infolink');
+        $infolink = theme_academi_get_setting('infolink');
         $menu = new custom_menu($infolink, current_language());
         $haslangmenu = $this->lang_menu() != '';
 
