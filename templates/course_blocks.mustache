@@ -1,16 +1,16 @@
 {{!
-    Stable Modern Course Blocks 
+    Adaptive Modern Course Blocks 
     - Full background image with text overlay
     - Compatible with Bootstrap 4 (Academi theme)
-    - Enhanced with modern Bootstrap 4 classes
+    - Auto-responsive grid that fills available space
 }}
 
 {{#availablecourses}}
 <div class="available-courses py-5" id="available-courses">
     <div class="container">
-        <div class="row">
+        <div class="adaptive-course-grid">
             {{#courses}}
-            <div class="col-12 col-md-6 col-lg-4 mb-4 p-0">
+            <div class="course-grid-item p-2">
                 <div class="card h-100 border-0 shadow-sm custom-course-card rounded-3 overflow-hidden position-relative" style="aspect-ratio: 16/9;">
                     {{! Full background image }}
                     <div class="position-absolute top-0 start-0 w-100 h-100">
@@ -81,8 +81,54 @@
 {{/promotedcourse}}
 
 <style>
-/* Совместимость и магия CSS */
+/* Adaptive Grid System - автоматически заполняет доступное пространство */
+.adaptive-course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 0;
+    width: 100%;
+}
 
+/* На больших экранах максимум 3 колонки */
+@media (min-width: 1400px) {
+    .adaptive-course-grid {
+        grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    }
+}
+
+/* На средних экранах */
+@media (min-width: 992px) and (max-width: 1399px) {
+    .adaptive-course-grid {
+        grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    }
+}
+
+/* На планшетах */
+@media (min-width: 768px) and (max-width: 991px) {
+    .adaptive-course-grid {
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    }
+}
+
+/* На мобильных */
+@media (max-width: 767px) {
+    .adaptive-course-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+}
+
+/* На очень маленьких экранах - 1 колонка */
+@media (max-width: 576px) {
+    .adaptive-course-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.course-grid-item {
+    width: 100%;
+}
+
+/* Совместимость и магия CSS */
 .custom-course-card {
     transition: all 0.3s ease;
     position: relative;
@@ -102,7 +148,7 @@
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    max-height: 4.5em; /* Fallback */
+    max-height: 4.5em;
 }
 
 /* Aspect-ratio 16:9 для карточек курсов */
@@ -127,28 +173,6 @@
 /* Stretched link fix */
 .stretched-link {
     text-decoration: none;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .custom-course-card {
-        margin-bottom: 1rem;
-        aspect-ratio: 16/9;
-    }
-    
-    .blur-overlay {
-        height: 50px !important;
-    }
-}
-
-@media (max-width: 576px) {
-    .blur-overlay {
-        height: 45px !important;
-    }
-    
-    .col-12.col-md-6.col-lg-4.mb-4 {
-        margin-bottom: 1.5rem !important;
-    }
 }
 
 /* Hover effects for better UX */
