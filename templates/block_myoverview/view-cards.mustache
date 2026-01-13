@@ -1,0 +1,52 @@
+{{!
+    @template block_myoverview/view-cards
+
+    Adaptive Modern Course Blocks for Dashboard
+    - Full background image with text overlay
+    - Compatible with Bootstrap 4 (Academi theme)
+    - Auto-responsive grid that fills available space
+}}
+<div class="adaptive-course-grid dashboard-card-deck" data-region="card-deck" role="list">
+    {{#courses}}
+    <div class="course-grid-item p-2" role="listitem" data-region="course-content" data-course-id="{{id}}">
+        <div class="card h-100 border-0 shadow-sm custom-course-card rounded-3 overflow-hidden position-relative">
+            {{! Full background image }}
+            <div class="position-absolute top-0 start-0 w-100 h-100">
+                <img src="{{courseimage}}" alt="{{{fullname}}}" class="img-fluid w-100 h-100" style="object-fit: cover;" loading="lazy">
+            </div>
+            
+            {{! Overlay gradient for better text readability }}
+            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.7) 100%);"></div>
+            
+            {{! Blur effect only on bottom part where text is located }}
+            <div class="position-absolute bottom-0 start-0 w-100 card-blur-overlay" style="height: 80px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);"></div>
+            
+            <div class="card-body p-4 d-flex flex-column justify-content-end position-relative" style="min-height: 0;">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                    <h5 class="card-title fw-bold text-white mb-0 text-truncate">
+                        <a href="{{viewurl}}" class="text-white text-decoration-none small">{{{fullname}}}</a>
+                    </h5>
+                    {{#isfavourite}}
+                        <span class="text-warning small ml-2"><i class="fa fa-star"></i></span>
+                    {{/isfavourite}}
+                </div>
+                
+                {{#showcoursecategory}}
+                <div class="card-text text-white-50 small mb-2">
+                    <span class="badge badge-pill badge-light opacity-75" style="font-size: 0.7rem;">{{{coursecategory}}}</span>
+                </div>
+                {{/showcoursecategory}}
+
+                {{#hasprogress}}
+                <div class="progress mt-2" style="height: 4px; background: rgba(255,255,255,0.2);">
+                    <div class="progress-bar bg-white" role="progressbar" style="width: {{progress}}%" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+                {{/hasprogress}}
+                
+                {{! Stretched link for the entire card }}
+                <a href="{{viewurl}}" class="stretched-link position-absolute top-0 start-0 w-100 h-100" style="z-index: 1;"></a>
+            </div>
+        </div>
+    </div>
+    {{/courses}}
+</div>

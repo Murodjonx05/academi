@@ -48,6 +48,10 @@
         "hasregionmainsettingsmenu": false,
         "addblockbutton": ""
     }
+{{!
+    @template theme_academi/drawers
+
+    Academi drawers template.
 }}
 {{> theme_boost/head }}
 <body {{{ bodyattributes }}}>
@@ -89,8 +93,9 @@
                 {{$closebuttontext}}{{#str}}closeblockdrawer, core{{/str}}{{/closebuttontext}}
             {{/ theme_boost/drawer}}
         {{/hasblocks}}
+        
         <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container">
-            <div id="topofscroll" class="main-inner">
+            <div id="topofscroll" class="main-inner container-fluid" style="max-width: 100%;">
                 <div class="drawer-toggles d-flex">
                     {{#courseindex}}
                         <div class="drawer-toggler drawer-left-toggle open-nav d-print-none">
@@ -126,14 +131,17 @@
                         </div>
                     {{/hasblocks}}
                 </div>
+                
                 {{{ output.full_header }}}
+                
                 {{#secondarymoremenu}}
                     <div class="secondary-navigation d-print-none">
                         {{> core/moremenu}}
                     </div>
                 {{/secondarymoremenu}}
+                
                 <div id="page-content" class="pb-3 d-print-block">
-                    <div id="region-main-box">
+                    <div id="region-main-box" class="col-12">
                         {{#hasregionmainsettingsmenu}}
                         <div id="region-main-settings-menu" class="d-print-none">
                             <div> {{{ regionmainsettingsmenu }}} </div>
@@ -144,6 +152,7 @@
                             {{#hasregionmainsettingsmenu}}
                                 <div class="region_main_settings_menu_proxy"></div>
                             {{/hasregionmainsettingsmenu}}
+                            
                             {{{ output.course_content_header }}}
                             {{#headercontent}}
                                 {{> core/activity_header }}
@@ -155,7 +164,9 @@
                                     </div>
                                 </div>
                             {{/overflow}}
+                            
                             {{{ output.main_content }}}
+                            
                             {{{ output.activity_navigation }}}
                             {{{ output.course_content_footer }}}
 

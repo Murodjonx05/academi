@@ -1362,9 +1362,12 @@ body:not(.path-admin) .mform {
     display: none;
 }
 .theme-container:not(.path-mod-assign) #page.drawers .main-inner {
-    max-width: $modal-xl;
+    width: 100%;
+    max-width: 100%;
     margin-top: 0;
+    padding: 0 1.5rem;
 }
+/*
 .default-container {
     &#page-admin-themeselector.path-admin #page {
         padding: 0;
@@ -1377,8 +1380,9 @@ body:not(.path-admin) .mform {
         padding-right: 15px;
     }
 }
+*/
 .custom-container #page.drawers .main-inner {
-    max-width: $custom-container;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -1386,7 +1390,7 @@ body:not(.pagelayout-frontpage) {
     &.theme-container.limitedwidth #page.drawers {
         .main-inner,
         .secondary-navigation {
-            max-width: $modal-xl;
+            max-width: 100%;
             margin-left: auto;
             margin-right: auto;
         }
@@ -1394,7 +1398,7 @@ body:not(.pagelayout-frontpage) {
     &.custom-container.limitedwidth #page.drawers {
         .main-inner,
         .secondary-navigation {
-            max-width: $custom-container;
+            max-width: 100%;
             margin-left: auto;
             margin-right: auto;
         }
