@@ -7,3 +7,142 @@
 @import 'course';
 @import 'login';
 @import 'footer';
+
+/* ==========================================================================
+   DESIGN UPGRADE - Modern UI/UX Refinements (Friendly & Rounded)
+   ========================================================================== */
+
+/* 1. Global Modern Aesthetic */
+body {
+    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #f1f5f9 100%) !important;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    color: #1e293b;
+    -webkit-font-smoothing: antialiased;
+}
+
+#region-main {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border: none!important;
+    border-radius: $radius-lg !important; // FRIENDLY RADIUS
+    box-shadow: none!important;
+    // padding: 2.5rem !important;
+    transition: all 0.3s ease;
+}
+
+/* 2. Modern Header & Navigation */
+#header {
+    background: rgba($nav_bg, 0.9) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02) !important;
+    
+    .nav-link {
+        font-weight: 600 !important;
+        color: $nav_text !important;
+        border-radius: $radius-md; // FRIENDLY RADIUS
+        transition: all 0.2s ease;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.15) !important;
+            color: #fff !important;
+        }
+        
+        &.active {
+            background: rgba(255, 255, 255, 0.25) !important;
+            color: #fff !important;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+        }
+    }
+}
+
+/* 3. Refined Buttons */
+.btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    min-height: 45px;
+    line-height: 1 !important;
+    border-radius: $radius-md !important; // FRIENDLY RADIUS
+    padding: 0.75rem 1.5rem !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.01em;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    
+    &.btn-primary {
+        background: linear-gradient(135deg, $primary 0%, darken($primary, 10%) 100%) !important;
+        border: none !important;
+        box-shadow: 0 4px 12px rgba($primary, 0.25) !important;
+        color: #fff !important;
+        
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba($primary, 0.3) !important;
+        }
+    }
+    
+    &.btn-outline-primary {
+        border: 2px solid $primary !important;
+        color: $primary !important;
+        
+        &:hover {
+            background: $primary !important;
+            color: #fff !important;
+        }
+    }
+}
+
+/* 4. Modern Inputs & Forms */
+.form-control, select, textarea {
+    border-radius: $radius-md !important; // FRIENDLY RADIUS
+    border: 1px solid #e2e8f0 !important;
+    padding: 0.8rem 1rem !important;
+    background-color: #f8fafc !important;
+    transition: all 0.2s ease !important;
+    
+    &:focus {
+        background-color: #fff !important;
+        border-color: $primary !important;
+        box-shadow: 0 0 0 4px rgba($primary, 0.1) !important;
+    }
+}
+
+/* 5. Drawers & Sidebar Enhancements */
+.drawer {
+    border: none !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(15px);
+    box-shadow: $shadow-hover !important;
+    border-radius: 0 !important; // Keep drawers flush to edge but can round inside components
+}
+
+/* 6. Typography Overhaul */
+h1, h2, h3, h4, h5, h6 {
+    color: #0f172a !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.025em !important;
+}
+
+/* 7. Pagination Modernization */
+.pagination {
+    gap: 8px;
+    .page-item {
+        .page-link {
+            border-radius: $radius-sm !important; // FRIENDLY RADIUS
+            border: 1px solid #e2e8f0 !important;
+            font-weight: 600;
+            color: #475569;
+            
+            &:hover {
+                background: #f1f5f9;
+                color: $primary;
+            }
+        }
+        &.active .page-link {
+            background: $primary !important;
+            border-color: $primary !important;
+            color: #fff !important;
+        }
+    }
+}

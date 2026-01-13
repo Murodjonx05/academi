@@ -1,7 +1,7 @@
 @import "colors";
 
-$primary: var(--academi-primary, #2563eb) !default;
-$secondary: var(--academi-secondary, #16a34a) !default;
+$primary: #2563eb !default;
+$secondary: #16a34a !default;
 $primary_30: rgba(37, 99, 235, .3) !default;
 $primary_70: rgba(37, 99, 235, .7) !default;
 $secondary_30: rgba(22, 163, 74, .3) !default;
@@ -87,7 +87,7 @@ h6 {
 
     .nav-link {
         &:before {
-            display: ncone;
+            display: none;
         }
 
         &:hover,

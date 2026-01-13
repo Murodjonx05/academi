@@ -114,8 +114,8 @@ legend {
 .moodle-actionmenu[data-enhanced].show .menu {
     padding: 0;
     border-color: $color_whisper;
-    border-radius: 0;
-    box-shadow: none;
+    border-radius: $radius-sm; // FRIENDLY RADIUS
+    box-shadow: $shadow-soft;
     margin: 0;
     a {
         &:hover,
@@ -349,8 +349,8 @@ body:not(.pagelayout-maintenance) #page-wrapper {
         padding-top: 0;
         .d-flex {
             .header-actions-container .simplesearchform .input-group .input-group-append button {
-                border-top-right-radius: 5px;
-                border-bottom-right-radius: 5px;
+                border-top-right-radius: $radius-sm;
+                border-bottom-right-radius: $radius-sm;
             }
         }
         .card {
@@ -369,8 +369,8 @@ body:not(.pagelayout-maintenance) #page-wrapper {
             #page-navbar {
                 height: 100%;
                 box-shadow: 1px 1px 5px $black_20;
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
+                border-top-left-radius: $radius-md;
+                border-bottom-left-radius: $radius-md;
             }
         }
         .page-header-image {
@@ -438,7 +438,7 @@ body:not(.pagelayout-maintenance) #page-wrapper {
 #region-main {
     float: none;
     padding: 0 15px 15px;
-    border-radius: 10px;
+    border-radius: $radius-md; // FRIENDLY RADIUS
     overflow-x: visible;
     .mform:not(.unresponsive) .fitem .fitemtitle label {
         font-weight: normal;
@@ -465,7 +465,7 @@ body:not(.pagelayout-maintenance) #page-wrapper {
     }
     .block-myoverview {
         .progress {
-            border-radius: 5px;
+            border-radius: $radius-pill;
             .progress-bar {
                 background-color: $secondary;
             }
@@ -775,7 +775,7 @@ div.backup-section + form {
     font-weight: normal;
     #dateselector-calendar-content {
         border: 1px solid $mercury;
-        border-radius: 10px;
+        border-radius: $radius-md;
     }
 }
 
@@ -1367,20 +1367,6 @@ body:not(.path-admin) .mform {
     margin-top: 0;
     padding: 0 1.5rem;
 }
-/*
-.default-container {
-    &#page-admin-themeselector.path-admin #page {
-        padding: 0;
-        #page-footer {
-            margin: 0;
-        }
-    }
-    .secondary-navigation + #page-content #region-main {
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-}
-*/
 .custom-container #page.drawers .main-inner {
     max-width: 100%;
     margin-left: auto;
@@ -1541,7 +1527,7 @@ body:not(.pagelayout-frontpage) {
                 text-align: center;
                 border-color: $wild_sand;
                 background-color: $wild_sand;
-                border-radius: 5px;
+                border-radius: $radius-sm; // FRIENDLY RADIUS
                 padding: 20px;
                 margin-right: 1px;
                 &:before {
@@ -1681,6 +1667,7 @@ body:not(.pagelayout-frontpage) {
         border: 1px solid $primary;
         background-color: $white;
         padding: 8px;
+        border-radius: $radius-sm; // FRIENDLY RADIUS
         &:hover,
         &:focus {
             color: $white;

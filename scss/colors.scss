@@ -89,10 +89,19 @@ $asparagus: #689f59;
 $color_silver_86_approx: rgba(189, 189, 189, 0.86);
 
 // Semantic theme tokens using CSS custom properties.
-$surface: var(--academi-surface, #ffffff) !default;
-$surface_muted: var(--academi-surface-muted, #f8fafc) !default;
-$text_primary: var(--academi-text-primary, #1e293b) !default;
-$text_inverse: var(--academi-text-inverse, #ffffff) !default;
-$nav_bg: var(--academi-nav-bg, #2563eb) !default;
-$nav_bg_hover: var(--academi-secondary, #16a34a) !default;
-$nav_text: var(--academi-nav-text, #ffffff) !default;
+$surface: #ffffff !default;
+$surface_muted: #f8fafc !default;
+$text_primary: #1e293b !default;
+$text_inverse: #ffffff !default;
+$nav_bg: #2563eb !default;
+$nav_bg_hover: #16a34a !default;
+$nav_text: #ffffff !default;
+
+// --- Friendly Design Tokens (Radius & Shadows) ---
+$radius-sm: 10px !default;
+$radius-md: 16px !default;
+$radius-lg: 28px !default;
+$radius-pill: 50px !default;
+
+$shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+$shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.1);

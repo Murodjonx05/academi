@@ -1,22 +1,35 @@
+// Course-specific variables
+$course-border-color: rgba(15, 23, 42, 0.08);
+$course-shadow-soft: $shadow-soft; // USE TOKEN
+$course-shadow-strong: $shadow-hover; // USE TOKEN
+$course-radius-large: $radius-lg; // USE TOKEN
+$course-radius-medium: $radius-md; // USE TOKEN
+$course-radius-full: $radius-pill; // USE TOKEN
+$course-text-muted: rgba(15, 23, 42, 0.7);
+$course-text-light: rgba(15, 23, 42, 0.65);
+$course-gradient: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(139, 92, 246, 0.08) 50%, transparent 100%);
+$course-spacer: 1.25rem; // 20px
+$course-gap: 0.5rem; // 8px
+
 /* Courses */
 .pagelayout-course {
     #page {
         &.drawers .main-inner {
-            max-width: none;
+            max-width: 100%;
         }
         #page-header .header-actions-container .header-action {
             .bulkEnable {
-                color: $primary !important;
+                color: $primary;
                 border: 1px solid $primary;
-                border-radius: 5px;
+                border-radius: $radius-sm; // FRIENDLY RADIUS
                 &:hover,
                 &:focus,
                 &:active {
-                    color: $white !important;
+                    color: $white;
                     background-color: $primary;
                 }
                 i.icon {
-                    margin-left: 5px;
+                    margin-left: 0.3125rem;
                     margin-right: 0;
                 }
             }
@@ -25,14 +38,14 @@
 }
 #page-course-index #region-main {
     .coursebox {
-        margin-bottom: 9px;
+        margin-bottom: 0.5625rem;
     }
     .mform {
         fieldset {
-            margin-bottom: 40px;
+            margin-bottom: 2.5rem;
         }
         legend {
-            margin-bottom: 30px;
+            margin-bottom: 1.875rem;
         }
     }
 }
@@ -44,6 +57,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
     }
     .moodle-actionmenu[data-enhance] .toggle-display.textmenu .caret {
         vertical-align: middle;
@@ -54,7 +68,7 @@
         border-left-color: $primary;
     }
     #category-listing .course-count i.icon {
-        margin-left: 5px;
+        margin-left: 0.3125rem;
     }
 }
 
@@ -69,6 +83,8 @@
 
 .list-group-item {
     background: none;
+    border-radius: $radius-md !important; // FRIENDLY RADIUS
+    margin-bottom: 4px;
     &.active {
         background: $primary;
         border-color: $primary;
@@ -97,20 +113,20 @@
     .theme-container.limitedwidth #page.drawers .main-inner {
         #page-header,
         .secondary-navigation {
-            max-width: none;
+            max-width: 100%;
         }
     }
     .course-content .stickyfooter {
         .sticky-footer-content {
             .mx-auto {
-                width: 75%;
+                width: clamp(50%, 75%, 90%);
                 .actions {
                     width: 100%;
-                    flex-wrap: nowrap;
-                    margin: 0 10px;
+                    flex-wrap: wrap;
+                    margin: 0 0.625rem;
                     li.nav-item {
                         width: 100%;
-                        margin: 0 5px;
+                        margin: 0 0.3125rem;
                         .btn {
                             width: 100%;
                             align-items: center;
@@ -122,83 +138,93 @@
     }
     .course_category_tree .category {
         > .info > .categoryname {
-            padding: 10px 15px;
+            padding: 0.625rem 0.9375rem;
         }
     }
     &.limitedwidth.uses-drawers .course-content .stickyfooter .sticky-footer-content {
         max-width: $modal-xl;
     }
     .category .course_category_tree .category.with_children > .info > .categoryname.aabtn {
-        padding-top: 10px;
-        padding-bottom: 10px;
+        padding-top: 0.625rem;
+        padding-bottom: 0.625rem;
     }
 }
 .modchoosercontent .optionscontainer .option .optionactions .btn {
     border: 0;
 }
 
-.course-card,
-.coursebox {
-    border: 1px solid rgba(15, 23, 42, .08);
-    border-radius: 18px;
-    box-shadow: 0 18px 40px rgba(15, 23, 42, .08);
+.course-card {
+    border: 1px solid $course-border-color;
+    border-radius: $course-radius-large;
+    box-shadow: $course-shadow-soft;
     background: $white;
-    padding: 20px;
-    transition: transform .25s ease, box-shadow .25s ease;
-    position: relative;
-    overflow: hidden;
-    &:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 35px 70px rgba(15, 23, 42, .12);
+    overflow: hidden; // To contain the rounded corners of the image
+    @media (prefers-reduced-motion: no-preference) {
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    &:after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(135deg, rgba(61, 139, 109, .08), transparent 65%);
-        opacity: 0;
-        transition: opacity .25s ease;
+
+    &:hover,
+    &:focus {
+        transform: translateY(-0.5rem) scale(1.02);
+        box-shadow: $course-shadow-strong, 0 0 20px rgba(37, 99, 235, 0.15);
+        border-color: rgba(37, 99, 235, 0.2);
     }
-    &:hover:after {
-        opacity: 1;
+
+    .card-img-top {
+        height: 160px; // Increased height for better look
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        transition: transform 0.3s ease;
     }
-    > * {
-        position: relative;
-        z-index: 2;
+
+    &:hover .card-img-top {
+        transform: scale(1.05);
     }
-    .summary {
-        color: rgba(15, 23, 42, .7);
+
+    .course-info-container {
+        padding: $course-spacer;
+        .coursename {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
     }
-    .teachers {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        font-size: .9rem;
-        color: rgba(15, 23, 42, .65);
+
+    .course-card-footer {
+        padding: $course-spacer / 2 $course-spacer;
+        border-top: 1px solid $course-border-color;
     }
-    .coursecat {
-        text-transform: uppercase;
-        letter-spacing: .16em;
-        font-size: .75rem;
-        padding: 4px 12px;
-        border-radius: 999px;
-        background: rgba(76, 110, 245, .12);
-        color: $secondary;
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
+    
+    .course-progress-container {
+        margin-right: $course-spacer;
     }
 }
 
 .activity-item {
-    border-radius: 16px;
+    border-radius: $course-radius-medium;
     border: 1px solid rgba(15, 23, 42, .06);
-    padding: 18px;
+    padding: 1.125rem;
     background: var(--academi-surface-muted, $wild_sand);
-    margin-bottom: 15px;
-    transition: transform .2s ease, box-shadow .2s ease;
-    &:hover {
-        transform: translateY(-4px);
+    margin-bottom: 0.9375rem;
+    @media (prefers-reduced-motion: no-preference) {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    &:hover,
+    &:focus {
+        transform: translateY(-0.25rem);
         box-shadow: 0 15px 30px rgba(15, 23, 42, .12);
+    }
+}
+
+// Responsive breakpoints for column layouts
+@media (max-width: 768px) {
+    .course-card,
+    .coursebox {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    .listing-actions {
+        flex-direction: column;
+        gap: 0.5rem;
     }
 }

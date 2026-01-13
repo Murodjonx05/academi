@@ -6,7 +6,7 @@
     transition: all 0.3s ease;
 
     @if $enable_glassmorphism {
-        background: rgba(var(--academi-nav-bg), 0.85);
+        background: rgba($nav_bg, 0.85);
         backdrop-filter: blur($glassmorphism_blur);
         -webkit-backdrop-filter: blur($glassmorphism_blur);
     }
@@ -21,7 +21,7 @@
                 min-height: 10px;
                 color: $danger;
                 text-align: center;
-                border-radius: 50%;
+                border-radius: $radius-pill;
                 background: $white;
             }
         }
@@ -87,7 +87,7 @@
         a.dropdown-toggle {
             color: $nav_text;
             border: 0;
-            border-radius: 5px;
+            border-radius: $radius-sm; // FRIENDLY RADIUS
             padding: 0;
             box-shadow: none;
         }
@@ -126,14 +126,14 @@
                         height: 35px;
                         background: $white;
                         border: 1px solid $white;
-                        border-radius: 18px;
+                        border-radius: $radius-pill;
 
                         .avatar {
-                            border-radius: 18px;
+                            border-radius: $radius-pill;
                         }
 
                         img {
-                            border-radius: 18px;
+                            border-radius: $radius-pill;
                         }
                     }
                 }
@@ -167,7 +167,7 @@
         }
 
         .dropdown-menu {
-            border-radius: 5px;
+            border-radius: $radius-sm; // FRIENDLY RADIUS
 
             .carousel .carousel-inner .carousel-item a {
                 padding: 10px 15px;
@@ -437,7 +437,7 @@
                     content: '';
                     width: 13px;
                     height: 13px;
-                    border-radius: 50%;
+                    border-radius: $radius-pill;
                     background: $white;
                     display: inline-flex;
                 }
@@ -942,7 +942,7 @@
             height: auto !important;
             color: var(--academi-nav-text);
             text-align: center;
-            border-radius: 8px;
+            border-radius: $radius-sm; // FRIENDLY RADIUS
             border: 1px solid transparent;
             transition: all 0.3s ease;
             font-weight: 500;
