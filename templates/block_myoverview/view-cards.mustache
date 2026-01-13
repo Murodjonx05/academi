@@ -42,6 +42,20 @@
                     <div class="progress-bar bg-white" role="progressbar" style="width: {{progress}}%" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
                 {{/hasprogress}}
+
+                {{#summary}}
+                <div class="course-description mt-2 text-white-50 small">
+                    <div class="text-truncate-3-lines">
+                        {{#shortentext}}150, {{{summary}}}{{/shortentext}}
+                    </div>
+                </div>
+                {{/summary}}
+
+                {{^summary}}
+                <div class="course-shortname mt-2 text-white-50 small">
+                    {{shortname}}
+                </div>
+                {{/summary}}
                 
                 {{! Stretched link for the entire card }}
                 <a href="{{viewurl}}" class="stretched-link position-absolute top-0 start-0 w-100 h-100" style="z-index: 1;"></a>
