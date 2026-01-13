@@ -22,9 +22,10 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 defined('MOODLE_INTERNAL') || die();
+use theme_academi\output\academi_layout_helper;
 
-$copyrightfooter = theme_academi_get_setting('copyright_footer', 'format_html');
-$logourl = theme_academi_get_logo_url('header');
+$copyrightfooter = format_text(get_config('theme_academi', 'copyright_footer'), FORMAT_HTML, ['trusted' => true, 'noclean' => true]);
+$logourl = academi_layout_helper::get_logo_url('header');
 $templatecontext = [
     // We cannot pass the context to format_string, this layout can be used during
     // installation. At that stage database tables do not exist yet.

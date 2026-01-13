@@ -62,19 +62,19 @@ class helper {
      */
     public function load_additional_scss_settings() {
         $scss = '';
-        $primary = theme_academi_get_setting('primarycolor');
-        $secondary = theme_academi_get_setting('secondarycolor');
-        $textprimary = theme_academi_get_setting('textcolor');
-        $textinverse = theme_academi_get_setting('textcolorinverse');
-        $navbg = theme_academi_get_setting('navbg');
-        $navtext = theme_academi_get_setting('navtext');
-        $slideoverlayval = theme_academi_get_setting('slideOverlay');
+        $primary = get_config('theme_academi', 'primarycolor');
+        $secondary = get_config('theme_academi', 'secondarycolor');
+        $textprimary = get_config('theme_academi', 'textcolor');
+        $textinverse = get_config('theme_academi', 'textcolorinverse');
+        $navbg = get_config('theme_academi', 'navbg');
+        $navtext = get_config('theme_academi', 'navtext');
+        $slideoverlayval = get_config('theme_academi', 'slideOverlay');
         $slideopacity = (!empty($slideoverlayval)) ? $this->get_hexa('#000000', $slideoverlayval) : 0.4;
-        $footerbgoverlayval = theme_academi_get_setting('footerbgOverlay');
+        $footerbgoverlayval = get_config('theme_academi', 'footerbgOverlay');
 
         $footerbgopacity = (!empty($footerbgoverlayval)) ? $this->get_hexa($primary, $footerbgoverlayval) : 0.4;
-        $pagesizecustomval = theme_academi_get_setting('pagesizecustomval');
-        $fontsize = theme_academi_get_setting('fontsize');
+        $pagesizecustomval = get_config('theme_academi', 'pagesizecustomval');
+        $fontsize = get_config('theme_academi', 'fontsize');
         $primary30 = $this->get_hexa($primary, '0.3');
         $secondary30 = $this->get_hexa($secondary, '0.3');
         $primary50 = $this->get_hexa($primary, '0.5');
@@ -92,8 +92,8 @@ class helper {
         $scss .= $navbg ? '$nav_bg:'.$navbg.";\n" : "";
         $scss .= $navtext ? '$nav_text:'.$navtext.";\n" : "";
         // Glassmorphism settings
-        $glassmorphism = theme_academi_get_setting('enable_glassmorphism');
-        $blur = theme_academi_get_setting('glassmorphism_blur') ?: 16;
+        $glassmorphism = get_config('theme_academi', 'enable_glassmorphism');
+        $blur = get_config('theme_academi', 'glassmorphism_blur') ?: 16;
         $scss .= '$enable_glassmorphism:'.($glassmorphism ? 'true' : 'false').";\n";
         $scss .= '$glassmorphism_blur:'.$blur."px;\n";
 
@@ -218,7 +218,7 @@ class helper {
         global $PAGE;
         // Get slide image or fallback to default.
         $slideimage = '';
-        if (theme_academi_get_setting($slidername)) {
+        if (get_config('theme_academi', $slidername)) {
             $slideimage = $PAGE->theme->setting_file_url($slidername , $slidername);
         }
         if (empty($slidername)) {

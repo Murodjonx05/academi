@@ -26,7 +26,7 @@ defined('MOODLE_INTERNAL') || die;
 
 $THEME->name = 'academi';
 
-$THEME->sheets = ['custom','main','root','dev'];
+$THEME->sheets = [];
 
 $THEME->editor_sheets = [];
 

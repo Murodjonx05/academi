@@ -144,14 +144,14 @@ function theme_academi_pluginfile($course, $cm, $context, $filearea, $args, $for
  * @return string
  */
 function theme_academi_inject_css_variables($css, $theme) {
-    $primary = theme_academi_get_setting('primarycolor') ?: '#2563eb';
-    $secondary = theme_academi_get_setting('secondarycolor') ?: '#16a34a';
-    $accent = theme_academi_get_setting('accentcolor') ?: $secondary;
-    $textprimary = theme_academi_get_setting('textcolor') ?: '#1e293b';
-    $textinverse = theme_academi_get_setting('textcolorinverse') ?: '#ffffff';
-    $navbg = theme_academi_get_setting('navbg') ?: $primary;
-    $navtext = theme_academi_get_setting('navtext') ?: '#ffffff';
-    $surface_muted = theme_academi_get_setting('surface_muted') ?: '#f8fafc';
+    $primary = $theme->setting->primarycolor ?: '#2563eb';
+    $secondary = $theme->setting->secondarycolor ?: '#16a34a';
+    $accent = $theme->setting->accentcolor ?: $secondary;
+    $textprimary = $theme->setting->textcolor ?: '#1e293b';
+    $textinverse = $theme->setting->textcolorinverse ?: '#ffffff';
+    $navbg = $theme->setting->navbg ?: $primary;
+    $navtext = $theme->setting->navtext ?: '#ffffff';
+    $surface_muted = $theme->setting->surface_muted ?: '#f8fafc';
 
     $css_variables = ":root {\n";
     $css_variables .= "  --academi-primary: {$primary};\n";
@@ -201,77 +201,11 @@ function theme_academi_set_fontwww() {
 }
 
 
-/**
- * Description
- *
- * @param string $type logo position type.
- * @return type|string
- */
-function theme_academi_get_logo_url($type = 'header') {
-    global $OUTPUT;
-    static $theme;
-    if (empty($theme)) {
-        $theme = theme_config::load('academi');
-    }
-    if ($type == 'header') {
-        $logo = $theme->setting_file_url('logo', 'logo');
-        $logo = empty($logo) ? $OUTPUT->get_compact_logo_url() : $logo;
-    } else if ($type == 'footer') {
-        $logo = $theme->setting_file_url('footerlogo', 'footerlogo');
-        $logo = empty($logo) ? '' : $logo;
-    }
-    return $logo;
-}
 
-/**
- *
- * Description
- * @param string $setting
- * @param bool $format
- * @return string
- */
-function theme_academi_get_setting($setting, $format = true) {
-    global $CFG, $PAGE;
-    require_once($CFG->dirroot . '/lib/weblib.php');
-    static $theme;
-    if (empty($theme)) {
-        $theme = theme_config::load('academi');
-    }
-    if (empty($theme->settings->$setting)) {
-        return false;
-    } else if (!$format) {
-        $return = $theme->settings->$setting;
-    } else if ($format === 'format_text') {
-        $return = format_text($theme->settings->$setting, FORMAT_PLAIN);
-    } else if ($format === 'format_html') {
-        $return = format_text($theme->settings->$setting, FORMAT_HTML, ['trusted' => true, 'noclean' => true]);
-    } else if ($format === 'file') {
-        $return = $PAGE->theme->setting_file_url($setting, $setting);
-    } else {
-        $return = format_string($theme->settings->$setting);
-    }
-    return (isset($return)) ? theme_academi_lang($return) : '';
-}
 
-/**
- * Returns the language values from the given lang string or key.
- * @param string $key
- * @return string
- */
-function theme_academi_lang($key='') {
-    $pos = strpos($key, 'lang:');
-    if ($pos !== false) {
-        list($l, $k) = explode(":", $key);
-        if (get_string_manager()->string_exists($k, 'theme_academi')) {
-            $v = get_string($k, 'theme_academi');
-            return $v;
-        } else {
-            return $key;
-        }
-    } else {
-        return $key;
-    }
-}
+
+
+
 
 /**
  * Returns the main SCSS content.

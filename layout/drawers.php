@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 require_once(dirname(__FILE__) .'/includes/layoutdata.php');
 
 
-$pagesize = theme_academi_get_setting('pagesize');
+$pagesize = get_config('theme_academi', 'pagesize');
 if ($pagesize == 'container') {
     $extraclasses[] = 'theme-container';
 } else if ($pagesize == 'default') {
