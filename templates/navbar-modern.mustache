@@ -1,0 +1,140 @@
+{{!
+    @template theme_academi/navbar-modern
+    
+    Modern responsive navbar with 320px+ support
+    
+    Context:
+    * logo - Logo URL
+    * sitename - Site name
+    * navitems - Array of navigation items
+    * userloggedin - Boolean
+    * userfullname - User full name
+    * useravatar - User avatar URL
+    * usermenu - User menu items array
+}}
+<nav class="navbar" role="navigation" aria-label="{{#str}}navigation, core{{/str}}">
+    <div class="navbar-container">
+        
+        {{! Logo/Brand }}
+        <a href="{{config.wwwroot}}" class="navbar-brand">
+            {{#logo}}
+                <img src="{{{logo}}}" alt="{{sitename}}">
+            {{/logo}}
+            {{^logo}}
+                <span>{{sitename}}</span>
+            {{/logo}}
+        </a>
+
+        {{! Mobile Toggle }}
+        <button class="navbar-toggler" 
+                type="button" 
+                aria-expanded="false" 
+                aria-controls="navbarNav"
+                aria-label="{{#str}}togglenavigation, core{{/str}}">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        {{! Navigation Menu }}
+        <div class="navbar-nav" id="navbarNav">
+            {{#navitems}}
+                <div class="nav-item{{#isdropdown}} dropdown{{/isdropdown}}">
+                    {{#isdropdown}}
+                        <a href="#" 
+                           class="nav-link dropdown-toggle" 
+                           role="button"
+                           aria-expanded="false"
+                           aria-haspopup="true">
+                            {{text}}
+                        </a>
+                        <div class="dropdown-menu">
+                            {{#children}}
+                                <a href="{{{url}}}" class="dropdown-item">
+                                    {{text}}
+                                </a>
+                            {{/children}}
+                        </div>
+                    {{/isdropdown}}
+                    {{^isdropdown}}
+                        <a href="{{{url}}}" 
+                           class="nav-link{{#isactive}} active{{/isactive}}"
+                           {{#isactive}}aria-current="page"{{/isactive}}>
+                            {{text}}
+                        </a>
+                    {{/isdropdown}}
+                </div>
+            {{/navitems}}
+        </div>
+
+        {{! User Menu }}
+        {{#userloggedin}}
+            <div class="navbar-user">
+                <div class="nav-item dropdown">
+                    <button class="nav-link dropdown-toggle" 
+                            type="button"
+                            aria-expanded="false"
+                            aria-haspopup="true"
+                            aria-label="{{#str}}usermenu, core{{/str}}">
+                        {{#useravatar}}
+                            <img src="{{{useravatar}}}" 
+                                 alt="{{userfullname}}" 
+                                 class="user-avatar">
+                        {{/useravatar}}
+                        {{^useravatar}}
+                            <span>{{userfullname}}</span>
+                        {{/useravatar}}
+                    </button>
+                    <div class="dropdown-menu">
+                        {{#usermenu}}
+                            <a href="{{{url}}}" class="dropdown-item">
+                                {{text}}
+                            </a>
+                        {{/usermenu}}
+                    </div>
+                </div>
+            </div>
+        {{/userloggedin}}
+    </div>
+</nav>
+
+{{#js}}
+require(['jquery'], function($) {
+    'use strict';
+    
+    // Toggle mobile menu
+    $('.navbar-toggler').on('click', function() {
+        var $nav = $('#navbarNav');
+        var expanded = $(this).attr('aria-expanded') === 'true';
+        
+        $(this).attr('aria-expanded', !expanded);
+        $nav.toggleClass('show');
+    });
+    
+    // Toggle dropdowns
+    $('.dropdown-toggle').on('click', function(e) {
+        e.preventDefault();
+        var $dropdown = $(this).closest('.dropdown');
+        var $menu = $dropdown.find('.dropdown-menu');
+        var expanded = $(this).attr('aria-expanded') === 'true';
+        
+        // Close other dropdowns
+        $('.dropdown-menu.show').not($menu).removeClass('show');
+        $('.dropdown-toggle[aria-expanded="true"]').not(this).attr('aria-expanded', 'false');
+        
+        $(this).attr('aria-expanded', !expanded);
+        $menu.toggleClass('show');
+    });
+    
+    // Close dropdowns on outside click
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.dropdown').length) {
+            $('.dropdown-menu.show').removeClass('show');
+            $('.dropdown-toggle[aria-expanded="true"]').attr('aria-expanded', 'false');
+        }
+    });
+    
+    // Add scrolled class on scroll
+    $(window).on('scroll', function() {
+        $('.navbar').toggleClass('scrolled', $(window).scrollTop() > 10);
+    });
+});
+{{/js}}

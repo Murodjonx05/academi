@@ -1,0 +1,16 @@
+// ============================================================================
+// HEADER - CLEAN REPLACEMENT (Import this instead of old header.scss)
+// ============================================================================
+@import 'design-system';
+@import 'navbar-modern';
+
+// Legacy compatibility wrapper
+#header {
+    @extend .navbar;
+}
+
+// Remove old conflicting styles
+#header.navbar.fixed-top {
+    position: sticky;
+    top: 0;
+}

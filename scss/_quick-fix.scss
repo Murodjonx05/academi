@@ -1,0 +1,228 @@
+/* ============================================================================
+   QUICK FIX - Исправление отступов и кнопок
+   ============================================================================
+   
+   Добавьте этот файл в theme.scss ПЕРВЫМ для быстрого исправления!
+   ============================================================================ */
+
+/* 1. УБИРАЕМ ВСЕ ЛИШНИЕ ОТСТУПЫ */
+body,
+html {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#page-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Navbar - без отступов */
+#header,
+.navbar,
+nav[role="navigation"] {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Footer - без отступов */
+#page-footer,
+footer {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Контент - только внутренние отступы */
+#page {
+    margin: 0 auto !important;
+    padding: 16px !important;
+}
+
+@media (min-width: 768px) {
+    #page {
+        padding: 32px !important;
+    }
+}
+
+/* 2. ДРУЖЕЛЮБНЫЕ КНОПКИ (ROUNDED) */
+.btn,
+button[class*="btn"],
+a[class*="btn"],
+input[type="submit"],
+input[type="button"] {
+    border-radius: 12px !important; /* Дружелюбный rounded */
+    padding: 12px 24px !important;
+    font-weight: 600 !important;
+    transition: all 0.2s ease !important;
+}
+
+/* Primary кнопки - используют переменные админки */
+.btn-primary {
+    background: var(--academi-primary, #2563eb) !important;
+    color: var(--academi-text-inverse, #ffffff) !important;
+    border: 2px solid var(--academi-primary, #2563eb) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35) !important;
+}
+
+/* Secondary кнопки */
+.btn-secondary {
+    background: var(--academi-secondary, #16a34a) !important;
+    color: var(--academi-text-inverse, #ffffff) !important;
+    border: 2px solid var(--academi-secondary, #16a34a) !important;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25) !important;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35) !important;
+}
+
+/* Success кнопки */
+.btn-success {
+    background: #22c55e !important;
+    color: #ffffff !important;
+    border: 2px solid #22c55e !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25) !important;
+}
+
+.btn-success:hover,
+.btn-success:focus {
+    background: #16a34a !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35) !important;
+}
+
+/* 3. КАРТОЧКИ - ДРУЖЕЛЮБНЫЕ */
+.card,
+.course-card,
+[class*="card"] {
+    border-radius: 16px !important; /* Большой rounded для карточек */
+    overflow: hidden;
+}
+
+/* 4. ИНПУТЫ - ДРУЖЕЛЮБНЫЕ */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+textarea,
+select,
+.form-control {
+    border-radius: 12px !important;
+    border: 1px solid #e2e8f0 !important;
+    padding: 12px 16px !important;
+    transition: all 0.2s ease !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+.form-control:focus {
+    border-color: var(--academi-primary, #2563eb) !important;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1) !important;
+    outline: none !important;
+}
+
+/* 5. МОДАЛЬНЫЕ ОКНА - ДРУЖЕЛЮБНЫЕ */
+.modal-content,
+.modal-dialog {
+    border-radius: 20px !important;
+}
+
+/* 6. АЛЕРТЫ - ДРУЖЕЛЮБНЫЕ */
+.alert {
+    border-radius: 12px !important;
+    border-left-width: 4px !important;
+}
+
+/* 7. BADGES - ДРУЖЕЛЮБНЫЕ */
+.badge,
+[class*="badge"] {
+    border-radius: 9999px !important; /* Полностью rounded */
+    padding: 4px 12px !important;
+}
+
+/* 8. PAGINATION - ДРУЖЕЛЮБНЫЕ */
+.pagination .page-link,
+.page-item .page-link {
+    border-radius: 8px !important;
+    margin: 0 4px !important;
+}
+
+/* 9. DROPDOWN - ДРУЖЕЛЮБНЫЕ */
+.dropdown-menu {
+    border-radius: 12px !important;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dropdown-item {
+    border-radius: 6px !important;
+    margin: 2px 4px !important;
+}
+
+/* 10. TABS - ДРУЖЕЛЮБНЫЕ */
+.nav-tabs .nav-link {
+    border-radius: 12px 12px 0 0 !important;
+}
+
+/* 11. PROGRESS BAR - ДРУЖЕЛЮБНЫЕ */
+.progress {
+    border-radius: 9999px !important;
+    overflow: hidden;
+}
+
+.progress-bar {
+    border-radius: 9999px !important;
+}
+
+/* 12. МОБИЛЬНАЯ АДАПТАЦИЯ */
+@media (max-width: 575px) {
+    .btn {
+        padding: 10px 20px !important;
+        font-size: 14px !important;
+    }
+    
+    #page {
+        padding: 12px !important;
+    }
+}
+
+/* 13. УБИРАЕМ ОТСТУПЫ У КОНТЕЙНЕРОВ */
+.container,
+.container-fluid {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+}
+
+@media (min-width: 768px) {
+    .container,
+    .container-fluid {
+        padding-left: 32px !important;
+        padding-right: 32px !important;
+    }
+}
+
+/* 14. DRAWER - БЕЗ ОТСТУПОВ */
+.drawer,
+[class*="drawer"] {
+    margin: 0 !important;
+}
+
+/* 15. REGION-MAIN - БЕЗ ЛИШНИХ ОТСТУПОВ */
+#region-main {
+    margin: 0 !important;
+}
+
+/* ============================================================================
+   КОНЕЦ QUICK FIX
+   ============================================================================ */

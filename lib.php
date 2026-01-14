@@ -151,6 +151,7 @@ function theme_academi_inject_css_variables($css, $theme) {
     $textinverse = theme_academi_get_setting('textcolorinverse') ?: '#ffffff';
     $navbg = theme_academi_get_setting('navbg') ?: $primary;
     $navtext = theme_academi_get_setting('navtext') ?: '#ffffff';
+    $navlinkhoveractivecolor = theme_academi_get_setting('navlinkhoveractivecolor') ?: '#ffffff';
     $surface_muted = theme_academi_get_setting('surface_muted') ?: '#f8fafc';
 
     $css_variables = ":root {\n";
@@ -161,6 +162,7 @@ function theme_academi_inject_css_variables($css, $theme) {
     $css_variables .= "  --academi-text-inverse: {$textinverse};\n";
     $css_variables .= "  --academi-nav-bg: {$navbg};\n";
     $css_variables .= "  --academi-nav-text: {$navtext};\n";
+    $css_variables .= "  --academi-navlinkhoveractivecolor: {$navlinkhoveractivecolor};\n";
     $css_variables .= "  --academi-surface-muted: {$surface_muted};\n";
     $css_variables .= "}\n";
 

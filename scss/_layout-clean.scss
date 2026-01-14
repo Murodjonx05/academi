@@ -1,0 +1,42 @@
+// ============================================================================
+// FOOTER - Clean, No Margins + Admin Variables
+// ============================================================================
+@import 'design-system';
+
+#page-footer {
+    margin: 0 !important; // Убираем margin
+    padding: 0 !important; // Убираем padding на контейнере
+    background: var(--academi-nav-bg, #1e293b);
+    color: var(--academi-text-inverse, #ffffff);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    padding: $space-xl $space-md; // Padding только внутри контента
+    max-width: $container-xl;
+    margin: 0 auto;
+    
+    @include respond-above($breakpoint-md) {
+        padding: $space-2xl $space-lg;
+    }
+}
+
+// Убираем все возможные отступы
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#page-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#page {
+    margin: 0 auto !important;
+    padding: $space-md !important;
+    
+    @include respond-above($breakpoint-md) {
+        padding: $space-lg !important;
+    }
+}

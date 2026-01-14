@@ -1,0 +1,201 @@
+// ============================================================================
+// BUTTONS - Friendly Rounded Design + Admin Variables
+// ============================================================================
+@import 'design-system';
+
+// Базовые стили для всех кнопок
+.btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: $space-xs;
+    padding: 12px 24px !important;
+    border-radius: $radius-lg !important; // 12px - дружелюбный rounded
+    font-weight: $font-weight-semibold !important;
+    font-size: $font-size-base !important;
+    line-height: 1.5 !important;
+    text-decoration: none !important;
+    border: 2px solid transparent !important;
+    transition: all $transition-base !important;
+    cursor: pointer;
+    white-space: nowrap;
+    
+    &:hover {
+        transform: translateY(-2px);
+        text-decoration: none !important;
+    }
+    
+    &:active {
+        transform: translateY(0);
+    }
+    
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+        transform: none !important;
+    }
+}
+
+// Primary - использует переменные из админки
+.btn-primary {
+    background: var(--academi-primary, #2563eb) !important;
+    color: var(--academi-text-inverse, #ffffff) !important;
+    border-color: var(--academi-primary, #2563eb) !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
+    
+    &:hover,
+    &:focus {
+        background: var(--academi-primary, #2563eb) !important;
+        filter: brightness(1.1);
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35) !important;
+        color: var(--academi-text-inverse, #ffffff) !important;
+    }
+}
+
+// Secondary - использует переменные из админки
+.btn-secondary {
+    background: var(--academi-secondary, #16a34a) !important;
+    color: var(--academi-text-inverse, #ffffff) !important;
+    border-color: var(--academi-secondary, #16a34a) !important;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25) !important;
+    
+    &:hover,
+    &:focus {
+        background: var(--academi-secondary, #16a34a) !important;
+        filter: brightness(1.1);
+        box-shadow: 0 8px 20px rgba(22, 163, 74, 0.35) !important;
+        color: var(--academi-text-inverse, #ffffff) !important;
+    }
+}
+
+// Success - зеленый, дружелюбный
+.btn-success {
+    background: #22c55e !important;
+    color: #ffffff !important;
+    border-color: #22c55e !important;
+    box-shadow: 0 4px 12px rgba(34, 197, 94, 0.25) !important;
+    
+    &:hover,
+    &:focus {
+        background: #16a34a !important;
+        box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35) !important;
+        color: #ffffff !important;
+    }
+}
+
+// Danger - красный
+.btn-danger {
+    background: #ef4444 !important;
+    color: #ffffff !important;
+    border-color: #ef4444 !important;
+    box-shadow: 0 4px 12px rgba(239, 68, 68, 0.25) !important;
+    
+    &:hover,
+    &:focus {
+        background: #dc2626 !important;
+        box-shadow: 0 8px 20px rgba(239, 68, 68, 0.35) !important;
+        color: #ffffff !important;
+    }
+}
+
+// Warning - желтый
+.btn-warning {
+    background: #f59e0b !important;
+    color: #ffffff !important;
+    border-color: #f59e0b !important;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.25) !important;
+    
+    &:hover,
+    &:focus {
+        background: #d97706 !important;
+        box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35) !important;
+        color: #ffffff !important;
+    }
+}
+
+// Info - синий
+.btn-info {
+    background: #3b82f6 !important;
+    color: #ffffff !important;
+    border-color: #3b82f6 !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25) !important;
+    
+    &:hover,
+    &:focus {
+        background: #2563eb !important;
+        box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35) !important;
+        color: #ffffff !important;
+    }
+}
+
+// Outline варианты - используют переменные
+.btn-outline-primary {
+    background: transparent !important;
+    color: var(--academi-primary, #2563eb) !important;
+    border-color: var(--academi-primary, #2563eb) !important;
+    
+    &:hover,
+    &:focus {
+        background: var(--academi-primary, #2563eb) !important;
+        color: var(--academi-text-inverse, #ffffff) !important;
+    }
+}
+
+.btn-outline-secondary {
+    background: transparent !important;
+    color: var(--academi-secondary, #16a34a) !important;
+    border-color: var(--academi-secondary, #16a34a) !important;
+    
+    &:hover,
+    &:focus {
+        background: var(--academi-secondary, #16a34a) !important;
+        color: var(--academi-text-inverse, #ffffff) !important;
+    }
+}
+
+// Размеры
+.btn-sm {
+    padding: 8px 16px !important;
+    font-size: $font-size-sm !important;
+    border-radius: $radius-md !important; // 8px
+}
+
+.btn-lg {
+    padding: 16px 32px !important;
+    font-size: $font-size-h5 !important;
+    border-radius: $radius-xl !important; // 16px
+}
+
+// Блочная кнопка
+.btn-block {
+    display: flex !important;
+    width: 100%;
+}
+
+// Группа кнопок
+.btn-group {
+    display: inline-flex;
+    gap: $space-xs;
+    
+    .btn {
+        margin: 0 !important;
+    }
+}
+
+// Иконки в кнопках
+.btn i,
+.btn .icon {
+    font-size: 1.1em;
+}
+
+// Мобильная адаптация
+@media (max-width: 575px) {
+    .btn {
+        padding: 10px 20px !important;
+        font-size: $font-size-sm !important;
+    }
+    
+    .btn-lg {
+        padding: 14px 28px !important;
+    }
+}

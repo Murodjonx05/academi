@@ -1,0 +1,120 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    @template theme_academi/course_card
+
+    Course card component with modern design.
+
+    Context variables:
+    * id - Course ID
+    * fullname - Course full name
+    * shortname - Course short name
+    * courseurl - URL to course
+    * imageurl - Course image URL
+    * hasimage - Boolean if image exists
+    * summary - Course summary (truncated)
+    * isenrolled - Boolean if user enrolled
+    * hasprogress - Boolean if progress tracking enabled
+    * progress - Progress percentage (0-100)
+    * status - Status object {label, class}
+    * teachers - Array of teacher objects
+    * hasteachers - Boolean if teachers exist
+    * category - Category name
+    * categoryurl - Category URL
+    * startdate - Formatted start date
+    * enddate - Formatted end date
+    * arialabel - Accessibility label
+    * progressarialabel - Progress accessibility label
+
+    Example context (json):
+    {
+        "id": 123,
+        "fullname": "Advanced Web Development",
+        "courseurl": "https://...",
+        "imageurl": "https://...",
+        "hasimage": true,
+        "hasprogress": true,
+        "progress": 65,
+        "status": {"label": "In Progress", "class": "badge-inprogress"},
+        "teachers": [{"fullname": "Dr. Smith", "pictureurl": "..."}]
+    }
+}}
+<article class="course-card" data-course-id="{{id}}" role="article" aria-label="{{arialabel}}">
+    <a href="{{{courseurl}}}" class="course-card__link" aria-label="{{#str}}gotocourse, theme_academi{{/str}}: {{fullname}}">
+        
+        {{! Course Image }}
+        <div class="course-card__image-wrapper">
+            {{#hasimage}}
+                <img src="{{{imageurl}}}" alt="" class="course-card__image" loading="lazy">
+            {{/hasimage}}
+            {{^hasimage}}
+                <div class="course-card__image course-card__image--placeholder" aria-hidden="true">
+                    <i class="fa fa-graduation-cap"></i>
+                </div>
+            {{/hasimage}}
+            
+            {{! Status Badge }}
+            <span class="course-card__badge {{status.class}}" aria-label="{{#str}}coursestatus, theme_academi{{/str}}: {{status.label}}">
+                {{status.label}}
+            </span>
+        </div>
+
+        {{! Card Content }}
+        <div class="course-card__content">
+            
+            {{! Category Tag }}
+            {{#category}}
+                <span class="course-card__category">
+                    <i class="fa fa-folder-o" aria-hidden="true"></i>
+                    {{category}}
+                </span>
+            {{/category}}
+
+            {{! Course Title }}
+            <h3 class="course-card__title">
+                {{fullname}}
+            </h3>
+
+            {{! Course Summary }}
+            {{#summary}}
+                <p class="course-card__summary">
+                    {{summary}}
+                </p>
+            {{/summary}}
+
+            {{! Teachers }}
+            {{#hasteachers}}
+                <div class="course-card__teachers" aria-label="{{#str}}teachers, theme_academi{{/str}}">
+                    {{#teachers}}
+                        <div class="course-card__teacher" title="{{fullname}}">
+                            {{{pictureurl}}}
+                        </div>
+                    {{/teachers}}
+                </div>
+            {{/hasteachers}}
+
+            {{! Meta Info }}
+            <div class="course-card__meta">
+                {{#startdate}}
+                    <span class="course-card__date">
+                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                        <span class="sr-only">{{#str}}startdate, theme_academi{{/str}}:</span>
+                        {{startdate}}
+                    </span>
+                {{/startdate}}
+            </div>
+        </div>
+
+        {{! Progress Bar }}
+        {{#hasprogress}}
+            <div class="course-card__progress-wrapper" role="progressbar" 
+                 aria-valuenow="{{progress}}" 
+                 aria-valuemin="0" 
+                 aria-valuemax="100"
+                 aria-label="{{progressarialabel}}"
+                 title="{{progress}}% {{#str}}complete, core{{/str}}">
+                <div class="course-card__progress-bar" style="width: {{progress}}%"></div>
+            </div>
+        {{/hasprogress}}
+    </a>
+</article>

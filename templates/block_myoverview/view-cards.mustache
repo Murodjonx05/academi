@@ -1,66 +1,179 @@
 {{!
     @template block_myoverview/view-cards
-
-    Adaptive Modern Course Blocks for Dashboard
-    - Full background image with text overlay
-    - Compatible with Bootstrap 4 (Academi theme)
-    - Auto-responsive grid that fills available space
+    
+    Exact Replica of Course Blocks for Dashboard
+    - 100% Shared Design DNA
+    - Mapped variables for Dashboard context
 }}
-<div class="adaptive-course-grid dashboard-card-deck" data-region="card-deck" role="list">
+
+<div class="card-deck dashboard-card-deck row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4 g-4" data-region="card-deck" role="list">
     {{#courses}}
-    <div class="course-grid-item p-2" role="listitem" data-region="course-content" data-course-id="{{id}}">
-        <div class="card h-100 border-0 shadow-sm custom-course-card rounded-3 overflow-hidden position-relative">
-            {{! Full background image }}
-            <div class="position-absolute top-0 start-0 w-100 h-100">
-                <img src="{{courseimage}}" alt="{{{fullname}}}" class="img-fluid w-100 h-100" style="object-fit: cover;" loading="lazy">
+    <div class="col" role="listitem" data-region="course-content" data-course-id="{{id}}">
+        <div class="card h-100 border-0 shadow-sm custom-course-card rounded-4 overflow-hidden position-relative" tabindex="0">
+            {{! Background Image Layer }}
+            <div class="card-img-wrapper position-absolute top-0 start-0 w-100 h-100">
+                <img src="{{courseimage}}" alt="{{fullname}}" class="img-fluid w-100 h-100" style="object-fit: cover;" loading="lazy">
+                {{! Dark overlay for better contrast base }}
+                <div class="img-overlay"></div>
             </div>
             
-            {{! Overlay gradient for better text readability }}
-            <div class="position-absolute top-0 start-0 w-100 h-100" style="background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 20%, rgba(0,0,0,0.7) 100%);"></div>
-            
-            {{! Blur effect only on bottom part where text is located }}
-            <div class="position-absolute bottom-0 start-0 w-100 card-blur-overlay" style="height: 80px; backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 100%);"></div>
-            
-            <div class="card-body p-4 d-flex flex-column justify-content-end position-relative" style="min-height: 0;">
-                <div class="d-flex justify-content-between align-items-center mb-1">
-                    <h5 class="card-title fw-bold text-white mb-0 text-truncate">
-                        <a href="{{viewurl}}" class="text-white text-decoration-none small">{{{fullname}}}</a>
+            {{! Content Body - Pushed to bottom }}
+            <div class="card-body p-0 d-flex flex-column justify-content-end position-relative" style="z-index: 2;">
+                
+                {{! Glassmorphism Footer }}
+                <div class="glass-footer w-100 p-3">
+                    <h5 class="card-title fw-bold text-white mb-2" style="font-size: 1.1rem; line-height: 1.3;">
+                        <a href="{{viewurl}}" class="text-white text-decoration-none title-clamp">{{{fullname}}}</a>
                     </h5>
+                    
+                    {{! Progress Bar or Shortname (Context dependent) }}
+                    {{#hasprogress}}
+                    <div class="card-text text-white-50 small mb-0">
+                         <div class="d-flex align-items-center gap-2">
+                            <div class="progress flex-grow-1 bg-white bg-opacity-10" style="height: 6px; border-radius: 3px;">
+                                <div class="progress-bar bg-white" role="progressbar" 
+                                     style="width: {{progress}}%; box-shadow: 0 0 8px rgba(255,255,255,0.4);" 
+                                     aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100">
+                                </div>
+                            </div>
+                            <span class="small text-white fw-bold">{{progress}}%</span>
+                        </div>
+                    </div>
+                    {{/hasprogress}}
+                    
+                    {{^hasprogress}}
+                        {{#showshortname}}
+                        <div class="card-text text-white-50 small mb-0">
+                             <span class="opacity-75">{{shortname}}</span>
+                        </div>
+                        {{/showshortname}}
+                    {{/hasprogress}}
+                </div>
+                
+                {{! Full card link }}
+                <a href="{{viewurl}}" class="stretched-link"></a>
+
+                {{! Favourites Icon - Absolute Position (Overlay) }}
+                <div class="position-absolute top-0 end-0 p-3 z-index-3">
                     {{#isfavourite}}
-                        <span class="text-warning small ml-2"><i class="fa fa-star"></i></span>
+                        <div class="text-warning drop-shadow-md" style="font-size: 1.2rem;">
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
                     {{/isfavourite}}
                 </div>
-                
-                {{#showcoursecategory}}
-                <div class="card-text text-white-50 small mb-2">
-                    <span class="badge badge-pill badge-light opacity-75" style="font-size: 0.7rem;">{{{coursecategory}}}</span>
-                </div>
-                {{/showcoursecategory}}
-
-                {{#hasprogress}}
-                <div class="progress mt-2" style="height: 4px; background: rgba(255,255,255,0.2);">
-                    <div class="progress-bar bg-white" role="progressbar" style="width: {{progress}}%" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100"></div>
-                </div>
-                {{/hasprogress}}
-
-                {{#summary}}
-                <div class="course-description mt-2 text-white-50 small">
-                    <div class="text-truncate-3-lines">
-                        {{#shortentext}}150, {{{summary}}}{{/shortentext}}
-                    </div>
-                </div>
-                {{/summary}}
-
-                {{^summary}}
-                <div class="course-shortname mt-2 text-white-50 small">
-                    {{shortname}}
-                </div>
-                {{/summary}}
-                
-                {{! Stretched link for the entire card }}
-                <a href="{{viewurl}}" class="stretched-link position-absolute top-0 start-0 w-100 h-100" style="z-index: 1;"></a>
             </div>
         </div>
     </div>
     {{/courses}}
+    
+    {{^courses}}
+    <div class="col-12">
+        <div class="alert alert-secondary text-center rounded-4 p-5" role="alert">
+            <div class="mb-3">
+                 <i class="fa fa-graduation-cap fs-1 text-muted opacity-50"></i>
+            </div>
+            <span class="text-muted">{{#str}}nocourses, block_myoverview{{/str}}</span>
+        </div>
+    </div>
+    {{/courses}}
 </div>
+
+<style>
+/* 
+   SHARED STYLES from course_blocks.mustache 
+   Ensures 100% visual consistency 
+*/
+
+.custom-course-card {
+    aspect-ratio: 16/10;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+    background: #2a2a2a;
+}
+
+/* Hover Effects */
+.custom-course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25) !important;
+}
+
+/* Focus Effects */
+.custom-course-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.5), 0 15px 30px rgba(0,0,0,0.25) !important;
+    outline: none;
+}
+
+/* Image Handling */
+.card-img-wrapper img {
+    transition: transform 0.8s ease;
+}
+
+.custom-course-card:hover .card-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 60%, rgba(0,0,0,0.6) 100%);
+    pointer-events: none;
+}
+
+/* Glassmorphism Footer */
+.glass-footer {
+    background: rgba(15, 15, 15, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background 0.3s ease;
+}
+
+.custom-course-card:hover .glass-footer {
+    background: rgba(10, 10, 10, 0.9);
+}
+
+/* Typography */
+.title-clamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.text-truncate-2-lines {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    line-height: 1.4;
+    opacity: 0.8;
+}
+
+/* Stretched link fix */
+.stretched-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+/* Helper Utilities */
+.drop-shadow-md {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+.z-index-3 {
+    z-index: 3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .custom-course-card {
+        aspect-ratio: 16/9;
+    }
+}
+</style>

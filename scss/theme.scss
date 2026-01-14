@@ -1,12 +1,28 @@
-@import 'typography';
+// ============================================================================
+// ACADEMI THEME - MODERNIZED
+// ============================================================================
+
+// 0. QUICK FIX - Исправление отступов и кнопок (ПЕРВЫМ!)
+@import 'quick-fix';
+
+// 1. Design System Foundation (NEW)
+@import 'design-system';
+@import 'typography-unified';
+
+// 2. Modern Components (NEW)
+@import 'navbar-modern';
+@import 'buttons-friendly'; // NEW! Дружелюбные кнопки
+@import 'layout-clean'; // NEW! Чистый layout без отступов
+
+// 3. Legacy Components (Keep for compatibility)
 @import 'standard';
-@import 'header';
 @import 'blocks';
 @import 'carousel';
 @import 'frontpage';
 @import 'course';
 @import 'login';
 @import 'footer';
+@import 'components/course-card';
 
 /* ==========================================================================
    DESIGN UPGRADE - Modern UI/UX Refinements (Friendly & Rounded)
