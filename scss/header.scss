@@ -4,6 +4,7 @@
     background: var(--academi-nav-bg);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
+    min-height: 50px; /* Reduced minimum height for mobile */
 
     @if $enable_glassmorphism {
         background: rgba($nav_bg, 0.85);
@@ -561,7 +562,35 @@
     }
 }
 
+@media (max-width: 575px) {
+    #header {
+        min-height: 46px; /* Further reduce height on extra small screens */
+
+        &.moodle-based-header~.drawer-right {
+            margin-top: 60px;
+        }
+
+        &.navbar.fixed-top {
+            .navbar-nav {
+                width: 100%;
+            }
+
+            #usernavigation {
+                width: 40%;
+
+                .usermenu-container {
+                    margin-left: auto;
+                }
+            }
+        }
+    }
+}
+
 @media (max-width: 480px) {
+    #header {
+        min-height: 44px; /* Minimum height for very small screens */
+    }
+
     #header.navbar .popover-region .popover-region-container {
         height: 500px;
         top: 60px;
