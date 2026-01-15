@@ -5,13 +5,21 @@ define(['jquery', 'theme_academi/jquery.sudoSlider'], function($) {
     };
 
     var Carousel = function(selector, options) {
-        var results = $.extend(defaults, options);
-        this.initializeslider(selector, results);
+        // Проверяем, существует ли элемент перед инициализацией
+        if ($(selector).length > 0) {
+            var results = $.extend(defaults, options);
+            this.initializeslider(selector, results);
+        }
     };
 
     // Initialize the slider with performance optimizations
     Carousel.prototype.initializeslider = function(selector, data) {
         var autostopped = false;
+
+        // Проверяем, существуют ли необходимые элементы перед инициализацией
+        if ($(selector).length === 0) {
+            return;
+        }
 
         // Performance-optimized slider initialization
         var sudoSlider = $(selector).sudoSlider({
@@ -38,28 +46,33 @@ define(['jquery', 'theme_academi/jquery.sudoSlider'], function($) {
             }
         });
 
-        // Optimized event handlers with debouncing
-        var timeoutId;
-        sudoSlider.on('mouseenter', function() {
-            clearTimeout(timeoutId);
-            var auto = sudoSlider.getValue('autoAnimation');
-            if (auto) {
-                sudoSlider.stopAuto();
-            } else {
-                autostopped = true;
-            }
-        }).on('mouseleave', function() {
-            if (!autostopped) {
-                // Small delay to prevent flickering
-                timeoutId = setTimeout(function() {
-                    sudoSlider.startAuto();
-                }, 100);
-            }
-        });
+        // Проверяем, что sudoSlider объект существует перед добавлением обработчиков
+        if (sudoSlider && sudoSlider.length > 0) {
+            // Optimized event handlers with debouncing
+            var timeoutId;
+            sudoSlider.on('mouseenter', function() {
+                clearTimeout(timeoutId);
+                var auto = sudoSlider.getValue('autoAnimation');
+                if (auto) {
+                    sudoSlider.stopAuto();
+                } else {
+                    autostopped = true;
+                }
+            }).on('mouseleave', function() {
+                if (!autostopped) {
+                    // Small delay to prevent flickering
+                    timeoutId = setTimeout(function() {
+                        sudoSlider.startAuto();
+                    }, 100);
+                }
+            });
+        }
 
         // Ensure first slide is visible
         setTimeout(function() {
-            $('.homecarousel-slide-item').first().addClass('active');
+            if ($('.homecarousel-slide-item').length > 0) {
+                $('.homecarousel-slide-item').first().addClass('active');
+            }
         }, 100);
     };
 

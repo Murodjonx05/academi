@@ -34,6 +34,7 @@ body {
     font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
     color: #1e293b;
     -webkit-font-smoothing: antialiased;
+    padding-top: 70px; /* Увеличиваем отступ сверху для фиксированного хедера */
 }
 
 #region-main {
@@ -42,8 +43,73 @@ body {
     border: none!important;
     border-radius: $radius-lg !important; // FRIENDLY RADIUS
     box-shadow: none!important;
-    // padding: 2.5rem !important;
+    padding: 2.5rem !important; /* Возвращаем отступы для лучшей читаемости */
     transition: all 0.3s ease;
+
+    /* Исправление проблем с отступами на мобильных устройствах */
+    @media (max-width: 767px) {
+        padding: 1.5rem !important;
+    }
+}
+
+/* 1.1 Toast Messages Styling - Ensure visibility on all pages including frontpage */
+.toast-wrapper {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    z-index: $z-tooltip !important; /* Highest z-index to ensure visibility over all elements */
+    max-width: 400px !important;
+    width: auto !important;
+    padding: 0 !important;
+}
+
+.toast {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    border: none !important;
+    border-radius: $radius-lg !important;
+    box-shadow: $shadow-xl !important;
+    color: $text-primary !important;
+    overflow: hidden !important;
+}
+
+.toast-header {
+    background: rgba($primary, 0.1) !important;
+    border-bottom: 1px solid rgba($primary, 0.2) !important;
+    color: $primary !important;
+    padding: 0.75rem 1rem !important;
+}
+
+.toast-body {
+    padding: 1rem !important;
+    font-size: $font-size-sm !important;
+}
+
+/* Specific styling for different toast types */
+.toast.success {
+    border-left: 4px solid $success !important;
+}
+
+.toast.info {
+    border-left: 4px solid $info !important;
+}
+
+.toast.warning {
+    border-left: 4px solid $warning !important;
+}
+
+.toast.error {
+    border-left: 4px solid $danger !important;
+}
+
+/* Ensure toasts are visible over sliders and other positioned elements */
+@media (max-width: 767px) {
+    .toast-wrapper {
+        top: 10px !important;
+        right: 10px !important;
+        left: 10px !important;
+        max-width: none !important;
+    }
 }
 
 /* 2. Modern Header & Navigation */
@@ -52,18 +118,23 @@ body {
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02) !important;
-    
+    z-index: $z-fixed; /* Убедимся, что хедер всегда поверх других элементов */
+    position: fixed !important; /* Убедимся, что хедер фиксирован */
+    top: 0 !important; /* Хедер всегда вверху */
+    width: 100% !important; /* Хедер занимает всю ширину */
+
     .nav-link {
         font-weight: 600 !important;
         color: $nav_text !important;
         border-radius: $radius-md; // FRIENDLY RADIUS
         transition: all 0.2s ease;
-        
+        padding: 0.5rem 1rem; /* Добавим внутренние отступы для лучшего кликабельного пространства */
+
         &:hover {
             background: rgba(255, 255, 255, 0.15) !important;
             color: #fff !important;
         }
-        
+
         &.active {
             background: rgba(255, 255, 255, 0.25) !important;
             color: #fff !important;
@@ -149,7 +220,8 @@ h1, h2, h3, h4, h5, h6 {
             border: 1px solid #e2e8f0 !important;
             font-weight: 600;
             color: #475569;
-            
+            padding: 0.5rem 0.75rem; /* Улучшаем кликабельность на мобильных устройствах */
+
             &:hover {
                 background: #f1f5f9;
                 color: $primary;
@@ -159,6 +231,14 @@ h1, h2, h3, h4, h5, h6 {
             background: $primary !important;
             border-color: $primary !important;
             color: #fff !important;
+        }
+    }
+
+    /* Адаптация для мобильных устройств */
+    @media (max-width: 575px) {
+        .page-link {
+            padding: 0.4rem 0.6rem !important;
+            font-size: 0.9rem;
         }
     }
 }

@@ -6,31 +6,39 @@
 
 <body {{{ bodyattributes }}}>
     {{> core/local/toast/wrapper}}
-    
+
     <div id="page-wrapper" class="d-print-block">
         {{{ output.standard_top_of_body_html }}}
-        
+
         {{> theme_academi/header }}
 
         {{> theme_academi/slideshow }}
 
         <div id="page" class="container py-5">
-             {{#hasblocks}}
-                <div class="d-none">
-                     {{{ sidepreblocks }}}
-                </div>
-             {{/hasblocks}}
-
              <div id="page-content" class="row">
-                 <div id="region-main-box" class="col-12">
-                     <section id="region-main" aria-label="{{#str}}content{{/str}}">
-                        {{{ output.main_content }}}
-                     </section>
-                 </div>
+                 {{#hasblocks}}
+                    <div >
+                        <div id="region-main-box">
+                            <section id="region-main" aria-label="{{#str}}content{{/str}}">
+                               {{{ output.main_content }}}
+                            </section>
+                        </div>
+                    </div>
+    
+                 {{/hasblocks}}
+                 {{^hasblocks}}
+                    <div id="region-main-box" class="col-12">
+                        <section id="region-main" aria-label="{{#str}}content{{/str}}">
+                           {{{ output.main_content }}}
+                        </section>
+                    </div>
+                 {{/hasblocks}}
              </div>
         </div>
 
         {{> theme_academi/footer }}
     </div>
+
+    {{{ output.standard_after_main_region_html }}}
 </body>
 </html>

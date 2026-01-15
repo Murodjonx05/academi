@@ -62,29 +62,45 @@
                     </div>
                 {{/secondarymoremenu}}
             <div id="page-content" class="row pb-3 d-print-block">
-                <div id="region-main-box" class="col-12">
-                    {{#hasregionmainsettingsmenu}}
-                    <div id="region-main-settings-menu" class="d-print-none {{#hasblocks}}has-blocks{{/hasblocks}}">
-                        <div> {{{ regionmainsettingsmenu }}} </div>
+                {{#hasblocks}}
+                    <div>
+                        <div id="region-main-box">
+                            {{#hasregionmainsettingsmenu}}
+                            <div id="region-main-settings-menu" class="d-print-none has-blocks">
+                                <div> {{{ regionmainsettingsmenu }}} </div>
+                            </div>
+                            {{/hasregionmainsettingsmenu}}
+                            <section id="region-main" class="has-blocks mb-3" aria-label="{{#str}}content{{/str}}">
+                                {{#hasregionmainsettingsmenu}}
+                                    <div class="region_main_settings_menu_proxy"></div>
+                                {{/hasregionmainsettingsmenu}}
+                                {{{ output.course_content_header }}}
+                                {{{ output.main_content }}}
+                                {{{ output.activity_navigation }}}
+                                {{{ output.course_content_footer }}}
+                            </section>
+                        </div>
                     </div>
-                    {{/hasregionmainsettingsmenu}}
-                    <section id="region-main" {{#hasblocks}}class="has-blocks mb-3"{{/hasblocks}} aria-label="{{#str}}content{{/str}}">
 
+                {{/hasblocks}}
+                {{^hasblocks}}
+                    <div id="region-main-box" class="col-12">
                         {{#hasregionmainsettingsmenu}}
-                            <div class="region_main_settings_menu_proxy"></div>
+                        <div id="region-main-settings-menu" class="d-print-none">
+                            <div> {{{ regionmainsettingsmenu }}} </div>
+                        </div>
                         {{/hasregionmainsettingsmenu}}
-                        {{{ output.course_content_header }}}
-                        {{{ output.main_content }}}
-                        {{{ output.activity_navigation }}}
-                        {{{ output.course_content_footer }}}
-
-                    </section>
-                    {{#hasblocks}}
-                    <section data-region="blocks-column" class="d-print-none" aria-label="{{#str}}blocks{{/str}}">
-                        {{{ sidepreblocks }}}
-                    </section>
-                    {{/hasblocks}}
-                </div>
+                        <section id="region-main" aria-label="{{#str}}content{{/str}}">
+                            {{#hasregionmainsettingsmenu}}
+                                <div class="region_main_settings_menu_proxy"></div>
+                            {{/hasregionmainsettingsmenu}}
+                            {{{ output.course_content_header }}}
+                            {{{ output.main_content }}}
+                            {{{ output.activity_navigation }}}
+                            {{{ output.course_content_footer }}}
+                        </section>
+                    </div>
+                {{/hasblocks}}
             </div>
             {{> theme_academi/footer}}
         </div>

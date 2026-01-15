@@ -9,7 +9,11 @@ define(['jquery', 'theme_academi/slick'], function ($) {
         var results = $.extend(defaults, options);
         this.selector = selector;
         this.options = results;
-        this.init();
+
+        // Проверяем, существует ли элемент перед инициализацией
+        if ($(this.selector).length > 0) {
+            this.init();
+        }
     };
 
     SlickCarousel.prototype.init = function () {
@@ -44,16 +48,19 @@ define(['jquery', 'theme_academi/slick'], function ($) {
         // Инициализируем Slick слайдер
         $(this.selector).slick(slickOptions);
 
-        // Приостанавливаем автопроигрывание при наведении
-        $(this.selector).on('mouseenter', function () {
-            if (self.options.autoplay === 'true') {
-                $(this).slick('slickPause');
-            }
-        }).on('mouseleave', function () {
-            if (self.options.autoplay === 'true') {
-                $(this).slick('slickPlay');
-            }
-        });
+        // Проверяем, что элемент существует перед добавлением обработчиков событий
+        if ($(this.selector).length > 0) {
+            // Приостанавливаем автопроигрывание при наведении
+            $(this.selector).on('mouseenter', function () {
+                if (self.options.autoplay === 'true') {
+                    $(this).slick('slickPause');
+                }
+            }).on('mouseleave', function () {
+                if (self.options.autoplay === 'true') {
+                    $(this).slick('slickPlay');
+                }
+            });
+        }
     };
 
     return {

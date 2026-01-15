@@ -228,3 +228,50 @@ $course-gap: 0.5rem; // 8px
         gap: 0.5rem;
     }
 }
+
+/* Улучшенные стили для карточек курсов */
+.course-card {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px);
+    border-radius: $course-radius-large !important;
+    box-shadow: $course-shadow-soft !important;
+    overflow: hidden;
+    transition: all $transition-base !important;
+    border: none !important;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: $course-shadow-strong !important;
+    }
+
+    .card-img-top {
+        border-radius: 0 !important; /* Чтобы изображение не имело скруглений, если используется внутри карточки с уже скругленными углами */
+    }
+
+    .course-info-container {
+        padding: $course-spacer !important;
+    }
+
+    .coursename {
+        font-weight: $font-weight-semibold !important;
+        color: #0f172a !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .course-card-footer {
+        border-top: 1px solid $course-border-color !important;
+    }
+}
+
+/* Адаптация карточек курсов для мобильных устройств */
+@media (max-width: 767px) {
+    .course-card {
+        .course-info-container {
+            padding: 0.75rem !important;
+        }
+
+        .coursename {
+            font-size: $font-size-h5 !important;
+        }
+    }
+}

@@ -12,7 +12,11 @@ define(['jquery'], function($) {
         this.currentIndex = 0;
         this.slides = [];
         this.isPlaying = false;
-        this.init();
+
+        // Проверяем, существует ли элемент перед инициализацией
+        if ($(this.selector).length > 0) {
+            this.init();
+        }
     };
 
     CustomCarousel.prototype.init = function() {
@@ -49,15 +53,20 @@ define(['jquery'], function($) {
     CustomCarousel.prototype.setupNavigation = function() {
         var self = this;
 
-        $('.prevBtn').off('click').on('click', function(e) {
-            e.preventDefault();
-            self.goToSlide(self.currentIndex - 1);
-        });
+        // Проверяем, существуют ли элементы навигации перед добавлением обработчиков
+        if ($('.prevBtn').length > 0) {
+            $('.prevBtn').off('click').on('click', function(e) {
+                e.preventDefault();
+                self.goToSlide(self.currentIndex - 1);
+            });
+        }
 
-        $('.nextBtn').off('click').on('click', function(e) {
-            e.preventDefault();
-            self.goToSlide(self.currentIndex + 1);
-        });
+        if ($('.nextBtn').length > 0) {
+            $('.nextBtn').off('click').on('click', function(e) {
+                e.preventDefault();
+                self.goToSlide(self.currentIndex + 1);
+            });
+        }
     };
 
     CustomCarousel.prototype.goToSlide = function(index) {

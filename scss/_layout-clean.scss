@@ -31,12 +31,3 @@ body {
     margin: 0 !important;
     padding: 0 !important;
 }
-
-#page {
-    margin: 0 auto !important;
-    padding: $space-md !important;
-    
-    @include respond-above($breakpoint-md) {
-        padding: $space-lg !important;
-    }
-}
