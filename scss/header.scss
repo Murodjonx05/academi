@@ -401,21 +401,11 @@
       &:focus,
       &:active,
       &.active {
-        border-bottom-color: $secondary;
+        // border-bottom-color: $secondary;
         background-color: $secondary;
       }
 
-      .moremenu .nav-link {
-        &:hover,
-        &:focus {
-          background: none;
-          border-bottom: 3px solid $white;
-        }
 
-        &.active {
-          border-color: $white;
-        }
-      }
     }
 
     .simplesearchform {
@@ -655,7 +645,7 @@
       &.active {
         background-color: var(--academi-secondary);
         color: var(--academi-text-inverse);
-        border-color: var(--academi-secondary);
+        // border-color: var(--academi-secondary);
         font-weight: 600;
       }
     }

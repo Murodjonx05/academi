@@ -53,7 +53,7 @@ body {
     &.active:active {
         color: $secondary;
         background: none;
-        border-bottom-color: $primary;
+        // border-bottom-color: $primary;
     }
 }
 .main-inner .drawer-toggles .drawer-toggler {

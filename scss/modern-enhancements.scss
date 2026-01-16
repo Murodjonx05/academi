@@ -276,8 +276,9 @@ html {
 // Fix active tab indicators
 .nav-tabs .nav-link.active,
 .secondary-navigation .navigation .nav-tabs .nav-link.active {
-    border-bottom-color: $modern-primary !important;
-    color: $modern-primary !important;
+    // border-bottom-color: $modern-primary !important;
+    color: rgba(41, 41, 41, 1) !important;
+    background-color: var(--bs-primary-bg-subtle) !important;
 }
 
 // Fix search clear button
@@ -297,6 +298,22 @@ html {
 .drawer-toggler,
 .btn-toggle-drawer {
     background: $modern-accent !important;
+}
+
+// Specific styles for the right drawer toggle button
+.drawer-toggler.drawer-right-toggle .btn.icon-no-margin {
+    background-color: var(--academi-nav-bg) !important;
+    border-top-left-radius: 99px !important;
+    border-top-right-radius: 0px !important;
+    border-bottom-right-radius: 99px !important;
+    border-bottom-left-radius: 0px !important;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    height: fit-content !important;
+    width: fit-content !important;
+    color: var(--academi-nav-text) !important;
 }
 
 // Fix 2: Course card text overlay for better readability

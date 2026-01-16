@@ -155,6 +155,12 @@
     #site-news-forum {
         background-color: $white;
     }
+
+    #frontpage-available-course-list h2 {
+        font-weight: 600;
+        margin: 0;
+    }
+    
     .custom-alert-block {
         max-width: 1320px;
         width: 100%;
@@ -717,7 +723,7 @@
 #frontpage-category-names,
 #site-news-forum {
     background: $wild_sand;
-    padding: 40px;
+    padding: 10px 0;
     margin: 0;
 }
 #frontpage-available-course-list .coursebox,
