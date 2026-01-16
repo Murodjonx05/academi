@@ -1,4 +1,4 @@
-@import 'typography';
+// @import 'typography';
 @import 'standard';
 @import 'header';
 @import 'blocks';
@@ -8,17 +8,15 @@
 @import 'login';
 @import 'footer';
 
+
+
+
 /* ==========================================================================
    DESIGN UPGRADE - Modern UI/UX Refinements (Friendly & Rounded)
    ========================================================================== */
 
 /* 1. Global Modern Aesthetic */
-body {
-    background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #f1f5f9 100%) !important;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
-    color: #1e293b;
-    -webkit-font-smoothing: antialiased;
-}
+
 
 #region-main {
     background: rgba(255, 255, 255, 0.9) !important;
