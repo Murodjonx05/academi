@@ -3,11 +3,11 @@
 
 /* Core Block Styles */
 .block {
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 1.5rem;
     padding: 0;
     border: 1px solid #e5e7eb; /* Light gray border */
     border-radius: 0.75rem; /* Subtle rounding */
-    background: #ffffff;
+    background: #fff;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Minimal shadow */
     transition: box-shadow 0.2s ease, transform 0.2s ease;
     
@@ -128,13 +128,13 @@
         border-radius: 9999px; /* Pill shape */
         border: 1px solid #d1d5db;
         padding: 0.5rem 1rem;
-        background: #ffffff;
+        background: #fff;
         color: #374151;
         transition: all 0.2s ease;
         
         &:hover, &:focus, &[aria-expanded="true"] {
             background: #3b82f6;
-            color: #ffffff;
+            color: #fff;
             border-color: #3b82f6;
         }
     }
@@ -154,12 +154,12 @@
 
 .block_timeline .event-action a.list-group-item-action {
     border: 1px solid #e5e7eb;
-    background: #ffffff;
+    background: #fff;
     
     &:hover, &:focus {
         border-color: #3b82f6;
         background: #3b82f6;
-        color: #ffffff;
+        color: #fff;
     }
 }
 
@@ -173,7 +173,7 @@
     
     .previous:before,
     .next:after {
-        font-family: "Font Awesome 5 Free"; /* Assume FA is loaded */
+        font-family: "Font Awesome 5 Free", sans-serif; /* Assume FA is loaded */
         font-weight: 900;
     }
     
@@ -209,7 +209,7 @@
     
     .today a {
         background: #3b82f6;
-        color: #ffffff;
+        color: #fff;
     }
 }
 
@@ -251,7 +251,7 @@
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
     overflow: hidden;
-    background: #ffffff;
+    background: #fff;
     
     &:hover {
         transform: translateY(-2px);

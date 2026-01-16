@@ -117,14 +117,13 @@
     }
 
     /* Улучшенные радио-кнопки */
-    input[type="radio"]:not([disabled]):not(.qtype_multichoice_clearchoice) {
-        -webkit-appearance: none;
+    input[type="radio"]:not([disabled], .qtype_multichoice_clearchoice) {
         appearance: none;
         height: 24px !important;
         width: 24px !important;
         border-radius: 50%;
         border: 2px solid rgba(0, 0, 0, 0.1);
-        background: #ffffff;
+        background: #fff;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         cursor: pointer;
         margin-right: 0.8rem;
@@ -134,30 +133,30 @@
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
 
-    input[type="radio"]:not([disabled]):not(.qtype_multichoice_clearchoice):hover {
+    input[type="radio"]:not([disabled], .qtype_multichoice_clearchoice):hover {
         border-color: rgba(0, 123, 255, 0.5);
         background: rgba(0, 123, 255, 0.05);
         transform: scale(1.05);
     }
 
-    input[type="radio"]:not([disabled]):not(.qtype_multichoice_clearchoice):focus-visible {
+    input[type="radio"]:not([disabled], .qtype_multichoice_clearchoice):focus-visible {
         outline: 2px solid var(--bs-primary);
         outline-offset: 2px;
         border-color: var(--bs-primary);
     }
 
-    input[type="radio"]:not([disabled]):not(.qtype_multichoice_clearchoice):checked {
+    input[type="radio"]:not([disabled], .qtype_multichoice_clearchoice):checked {
         background: var(--bs-primary);
         border-color: var(--bs-primary);
         box-shadow: 0 4px 12px rgba(0, 123, 255, 0.35);
     }
 
-    input[type="radio"]:not([disabled]):not(.qtype_multichoice_clearchoice):checked::before {
+    input[type="radio"]:not([disabled], .qtype_multichoice_clearchoice):checked::before {
         content: '\f00c';
         font-family: 'Font Awesome 5 Free';
         font-weight: 900;
         font-size: 12px;
-        color: #ffffff;
+        color: #fff;
         position: absolute;
         top: 50%;
         left: 50%;
@@ -166,7 +165,7 @@
 
     /* Стили карточек */
     .card.h-100 {
-        background: #ffffff !important;
+        background: #fff !important;
         border: 1px solid #f0f0f0 !important;
         border-radius: var(--border-radius-sm) !important;
         box-shadow: var(--shadow) !important;
@@ -269,7 +268,7 @@
 
 ::-webkit-scrollbar-track {
     background: var(--bs-primary);
-    border-radius: 0px;
+    border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb {

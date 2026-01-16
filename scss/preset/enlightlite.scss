@@ -8,17 +8,17 @@ $secondary_30:     rgba(53, 53, 53, .3) !default;
 $secondary_70:     rgba(53, 53, 53, .7) !default;
 $footerbgopacity: $primary_70 !default;
 
-$info-outline:    #1f7e9a;
+$info-outline: #1f7e9a;
 $warning-outline: #a6670e;
 
-$font_1: alegreyasansR;
-$font_2: alegreyasansM;
-$font_3: alegreyasansB;
-$font_4: alegreyasansL;
-$font_5: alegreyasansI;
+$font_1: alegreyasansr;
+$font_2: alegreyasansm;
+$font_3: alegreyasansb;
+$font_4: alegreyasansl;
+$font_5: alegreyasansi;
 
 @font-face {
-    font-family: 'alegreyasansR';
+    font-family: alegreyasansR;
     src: url('[[setting:fontwww]]alegreyasans-regular/alegreyasans-regular-webfont.eot');
     src:
         url('[[setting:fontwww]]alegreyasans-regular/alegreyasans-regular-webfont.eot?#iefix') format('embedded-opentype'),
@@ -31,7 +31,7 @@ $font_5: alegreyasansI;
 }
 
 @font-face {
-    font-family: 'alegreyasansM';
+    font-family: alegreyasansM;
     src: url('[[setting:fontwww]]alegreyasans-medium/alegreyasans-medium-webfont.eot');
     src:
         url('[[setting:fontwww]]alegreyasans-medium/alegreyasans-medium-webfont.eot?#iefix') format('embedded-opentype'),
@@ -44,7 +44,7 @@ $font_5: alegreyasansI;
 }
 
 @font-face {
-    font-family: 'alegreyasansB';
+    font-family: alegreyasansB;
     src: url('[[setting:fontwww]]alegreyasans-bold/alegreyasans-bold-webfont.eot');
     src:
         url('[[setting:fontwww]]alegreyasans-bold/alegreyasans-bold-webfont.eot?#iefix') format('embedded-opentype'),
@@ -57,7 +57,7 @@ $font_5: alegreyasansI;
 }
 
 @font-face {
-    font-family: 'alegreyasansL';
+    font-family: alegreyasansL;
     src: url('[[setting:fontwww]]alegreyasans-light/alegreyasans-light-webfont.eot');
     src:
         url('[[setting:fontwww]]alegreyasans-light/alegreyasans-light-webfont.eot?#iefix') format('embedded-opentype'),
@@ -70,7 +70,7 @@ $font_5: alegreyasansI;
 }
 
 @font-face {
-    font-family: 'alegreyasansI';
+    font-family: alegreyasansI;
     src: url('[[setting:fontwww]]alegreyasans-italic/alegreyasans-italic-webfont.eot');
     src:
         url('[[setting:fontwww]]alegreyasans-italic/alegreyasans-italic-webfont.eot?#iefix') format('embedded-opentype'),

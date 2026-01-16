@@ -16,7 +16,6 @@
     @if $enable_glassmorphism {
         background: rgba($nav_bg, 0.85);
         backdrop-filter: blur($glassmorphism_blur);
-        -webkit-backdrop-filter: blur($glassmorphism_blur);
     }
 
     &.navbar.fixed-top {
@@ -80,10 +79,8 @@
             }
         }
     }
-}
 
-/* Полный оригинальный блок стилей */
-#header {
+    /* Полный оригинальный блок стилей */
     .navbar-nav {
         .nav-item {
             margin-left: 0;
@@ -218,10 +215,8 @@
             }
         }
     }
-}
 
-/* Финальный фикс popover уведомлений */
-#header {
+    /* Финальный фикс popover уведомлений */
     .popover-region {
         height: 100%;
         float: left;
@@ -248,7 +243,7 @@
             width: 380px !important;
             background: $white !important;
             color: $dark !important;
-            border: 1px solid rgba(15, 23, 42, .08) !important;
+            border: 1px solid rgb(15, 23, 42, .08) !important;
             border-radius: $radius-lg !important;
             box-shadow: $shadow-hover !important;
             padding: 0 !important; /* Убираем лишние отступы */
@@ -259,7 +254,7 @@
                 align-items: center !important;
                 justify-content: space-between !important;
                 padding: 12px 16px !important;
-                border-bottom: 1px solid rgba(15, 23, 42, .08) !important;
+                border-bottom: 1px solid rgb(15, 23, 42, .08) !important;
 
                 h3 {
                     margin: 0 !important;
@@ -345,193 +340,7 @@
     .right-menu .usermenu {
         float: right;
     }
-}
 
-/* Остальной оригинальный код полностью (без изменений) */
-#header .nav.navbar-nav {
-    .nav-link {
-        color: $white;
-
-        &:hover,
-        &:focus,
-        &:active,
-        &.active {
-            border-bottom-color: $secondary;
-            background-color: $secondary;
-        }
-
-        .moremenu .nav-link {
-            &:hover,
-            &:focus {
-                background: none;
-                border-bottom: 3px solid $white;
-            }
-
-            &.active {
-                border-color: $white;
-            }
-        }
-    }
-
-    .simplesearchform {
-        height: 100%;
-        color: $white;
-        margin-right: 10px;
-
-        .btn .icon {
-            color: $white;
-        }
-
-        a.btn-open {
-            color: $white;
-            border: 0;
-            padding-bottom: 0;
-        }
-
-        .collapse {
-            .input-group {
-                min-width: 300px;
-            }
-
-            .searchform-navbar {
-                a.btn-close {
-                    height: 100%;
-                    line-height: 25px;
-                    border: 0;
-                    right: 40px;
-                }
-
-                .input-group-append button.btn {
-                    height: 100%;
-                    color: $white;
-                    background: $primary;
-                }
-
-                .form-control {
-                    padding-right: 40px;
-                }
-            }
-        }
-    }
-}
-
-#header .nav.navbar-nav {
-    .dropdown .dropdown-menu {
-        .dropdown-divider {
-            margin: 0;
-            border: 0;
-        }
-
-        a.dropdown-item {
-            background: none;
-            border-bottom: 1px solid $wild_sand;
-            padding-top: 8px;
-            padding-bottom: 8px;
-
-            &:hover,
-            &:focus {
-                color: $white;
-                background: $primary;
-
-                span {
-                    color: $white;
-                }
-            }
-
-            span {
-                color: $primary;
-            }
-
-            &:last-child {
-                border-bottom: 0;
-            }
-        }
-    }
-
-    .search-input-wrapper {
-        padding: 0;
-
-        >div i.icon {
-            color: $white;
-            margin-top: 8px;
-        }
-
-        >form {
-            margin-bottom: 0;
-        }
-    }
-
-    li.nav-item {
-        margin-left: 0;
-        float: left;
-
-        .dropdown-menu li.nav-item {
-            margin: 0;
-            float: none;
-        }
-
-        &:last-child {
-            margin-right: 0;
-        }
-    }
-
-    .userbutton {
-        margin: 0;
-
-        .avatars {
-            margin: 0;
-
-            .avatar {
-                margin: 0;
-
-                img.userpicture {
-                    margin: 0;
-                }
-            }
-        }
-    }
-
-    &.address-head {
-        align-items: center;
-
-        &.empty-address {
-            display: none;
-        }
-
-        span {
-            margin-right: 10px;
-
-            span {
-                margin-right: 0;
-            }
-        }
-    }
-
-    span {
-        color: $white;
-        display: inline-block;
-        margin-right: 5px;
-
-        &.userinitials {
-            text-align: center;
-            line-height: 34px;
-            border: 1px solid $white;
-            background: none;
-            margin-right: 0;
-        }
-
-        i {
-            margin-right: 10px;
-        }
-
-        a {
-            color: $white;
-            display: inline-block;
-        }
-    }
-}
-
-#header {
     .editmode-switch-form {
         margin-left: 10px;
 
@@ -546,6 +355,7 @@
 
                 &:checked {
                     border-color: $white_50;
+
                     --bs-form-switch-bg: none;
 
                     &:before {
@@ -561,6 +371,187 @@
                     background: $white;
                     display: inline-flex;
                 }
+            }
+        }
+    }
+
+    .nav.navbar-nav {
+        .nav-link {
+            color: $white;
+
+            &:hover,
+            &:focus,
+            &:active,
+            &.active {
+                border-bottom-color: $secondary;
+                background-color: $secondary;
+            }
+
+            .moremenu .nav-link {
+                &:hover,
+                &:focus {
+                    background: none;
+                    border-bottom: 3px solid $white;
+                }
+
+                &.active {
+                    border-color: $white;
+                }
+            }
+        }
+
+        .simplesearchform {
+            height: 100%;
+            color: $white;
+            margin-right: 10px;
+
+            .btn .icon {
+                color: $white;
+            }
+
+            a.btn-open {
+                color: $white;
+                border: 0;
+                padding-bottom: 0;
+            }
+
+            .collapse {
+                .input-group {
+                    min-width: 300px;
+                }
+
+                .searchform-navbar {
+                    a.btn-close {
+                        height: 100%;
+                        line-height: 25px;
+                        border: 0;
+                        right: 40px;
+                    }
+
+                    .input-group-append button.btn {
+                        height: 100%;
+                        color: $white;
+                        background: $primary;
+                    }
+
+                    .form-control {
+                        padding-right: 40px;
+                    }
+                }
+            }
+        }
+
+        .dropdown .dropdown-menu {
+            .dropdown-divider {
+                margin: 0;
+                border: 0;
+            }
+
+            a.dropdown-item {
+                background: none;
+                border-bottom: 1px solid $wild_sand;
+                padding-top: 8px;
+                padding-bottom: 8px;
+
+                &:hover,
+                &:focus {
+                    color: $white;
+                    background: $primary;
+
+                    span {
+                        color: $white;
+                    }
+                }
+
+                span {
+                    color: $primary;
+                }
+
+                &:last-child {
+                    border-bottom: 0;
+                }
+            }
+        }
+
+        .search-input-wrapper {
+            padding: 0;
+
+            >div i.icon {
+                color: $white;
+                margin-top: 8px;
+            }
+
+            >form {
+                margin-bottom: 0;
+            }
+        }
+
+        li.nav-item {
+            margin-left: 0;
+            float: left;
+
+            .dropdown-menu li.nav-item {
+                margin: 0;
+                float: none;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .userbutton {
+            margin: 0;
+
+            .avatars {
+                margin: 0;
+
+                .avatar {
+                    margin: 0;
+
+                    img.userpicture {
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        &.address-head {
+            align-items: center;
+
+            &.empty-address {
+                display: none;
+            }
+
+            span {
+                margin-right: 10px;
+
+                span {
+                    margin-right: 0;
+                }
+            }
+        }
+
+        span {
+            color: $white;
+            display: inline-block;
+            margin-right: 5px;
+
+            &.userinitials {
+                text-align: center;
+                line-height: 34px;
+                border: 1px solid $white;
+                background: none;
+                margin-right: 0;
+            }
+
+            i {
+                margin-right: 10px;
+            }
+
+            a {
+                color: $white;
+                display: inline-block;
             }
         }
     }

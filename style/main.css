@@ -43,7 +43,6 @@ body[class*="pagelayout-"] {
 .gradient-text {
     background: linear-gradient(120deg, var(--academi-primary), var(--academi-accent));
     background-clip: text;
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -59,7 +58,7 @@ nav ul li {
 }
 
 nav ul li a {
-    font-family: "Inter", "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+    font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
     color: var(--nav-link-color) !important;
     font-size: 1rem !important;
     font-weight: 600 !important;

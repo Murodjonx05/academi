@@ -199,6 +199,59 @@ legend {
         right: 0;
         left: auto;
     }
+
+    .path-admin .buttons {
+        background: none;
+        border-top: 0;
+    }
+    div.backup-section + form {
+        background: none;
+        border-top: 0;
+    }
+    #coursesearch .coursesearchbox label {
+        margin-left: 7px;
+    }
+    .userprofile dl.list dd {
+        margin-left: 0;
+    }
+
+    .mform {
+        .fpassword .unmask {
+            margin-right: 12px;
+            label {
+                padding: 0 7px 0 0;
+            }
+        }
+        .fdescription.required {
+            margin: 0;
+            text-align: left;
+        }
+        .fitem .felement {
+            margin-left: 0;
+        }
+    }
+    .form-item {
+        .form-setting,
+        .form-description {
+            margin-left: 0;
+        }
+    }
+    .form-horizontal .controls {
+        margin-left: 0;
+    }
+
+    .message .contactselector {
+        float: none;
+    }
+    .message-app {
+        .overview-section-toggle.collapsed .collapsed-icon-container {
+            height: 26px;
+            transform: rotate(180deg);
+        }
+        .header-container .border-bottom .dropdown .dropdown-menu {
+            right: auto;
+        }
+    }
 }
 
 @media (max-width: 574px) {
@@ -224,13 +277,13 @@ legend {
         button {
             background: $primary;
             &.btn {
-                &:not(:disabled):not(.disabled) {
+                &:not(:disabled, .disabled) {
                     color: $white;
                     border-color: $secondary;
                     background-color: $secondary;
                 }
-                &:not(:disabled):not(.disabled):hover,
-                &:not(:disabled):not(.disabled):focus {
+                &:not(:disabled, .disabled):hover,
+                &:not(:disabled, .disabled):focus {
                     border-color: $primary;
                     background-color: $primary;
                 }
@@ -587,9 +640,7 @@ body:not(.pagelayout-maintenance) #page-wrapper {
 .calendar-event-panel {
     background: none;
 }
-.felement.fstatic {
-    padding-top: 0;
-}
+
 body:not(.path-admin) .fcontainer .root_setting .form-group {
     margin-bottom: 10px;
     .checkbox .form-check {
@@ -819,23 +870,6 @@ div.backup-section + form {
     margin-top: 15px;
 }
 
-.dir-rtl {
-    .path-admin .buttons {
-        background: none;
-        border-top: 0;
-    }
-    div.backup-section + form {
-        background: none;
-        border-top: 0;
-    }
-    #coursesearch .coursesearchbox label {
-        margin-left: 7px;
-    }
-    .userprofile dl.list dd {
-        margin-left: 0;
-    }
-}
-
 @media (max-width: 767px) {
     .block-region .block.card {
         border: 1px solid $mercury;
@@ -985,19 +1019,18 @@ div.backup-section + form {
 /* Moodle Editor */
 .cb-toolbar-container {
     .icon-no-margin,
-    .icon-no-margin.btn:not(:disabled):not(.disabled) {
+    .icon-no-margin.btn:not(:disabled, .disabled) {
         color: $white;
         background: $primary;
         border-color: $primary;
         box-shadow: none;
         margin-right: 2px;
     }
-}
-.cb-toolbar-container {
+
     .icon-no-margin:hover,
-    .icon-no-margin.btn:not(:disabled):not(.disabled):hover,
-    .icon-no-margin:not(:disabled):not(.disabled):active:focus,
-    .icon-no-margin.btn-secondary:not(:disabled):not(.disabled).active,
+    .icon-no-margin.btn:not(:disabled, .disabled):hover,
+    .icon-no-margin:not(:disabled, .disabled):active:focus,
+    .icon-no-margin.btn-secondary:not(:disabled, .disabled).active,
     .icon-no-margin.show > .btn-secondary.dropdown-toggle {
         color: $white;
         background: $secondary;
@@ -1012,7 +1045,7 @@ div.backup-section + form {
         line-height: 30px;
         background: $primary;
         border-color: $primary;
-        &:not(:disabled):not(.disabled) {
+        &:not(:disabled, .disabled) {
             border-color: $primary;
             background: $primary;
             margin-right: 2px;
@@ -1104,35 +1137,6 @@ body:not(.path-admin) .mform {
     &focus {
         color: $white;
         background: $primary;
-    }
-}
-
-/*Common RTL*/
-.dir-rtl {
-    .mform {
-        .fpassword .unmask {
-            margin-right: 12px;
-            label {
-                padding: 0 7px 0 0;
-            }
-        }
-        .fdescription.required {
-            margin: 0;
-            text-align: left;
-            margin-left: 0;
-        }
-        .fitem .felement {
-            margin-left: 0;
-        }
-    }
-    .form-item {
-        .form-setting,
-        .form-description {
-            margin-left: 0;
-        }
-    }
-    .form-horizontal .controls {
-        margin-left: 0;
     }
 }
 
@@ -1325,7 +1329,7 @@ body:not(.path-admin) .mform {
 #page.drawers {
     height: auto;
     padding: 0;
-    margin-top: 0px;
+    margin-top: 0;
     .drawer-right-toggle {
         margin-right: 0;
     }
@@ -1336,7 +1340,6 @@ body:not(.path-admin) .mform {
                 align-items: center;
             }
             .forum-post-container {
-
                 margin-top: 20px;
             }
         }
@@ -1743,21 +1746,6 @@ body:not(.pagelayout-frontpage) {
     }
 }
 
-.dir-rtl {
-    .message .contactselector {
-        float: none;
-    }
-    .message-app {
-        .overview-section-toggle.collapsed .collapsed-icon-container {
-            height: 26px;
-            transform: rotate(180deg);
-        }
-        .header-container .border-bottom .dropdown .dropdown-menu {
-            right: auto;
-        }
-    }
-}
-
 @media (max-width: 767px) {
     .drawer .message-app {
         height: 93%;
@@ -1815,7 +1803,7 @@ body:not(.pagelayout-frontpage) {
 }
 
 @media (max-width: 767px) {
-    [data-region=right-hand-drawer].drawer {
+    [data-region="right-hand-drawer"].drawer {
         top: 60px;
     }
 }

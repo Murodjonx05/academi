@@ -1,6 +1,6 @@
 // Modern color palette inspired by contemporary tech trends
-$white:    #ffffff !default;
-$gray-50:  #f8fafc !default;
+$white: #fff !default;
+$gray-50: #f8fafc !default;
 $gray-100: #f1f5f9 !default;
 $gray-200: #e2e8f0 !default;
 $gray-300: #cbd5e1 !default;
@@ -10,18 +10,18 @@ $gray-600: #475569 !default;
 $gray-700: #334155 !default;
 $gray-800: #1e293b !default;
 $gray-900: #0f172a !default;
-$black:    #000000 !default;
+$black: #000 !default;
 
-$blue:     #2563eb !default; // Modern blue
-$indigo:   #6366f1 !default;
-$purple:   #8b5cf6 !default;
-$pink:     #ec4899 !default;
-$red:      #ef4444 !default;
-$orange:   #f97316 !default;
-$yellow:   #eab308 !default;
-$green:    #16a34a !default; // Modern green
-$teal:     #14b8a6 !default;
-$cyan:     #06b6d4 !default;
+$blue: #2563eb !default; // Modern blue
+$indigo: #6366f1 !default;
+$purple: #8b5cf6 !default;
+$pink: #ec4899 !default;
+$red: #ef4444 !default;
+$orange: #f97316 !default;
+$yellow: #eab308 !default;
+$green: #16a34a !default; // Modern green
+$teal: #14b8a6 !default;
+$cyan: #06b6d4 !default;
 
 // Colors defined for academi.
 $white: #fff;
@@ -89,13 +89,13 @@ $asparagus: #689f59;
 $color_silver_86_approx: rgba(189, 189, 189, 0.86);
 
 // Semantic theme tokens using CSS custom properties.
-$surface: #ffffff !default;
+$surface: #fff !default;
 $surface_muted: #f8fafc !default;
 $text_primary: #1e293b !default;
-$text_inverse: #ffffff !default;
+$text_inverse: #fff !default;
 $nav_bg: #2563eb !default;
 $nav_bg_hover: #16a34a !default;
-$nav_text: #ffffff !default;
+$nav_text: #fff !default;
 
 // --- Friendly Design Tokens (Radius & Shadows) ---
 $radius-sm: 10px !default;

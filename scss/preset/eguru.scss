@@ -1,14 +1,14 @@
 @import "colors";
 
-$primary:       #a55ba5 !default;
-$secondary:     #8e558e !default;
-$primary_30:       rgba(165, 91, 165, .3) !default;
-$primary_70:       rgba(165, 91, 165, .7) !default;
-$secondary_30:     rgba(142, 85, 142, .3) !default;
-$secondary_70:     rgba(142, 85, 142, .7) !default;
+$primary: #a55ba5 !default;
+$secondary: #8e558e !default;
+$primary_30: rgb(165, 91, 165, .3) !default;
+$primary_70: rgb(165, 91, 165, .7) !default;
+$secondary_30: rgb(142, 85, 142, .3) !default;
+$secondary_70: rgb(142, 85, 142, .7) !default;
 $footerbgopacity: $primary_70 !default;
 
-$info-outline:    #1f7e9a;
+$info-outline: #1f7e9a;
 $warning-outline: #a6670e;
 
 $font_1: 'arial';
@@ -139,7 +139,7 @@ body {
                 height: 50%;
                 position: absolute;
                 border-radius: 10px;
-                background: rgba(255, 255, 255, 0.2);
+                background: rgb(255, 255, 255, 0.2);
                 z-index: -1;
                 bottom: 0;
                 right: -80px;
@@ -303,7 +303,7 @@ body {
         }
     }
 }
-/* End of Enrolled coruses*/
+/* End of Enrolled coruses */
 
 /* Combo courses */
 #frontpage-category-combo .course_category_tree .category {

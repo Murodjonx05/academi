@@ -1,47 +1,47 @@
 // Notificaton valuse.
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $orange !default;
-$danger:        $red !default;
+$success: $green !default;
+$info: $cyan !default;
+$warning: $orange !default;
+$danger: $red !default;
 
 // Tables
-$table-accent-bg:             rgba($black, .03) !default;
+$table-accent-bg: rgba($black, .03) !default;
 
 // Options
 $enable-responsive-font-sizes: true !default;
 
 // Body
-$body-color:    $text_primary !default;
+$body-color: $text_primary !default;
 
 // Fonts
 $font-size-base: 0.9375rem !default;
 $rfs-base-font-size: 0.9rem !default;
-$headings-font-weight:   700 !default;
+$headings-font-weight: 700 !default;
 
 // Navbar
-$navbar-dark-hover-color:           rgba($white, 1) !default;
-$navbar-light-color:                rgba($black, 0.6) !default;
-$navbar-light-hover-color:          rgba($black, .9) !default;
+$navbar-dark-hover-color: rgba($white, 1) !default;
+$navbar-light-color: rgba($black, 0.6) !default;
+$navbar-light-hover-color: rgba($black, .9) !default;
 
 // Breadcrumbs
-$breadcrumb-padding-y:              .5rem !default;
-$breadcrumb-padding-x:              0 !default;
-$breadcrumb-item-padding:           .5rem !default;
-$breadcrumb-margin-bottom:          0 !default;
-$breadcrumb-bg:                     transparent !default;
+$breadcrumb-padding-y: .5rem !default;
+$breadcrumb-padding-x: 0 !default;
+$breadcrumb-item-padding: .5rem !default;
+$breadcrumb-margin-bottom: 0 !default;
+$breadcrumb-bg: transparent !default;
 $breadcrumb-divider: "/" !default;
 $breadcrumb-divider-rtl: "/" !default;
 
 // Alerts
-$alert-border-width:                0 !default;
+$alert-border-width: 0 !default;
 
 $card-group-margin: .25rem;
 
 // Toasts
-$toast-color:                       $white !default;
-$toast-background-color:            rgba($gray-900, .95) !default;
-$toast-header-color:                $gray-100 !default;
-$toast-header-background-color:     rgba($white, .1) !default;
+$toast-color: $white !default;
+$toast-background-color: rgba($gray-900, .95) !default;
+$toast-header-color: $gray-100 !default;
+$toast-header-background-color: rgba($white, .1) !default;
 
 // Custom control size
 $custom-control-indicator-size: 1.25rem;
@@ -86,7 +86,7 @@ $custom-container: 960px !default;
 
 $url_1: rgba(0, 0, 0, 0.4) !default;
 
-/* End of Eguru*/
+/* End of Eguru */
 $footerbgimg: url('') !default;
 $loginbg: url('') !default;
 
