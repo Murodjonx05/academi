@@ -1,0 +1,441 @@
+// Modern Design Enhancements
+// This file adds modern design improvements using admin-configurable colors
+
+// Use admin-configured colors via CSS custom properties
+$modern-primary: var(--academi-primary, $primary);
+$modern-secondary: var(--academi-secondary, $secondary);
+$modern-accent: var(--academi-accent, $secondary);
+$modern-nav-bg: var(--academi-nav-bg, $nav_bg);
+$modern-nav-text: var(--academi-nav-text, $nav_text);
+$modern-surface-muted: var(--academi-surface-muted, $surface_muted);
+
+// Modern shadows and effects
+$shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+$shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+$shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+$shadow-xl: 0 12px 32px rgba(0, 0, 0, 0.15);
+
+// Modern border radius
+$radius-xs: 0.375rem; // 6px
+$radius-sm: 0.5rem;   // 8px
+$radius-md: 0.75rem;  // 12px
+$radius-lg: 1rem;     // 16px
+$radius-xl: 1.5rem;   // 24px
+$radius-full: 9999px; // Pill shape
+
+// Transitions
+$transition-fast: 0.15s ease;
+$transition-base: 0.2s ease;
+$transition-slow: 0.3s ease;
+
+// ===================================
+// MODERN CARD DESIGN
+// ===================================
+.card,
+.block,
+.coursebox {
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: $radius-lg !important;
+    box-shadow: $shadow-sm !important;
+    transition: all $transition-slow !important;
+    background: white !important;
+    
+    &:hover {
+        box-shadow: $shadow-lg !important;
+        transform: translateY(-4px) !important;
+        border-color: $modern-primary !important;
+    }
+}
+
+// ===================================
+// MODERN BUTTON STYLES
+// ===================================
+.btn {
+    border-radius: $radius-md !important;
+    font-weight: 500 !important;
+    padding: 0.625rem 1.25rem !important;
+    transition: all $transition-base !important;
+    border: none !important;
+    
+    &:hover {
+        transform: translateY(-1px) !important;
+    }
+}
+
+.btn-primary {
+    background: $modern-primary !important;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25) !important;
+    
+    &:hover {
+        box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35) !important;
+    }
+}
+
+.btn-secondary {
+    background: $modern-secondary !important;
+    box-shadow: 0 4px 12px rgba(22, 163, 74, 0.25) !important;
+    
+    &:hover {
+        box-shadow: 0 6px 16px rgba(22, 163, 74, 0.35) !important;
+    }
+}
+
+// ===================================
+// MODERN NAVBAR ENHANCEMENTS
+// ===================================
+#header.navbar {
+    background: $modern-nav-bg !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    
+    .nav-link {
+        border-radius: $radius-sm !important;
+        transition: all $transition-base !important;
+        font-weight: 500 !important;
+        
+        &:hover,
+        &:focus {
+            background: rgba(255, 255, 255, 0.15) !important;
+            transform: translateY(-1px) !important;
+        }
+        
+        &.active {
+            background: rgba(255, 255, 255, 0.2) !important;
+        }
+    }
+}
+
+// ===================================
+// MODERN COURSE CARDS
+// ===================================
+.coursebox,
+.course-card,
+.dashboard-card {
+    overflow: hidden !important;
+    
+    .card-img-top,
+    .courseimage {
+        transition: transform $transition-slow !important;
+    }
+    
+    &:hover {
+        .card-img-top,
+        .courseimage {
+            transform: scale(1.05) !important;
+        }
+    }
+}
+
+// ===================================
+// MODERN FORM ELEMENTS
+// ===================================
+.form-control,
+.form-select {
+    border-radius: $radius-md !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    padding: 0.625rem 1rem !important;
+    transition: all $transition-base !important;
+    
+    &:focus {
+        border-color: $modern-primary !important;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1) !important;
+    }
+}
+
+// ===================================
+// MODERN SPACING
+// ===================================
+.page-content,
+#region-main {
+    padding: 2rem 1.5rem !important;
+}
+
+.block {
+    margin-bottom: 2rem !important;
+}
+
+// ===================================
+// MODERN TYPOGRAPHY
+// ===================================
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+}
+
+body {
+    font-size: 1rem !important;
+    line-height: 1.6 !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}
+
+// ===================================
+// MODERN ALERTS & NOTIFICATIONS
+// ===================================
+.alert {
+    border-radius: $radius-lg !important;
+    border: none !important;
+    box-shadow: $shadow-sm !important;
+}
+
+.popover-region-container {
+    border-radius: $radius-md !important;
+    box-shadow: $shadow-lg !important;
+}
+
+// ===================================
+// MODERN DROPDOWNS
+// ===================================
+.dropdown-menu {
+    border-radius: $radius-md !important;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: $shadow-lg !important;
+    padding: 0.5rem !important;
+    
+    .dropdown-item {
+        border-radius: $radius-sm !important;
+        margin-bottom: 2px !important;
+        transition: all $transition-fast !important;
+        
+        &:hover,
+        &:focus {
+            background: $modern-primary !important;
+            color: white !important;
+        }
+    }
+}
+
+// ===================================
+// MODERN BADGES
+// ===================================
+.badge {
+    border-radius: $radius-full !important;
+    padding: 0.375rem 0.75rem !important;
+    font-weight: 500 !important;
+}
+
+// ===================================
+// RESPONSIVE IMPROVEMENTS
+// ===================================
+@media (max-width: 768px) {
+    .page-content,
+    #region-main {
+        padding: 1rem !important;
+    }
+    
+    .card,
+    .block {
+        margin-bottom: 1rem !important;
+    }
+}
+
+// ===================================
+// SMOOTH SCROLLING
+// ===================================
+html {
+    scroll-behavior: smooth !important;
+}
+
+// ===================================
+// FOCUS STATES
+// ===================================
+*:focus-visible {
+    outline: 2px solid $modern-primary !important;
+    outline-offset: 2px !important;
+    border-radius: $radius-sm !important;
+}
+
+// ===================================
+// DESIGN CONSISTENCY FIXES
+// ===================================
+
+// Fix 1: Unify accent colors - replace neon green with admin-configured accent
+.btn-success,
+.bg-success,
+.badge-success,
+.text-success,
+.border-success {
+    background-color: $modern-accent !important;
+    border-color: $modern-accent !important;
+    color: white !important;
+}
+
+// Fix green buttons specifically
+.btn-success {
+    background: $modern-secondary !important;
+    border-color: $modern-secondary !important;
+    
+    &:hover,
+    &:focus {
+        background: darken($secondary, 10%) !important;
+        border-color: darken($secondary, 10%) !important;
+    }
+}
+
+// Fix active tab indicators
+.nav-tabs .nav-link.active,
+.secondary-navigation .navigation .nav-tabs .nav-link.active {
+    border-bottom-color: $modern-primary !important;
+    color: $modern-primary !important;
+}
+
+// Fix search clear button
+.input-group .btn-close,
+.input-group-append .btn {
+    background-color: $modern-accent !important;
+    border-color: $modern-accent !important;
+}
+
+// Fix back to top button
+#back-to-top {
+    background: $modern-accent !important;
+    border-color: $modern-accent !important;
+}
+
+// Fix drawer toggle button
+.drawer-toggler,
+.btn-toggle-drawer {
+    background: $modern-accent !important;
+}
+
+// Fix 2: Course card text overlay for better readability
+.coursebox,
+.course-card,
+.dashboard-card-deck .dashboard-card {
+    position: relative !important;
+    
+    .card-body,
+    .course-info-container {
+        position: relative !important;
+        z-index: 2 !important;
+    }
+    
+    // Add dark gradient overlay for course images
+    .card-img-top,
+    .courseimage,
+    .course-image {
+        position: relative !important;
+        
+        &::after {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.6) 100%) !important;
+            z-index: 1 !important;
+        }
+    }
+    
+    // Ensure text is above overlay
+    .coursename,
+    .card-title,
+    h3, h4 {
+        position: relative !important;
+        z-index: 2 !important;
+        color: white !important;
+        text-shadow: 0 2px 4px rgba(0,0,0,0.3) !important;
+    }
+}
+
+// Fix 3: Consistent border-radius for all inputs and dropdowns
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+select,
+textarea,
+.form-control,
+.form-select,
+.custom-select {
+    border-radius: $radius-md !important;
+}
+
+// Fix search inputs specifically
+.simplesearchform .form-control,
+#searchform-navbar .form-control {
+    border-radius: $radius-full !important;
+}
+
+// Fix 4: Consistent spacing
+#page-header {
+    margin-bottom: 1.5rem !important;
+}
+
+.page-header-headings {
+    margin-top: 1rem !important;
+}
+
+// Fix button sizing - remove w-100 from action buttons
+.tertiary-navigation .btn,
+.page-header-actions .btn {
+    width: auto !important;
+    min-width: 120px !important;
+}
+
+// Fix 5: Footer color harmony
+#page-footer {
+    background: linear-gradient(135deg, darken($nav_bg, 15%) 0%, darken($nav_bg, 20%) 100%) !important;
+    
+    a {
+        color: rgba(255, 255, 255, 0.8) !important;
+        
+        &:hover {
+            color: white !important;
+        }
+    }
+}
+
+// Fix 6: Consistent surface backgrounds
+.secondary-navigation,
+.breadcrumb-nav,
+.page-context-header {
+    background: $modern-surface-muted !important;
+}
+
+// Fix 7: Edit mode switch container alignment
+.edit-switch-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    height: 44px !important;
+}
+
+.editmode-switch-form {
+    display: flex !important;
+    align-items: center !important;
+    margin-bottom: 0 !important;
+    
+    .form-check {
+        display: flex !important;
+        align-items: center !important;
+        margin-bottom: 0 !important;
+    }
+}
+
+// Fix 8: Consistent card shadows
+.card,
+.block,
+.coursebox,
+.activity-card {
+    box-shadow: $shadow-sm !important;
+    
+    &:hover {
+        box-shadow: $shadow-md !important;
+    }
+}
+
+// Fix 9: Dropdown consistency
+.dropdown-menu {
+    border-radius: $radius-md !important;
+    box-shadow: $shadow-lg !important;
+}
+
+// Fix 10: Remove transform on cards that shouldn't move
+.block_navigation .block,
+.block_settings .block {
+    &:hover {
+        transform: none !important;
+    }
+}
