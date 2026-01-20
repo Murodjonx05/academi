@@ -76,7 +76,7 @@
         }
     }
     .minimal-text-card {
-        background: rgba(15, 23, 42, .6);
+        background-color: rgba(15, 23, 42, .4);
         border-radius: 18px;
         border-left: 3px solid $primary;
         color: $white;
@@ -84,6 +84,14 @@
         padding: 1.5rem;
         transition: transform .3s ease, box-shadow .3s ease;
         margin-bottom: 40px;
+        width: 636px;
+        height: 219px;
+        display: flex;
+        flex-wrap: wrap;
+        position: absolute;
+        left: 5px;
+        top: 558px;
+        transform: rotate(10deg);
         &:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, .3);

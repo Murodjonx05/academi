@@ -40,9 +40,6 @@
                 {{> theme_boost/language_menu }}
             {{/langmenu}}
             
-            <div class="search-box-wrapper mx-2">
-                {{{ output.search_box }}}
-            </div>
             
             <div class="navbar-plugin-output me-2">
                 {{{ output.navbar_plugin_output }}}
@@ -60,3 +57,151 @@
     </div>
 </nav>
 {{> theme_boost/primary-drawer-mobile }}
+<style>
+  /* Улучшенный внешний вид навбара */
+  #header {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+    padding: 0 1rem !important;
+    height: 60px;
+  }
+
+  #header .container-fluid {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: 0 !important;
+  }
+
+  /* LEFT: логотип и бургер — всегда видимы */
+  #header .navbar-brand {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    padding: 0 0.5rem !important;
+    margin: 0 !important;
+    font-weight: 600;
+    font-size: 1.05rem;
+    color: #2d3748 !important;
+    text-decoration: none !important;
+    min-width: 0;
+  }
+
+  #header .navbar-brand img {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+    margin-right: 0.6rem;
+  }
+
+  /* Название сайта — всегда видно, но с ограничением на мобильных */
+  #header .nav-site-name {
+    display: inline-block !important;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 768px) {
+    #header .nav-site-name {
+      max-width: 120px;
+      font-size: 0.95rem;
+    }
+  }
+
+  .navbar-toggler.aabtn {
+    padding: 0.4rem !important;
+    border-radius: 4px !important;
+    transition: background-color 0.2s;
+  }
+
+  .navbar-toggler.aabtn:hover {
+    background-color: #f7fafc !important;
+  }
+
+  /* CENTER: критически важно — не мешать moremenu */
+  #header .primary-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    min-width: 0;
+    margin: 0 1rem; /* уменьшено с 1.5rem */
+    height: 100%;
+    /* НЕ использовать overflow: hidden, max-width, white-space: nowrap */
+  }
+
+  #header .primary-navigation .nav {
+    display: flex !important;
+    align-items: center;
+    gap: 1.2rem;
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none;
+  }
+
+  #header .primary-navigation .nav-link {
+    color: #2d3748 !important;
+    font-weight: 500 !important;
+    font-size: 0.95rem !important;
+    padding: 0.4rem 0.6rem !important;
+    border-radius: 16px !important;
+    transition: background-color 0.2s;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    white-space: nowrap; /* чтобы текст не переносился */
+  }
+
+  /* RIGHT */
+  #header #usernavigation {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    gap: 1rem !important;
+    margin-left: auto !important;
+  }
+
+  #header #usernavigation > * {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+  }
+
+  .search-box-wrapper,
+  .navbar-plugin-output,
+  .edit-switch-wrapper,
+  .usermenu-container {
+    margin: 0 !important;
+    padding: 0 0.2rem !important;
+  }
+
+  .dropdownmoremenu .nav-link {
+    border: 1px solid #e2e8f0 !important;
+    border-radius: 6px !important;
+    padding: 0.35rem 0.7rem !important;
+    font-size: 0.9rem !important;
+    font-weight: 500 !important;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    #header #usernavigation {
+      gap: 0.6rem !important;
+    }
+    #header #usernavigation > :not(:first-child):not(:last-child) {
+      display: none !important;
+    }
+    /* НЕ скрывать .navbar-brand! */
+  }
+
+  @media (max-width: 480px) {
+    #header #usernavigation > :last-child {
+      display: none !important;
+    }
+  }
+</style>

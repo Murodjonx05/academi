@@ -101,6 +101,7 @@ $transition-slow: 0.3s ease;
         }
         
         &.active {
+            border:none!important;
             background: rgba(255, 255, 255, 0.2) !important;
         }
     }
@@ -180,7 +181,7 @@ body {
 }
 
 .popover-region-container {
-    border-radius: $radius-md !important;
+    border-radius: 28px 28px 0px 0px !important;
     box-shadow: $shadow-lg !important;
 }
 
@@ -305,8 +306,8 @@ html {
     background-color: var(--academi-nav-bg) !important;
     border-top-left-radius: 99px !important;
     border-top-right-radius: 0px !important;
-    border-bottom-right-radius: 99px !important;
-    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 99px !important;
     padding-left: 5px !important;
     padding-right: 5px !important;
     padding-top: 5px !important;

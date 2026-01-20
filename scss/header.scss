@@ -82,7 +82,6 @@
 
   /* CRITICAL FIX: Ensure all navbar icon containers are properly aligned */
   .navbar-plugin-output,
-  .usermenu-container,
   .edit-switch-wrapper,
   .search-box-wrapper {
     height: 44px !important;
@@ -91,10 +90,95 @@
     align-self: center !important;
   }
 
-  .popover-region {
+  .usermenu-container {
     height: 44px !important;
     display: flex !important;
     align-items: center !important;
+    align-self: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: fit-content !important;
+  }
+
+  .popover-region {
+    height: 34px !important;
+    display: flex !important;
+    align-items: center !important;
+  }
+
+  .popover-region a i {
+    height: 18px!important;
+    width: 18px!important;
+  }
+
+  /* Notification popover customizations */
+  .popover-region-header-container {
+    height: 49px !important;
+  }
+
+  .popover-region-header-actions {
+    height: 44px !important;
+    display: flex !important;
+    flex-wrap: wrap !important;
+  }
+
+  .popover-region-header-text {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    font-size: 18px !important;
+  }
+
+  .notification-message {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    font-size: 14px !important;
+  }
+
+  .timestamp {
+    display: flex !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .view-more {
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .content-item-container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+  }
+
+  .popover-region-content {
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+
+  .see-all-link {
+    height: 40px !important;
+    border-radius: 0px !important;
+  }
+
+  /* Additional notification popover customizations */
+  .popover-region-container {
+    border-radius: 28px 28px 0px 0px !important;
+    border-bottom-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+  }
+
+  .popover-region-seeall-text {
+    border-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+
+  .popover-region-content-container {
+    border-radius: 0px !important;
   }
 
   /* Полный оригинальный блок стилей */
@@ -129,6 +213,11 @@
   }
 
   .usermenu {
+    width: 60px !important;  // Set specific width for usermenu
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+
     .login {
       color: $nav_text;
 
@@ -141,8 +230,15 @@
       color: $nav_text;
       border: 0;
       border-radius: $radius-sm;
-      padding: 0;
+      padding: 0 !important;  // Override any default padding
       box-shadow: none;
+
+      // Specific fix for user-menu-toggle padding
+      &#user-menu-toggle {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        width: 100%;
+      }
     }
 
     .moodle-actionmenu {
@@ -219,6 +315,12 @@
       }
     }
 
+    // Specific styles for dropdown elements
+    .dropdown.show {
+      justify-content: center !important;
+      width: 58px !important;  // Set specific width for dropdown
+    }
+
     .dropdown-menu {
       border-radius: $radius-sm;
 
@@ -261,7 +363,7 @@
       background: $white !important;
       color: $dark !important;
       border: 1px solid rgb(15, 23, 42, 0.08) !important;
-      border-radius: $radius-lg !important;
+      border-radius: 28px 28px 0px 0px !important;
       box-shadow: $shadow-hover !important;
       padding: 0 !important; /* Убираем лишние отступы */
 

@@ -34,7 +34,7 @@
     background: rgba($nav_bg, 0.9) !important;
     backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02) !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15) !important;
     
     .nav-link {
         font-weight: 600 !important;
@@ -44,13 +44,13 @@
         
         &:hover {
             background: rgba(255, 255, 255, 0.15) !important;
-            color: #fff !important;
+            // color: #fff !important;
         }
         
         &.active {
-            background: rgba(255, 255, 255, 0.25) !important;
-            color: #fff !important;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+            background: rgba(255, 255, 255, 0.35) !important;
+            // color: #fff !important;
+            // box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
         }
     }
 }
@@ -64,7 +64,7 @@
     min-height: 45px;
     line-height: 1 !important;
     border-radius: $radius-md !important; // FRIENDLY RADIUS
-    padding: 0.75rem 1.5rem !important;
+    // padding: 0.75rem 1.5rem !important;
     font-weight: 700 !important;
     letter-spacing: -0.01em;
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
@@ -116,12 +116,6 @@
     border-radius: 0 !important; // Keep drawers flush to edge but can round inside components
 }
 
-/* 6. Typography Overhaul */
-h1, h2, h3, h4, h5, h6 {
-    color: #0f172a !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.025em !important;
-}
 
 /* 7. Pagination Modernization */
 .pagination {
@@ -144,4 +138,29 @@ h1, h2, h3, h4, h5, h6 {
             color: #fff !important;
         }
     }
+}
+
+/* Custom overrides for user menu and navigation */
+#user-menu-toggle {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: 100% !important;
+}
+
+.d-flex.align-items-stretch.usermenu-container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  width: fit-content !important;
+}
+
+.usermenu {
+  width: 60px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+.dropdown.show {
+  justify-content: center !important;
+  width: 58px !important;
 }

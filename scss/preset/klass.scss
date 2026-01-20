@@ -38,7 +38,6 @@ body {
     font-weight: normal;
 }
 .moremenu .nav.nav-tabs .nav-item .nav-link {
-    border-bottom: 3px solid transparent;
     border-radius: 0;
     background: none;
     &:hover,
@@ -53,7 +52,6 @@ body {
     &.active:active {
         color: $secondary;
         background: none;
-        // border-bottom-color: $primary;
     }
 }
 .main-inner .drawer-toggles .drawer-toggler {
